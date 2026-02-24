@@ -1,0 +1,2455 @@
+================================================================================
+DASH-IF TEST VECTOR MPD DOWNLOAD - SUCCESS REPORT
+Generated: 2026-02-10 09:13:45
+================================================================================
+
+Total successful downloads: 306
+
+[1] 10-bit UHD SDR Live profile
+    Identifier: Test Vector 2
+    Feature: UHD SDR
+    Testcase: 10-bit UHD SDR Live profile
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2b/11/MultiRate.mpd
+    Saved as: Test_Vector_2__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[2] 10-bit UHD SDR On-demand
+    Identifier: Test Vector 1
+    Feature: UHD SDR
+    Testcase: 10-bit UHD SDR On-demand
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2a/11/MultiRate.mpd
+    Saved as: Test_Vector_1__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[3] Adaptation set switching set - switching element present
+    Identifier: Test Vector 5
+    Feature: Adaptation set switching
+    Testcase: Switching across adaptation set - With switching element
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/5/manifest.mpd
+    Saved as: Test_Vector_5__manifest.mpd
+    Original name: manifest.mpd
+
+[4] Add/Remove adaptation set, Multi-Period
+    Identifier: Test Vector 2
+    Feature: User cases for multiple periods
+    Testcase: Add/Remove an adaptation set
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/2/manifest_multiple_Periods_Add_Remove_AdaptationSet.mpd
+    Saved as: Test_Vector_2__manifest_multiple_Periods_Add_Remove_AdaptationSet.mpd
+    Original name: manifest_multiple_Periods_Add_Remove_AdaptationSet.mpd
+
+[5] Add/Remove representation, Multi-Period
+    Identifier: Test Vector 1
+    Feature: User cases for multiple periods
+    Testcase: Add/Remove representation
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/1/manifest_multiple_Periods_Add_Remove_Representation.mpd
+    Saved as: Test_Vector_1__manifest_multiple_Periods_Add_Remove_Representation.mpd
+    Original name: manifest_multiple_Periods_Add_Remove_Representation.mpd
+
+[6] Alternate audio language with label
+    Identifier: 
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/6/manifest_alternative_lang.mpd
+    Saved as: row_6__manifest_alternative_lang.mpd
+    Original name: manifest_alternative_lang.mpd
+
+[7] Alternate content EssentialProperty
+    Identifier: 
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/4/manifest_alternative_Essentialproperty_live.mpd
+    Saved as: row_7__manifest_alternative_Essentialproperty_live.mpd
+    Original name: manifest_alternative_Essentialproperty_live.mpd
+
+[8] Alternate content live profile
+    Identifier: Test Vector 1
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/1/manifest_alternative_content_live.mpd
+    Saved as: Test_Vector_1__manifest_alternative_content_live.mpd
+    Original name: manifest_alternative_content_live.mpd
+
+[9] Alternate content MaxWidth live
+    Identifier: 
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/3/manifest_alternative_maxWidth_live.mpd
+    Saved as: row_9__manifest_alternative_maxWidth_live.mpd
+    Original name: manifest_alternative_maxWidth_live.mpd
+
+[10] Alternate content OnDemand profile
+    Identifier: Test Vector 2
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/2/manifest_alternative_content_ondemand.mpd
+    Saved as: Test_Vector_2__manifest_alternative_content_ondemand.mpd
+    Original name: manifest_alternative_content_ondemand.mpd
+
+[11] Alternate video signalling with Viewpoint, 360 VR alternate, 1080p main
+    Identifier: Test Vector 7
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/7/360_VR_BavarianAlpsWimbachklamm-AlternativeContent-with-ViewPoint.mpd
+    Saved as: Test_Vector_7__360_VR_BavarianAlpsWimbachklamm-AlternativeContent-with-ViewPoint.mpd
+    Original name: 360_VR_BavarianAlpsWimbachklamm-AlternativeContent-with-ViewPoint.mpd
+
+[12] Associate contents live profile, alternate video with alternate audio
+    Identifier: Test Vector 3
+    Feature: MultiTrack Content Offering
+    Testcase: Associate Content Offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/associative_content/1/manifest_associated_content_live.mpd
+    Saved as: Test_Vector_3__manifest_associated_content_live.mpd
+    Original name: manifest_associated_content_live.mpd
+
+[13] Audio Video with bitrate adaptation, xHE-AAC
+    Identifier: Test Vector 1
+    Feature: xHE-AAC Stereo Audio
+    Testcase: Audio Video, xHE-AAC with bitrate adaptation
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/xHE-AAC_Stereo/2/Sintel/sintel_audio_video_brs.mpd
+    Saved as: Test_Vector_1__sintel_audio_video_brs.mpd
+    Original name: sintel_audio_video_brs.mpd
+
+[14] Audio with bitrate adaptation, xHE-AAC
+    Identifier: Test Vector 1
+    Feature: xHE-AAC Stereo Audio
+    Testcase: Audio, xHE-AAC with bitrate adaptation
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/xHE-AAC_Stereo/1/Sintel/sintel_audio_only_brs.mpd
+    Saved as: Test_Vector_1__sintel_audio_only_brs.mpd
+    Original name: sintel_audio_only_brs.mpd
+
+[15] Audio with single bitrate, xHE-AAC
+    Identifier: Test Vector 1
+    Feature: xHE-AAC Stereo Audio
+    Testcase: Audio, xHE-AAC
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/xHE-AAC_Stereo/3/Sintel/sintel_audio_only_64kbps.mpd
+    Saved as: Test_Vector_1__sintel_audio_only_64kbps.mpd
+    Original name: sintel_audio_only_64kbps.mpd
+
+[16] AVC Multi-Rate Multi-Resolution, AAC Multi-Rate, WebVTT Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, On-demand profile
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/CMAF/UnifiedStreaming/ToS_AVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+    Saved as: Test_Vector_1__ToS_AVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+    Original name: ToS_AVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+
+[17] AVC, Multi-Resolution Multi-Rate, Live profile,  SegmentTimeline, 1
+    Identifier: Test Vector 10
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2c/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_10__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[18] AVC, Multi-Resolution Multi-Rate, Live profile,  SegmentTimeline, 2
+    Identifier: Test Vector 12
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2c/qualcomm/2/MultiRes.mpd
+    Saved as: Test_Vector_12__MultiRes.mpd
+    Original name: MultiRes.mpd
+
+[19] AVC, Multi-Resolution Multi-Rate, Live profile,  upto 1080p, 1
+    Identifier: Test Vector 7
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2b/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_7__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[20] AVC, Multi-Resolution Multi-Rate, Live profile,  upto 1080p, 2
+    Identifier: Test Vector 9
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2b/qualcomm/2/MultiRes.mpd
+    Saved as: Test_Vector_9__MultiRes.mpd
+    Original name: MultiRes.mpd
+
+[21] AVC, Multi-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 5
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2b/DTV/1/live.mpd
+    Saved as: Test_Vector_5__live.mpd
+    Original name: live.mpd
+
+[22] AVC, Multi-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 6
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2b/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_6__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[23] AVC, Multi-Resolution Multi-Rate, Live profile, 3
+    Identifier: Test Vector 8
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2b/qualcomm/2/MultiRes.mpd
+    Saved as: Test_Vector_8__MultiRes.mpd
+    Original name: MultiRes.mpd
+
+[24] AVC, Multi-Resolution Multi-Rate, Live profile, upto 1080p,  SegmentTimeline, 1
+    Identifier: Test Vector 11
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2c/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_11__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[25] AVC, Multi-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2a/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_1__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[26] AVC, Multi-Resolution Multi-Rate, On Demand profile, 2
+    Identifier: Test Vector 2
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/2a/qualcomm/2/MultiRes.mpd
+    Saved as: Test_Vector_2__MultiRes.mpd
+    Original name: MultiRes.mpd
+
+[27] AVC, Multi-Resolution Multi-Rate, On Demand profile, upto 1080p, 1
+    Identifier: Test Vector 3
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2a/qualcomm/1/MultiResMPEG2.mpd
+    Saved as: Test_Vector_3__MultiResMPEG2.mpd
+    Original name: MultiResMPEG2.mpd
+
+[28] AVC, Multi-Resolution Multi-Rate, On Demand profile, upto 1080p, 2
+    Identifier: Test Vector 4
+    Feature: Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different profiles, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/2a/qualcomm/2/MultiRes.mpd
+    Saved as: Test_Vector_4__MultiRes.mpd
+    Original name: MultiRes.mpd
+
+[29] AVC, Single-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 5
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1b/qualcomm/1/MultiRatePatched.mpd
+    Saved as: Test_Vector_5__MultiRatePatched.mpd
+    Original name: MultiRatePatched.mpd
+
+[30] AVC, Single-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 6
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1b/qualcomm/2/MultiRate.mpd
+    Saved as: Test_Vector_6__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[31] AVC, Single-Resolution Multi-Rate, Live profile, SegmentTimeline, 1
+    Identifier: Test Vector 7
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1c/qualcomm/1/MultiRate.mpd
+    Saved as: Test_Vector_7__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[32] AVC, Single-Resolution Multi-Rate, Live profile, SegmentTimeline, 2
+    Identifier: Test Vector 8
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1c/qualcomm/2/MultiRate.mpd
+    Saved as: Test_Vector_8__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[33] AVC, Single-Resolution Multi-Rate, Live profile, Video-Only
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1b/qualcomm/1_1/MultiRatePatched.mpd
+    Saved as: row_33__MultiRatePatched.mpd
+    Original name: MultiRatePatched.mpd
+
+[34] AVC, Single-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1a/netflix/exMPD_BIP_TC1.mpd
+    Saved as: Test_Vector_1__exMPD_BIP_TC1.mpd
+    Original name: exMPD_BIP_TC1.mpd
+
+[35] AVC, Single-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/1a/netflix/exMPD_BIP_TC1.mpd
+    Saved as: Test_Vector_1__exMPD_BIP_TC1.mpd
+    Original name: exMPD_BIP_TC1.mpd
+
+[36] AVC, Single-Resolution Multi-Rate, On Demand profile, 2
+    Identifier: Test Vector 2
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1a/sony/SNE_DASH_SD_CASE1A_REVISED.mpd
+    Saved as: Test_Vector_2__SNE_DASH_SD_CASE1A_REVISED.mpd
+    Original name: SNE_DASH_SD_CASE1A_REVISED.mpd
+
+[37] AVC, Single-Resolution Multi-Rate, On Demand profile, 3
+    Identifier: Test Vector 3
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1a/qualcomm/1/MultiRate.mpd
+    Saved as: Test_Vector_3__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[38] AVC, Single-Resolution Multi-Rate, On Demand profile, 4
+    Identifier: Test Vector 4
+    Feature: Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/1a/qualcomm/2/MultiRate.mpd
+    Saved as: Test_Vector_4__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[41] Clear Live Stream, AVC, AAC-LC, WebVTT
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD Live Stream
+    URL: https://akamai-axtest.akamaized.net/routes/lapd-v1-acceptance/www_c4/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[42] Clear MultiContent
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, Live profile, MultiPeriod, MultiContent
+    URL: https://media.axprod.net/TestVectors/v8-MultiContent/Clear/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[43] ClearKey 4K MultiDRM SingleKey AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 4
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_4__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[44] ClearKey MultiDRM MultiKey 1080p Audio-only, HE-AACv2
+    Identifier: Test Vector 6
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_6__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[45] ClearKey MultiDRM MultiKey 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 5
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_5__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[46] ClearKey MultiDRM MultiKey 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 4
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_4__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[47] ClearKey MultiDRM MultiKey MultiPeriod 1080p Audio-only, HE-AACv2
+    Identifier: Test Vector 6
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_6__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[48] ClearKey MultiDRM MultiKey MultiPeriod 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 5
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_5__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[49] ClearKey MultiDRM MultiKey MultiPeriod 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 4
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_4__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[50] ClearKey MultiDRM SingleKey 1080p Audio-only, HE-AACv2
+    Identifier: Test Vector 6
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_6__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[51] ClearKey MultiDRM SingleKey 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 5
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_5__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[52] Conformance test of metrics reporting
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: WebSocket SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/WSSReporting-OK-MultiRes.mpd
+    Saved as: row_52__WSSReporting-OK-MultiRes.mpd
+    Original name: WSSReporting-OK-MultiRes.mpd
+
+[53] Conformance test of metrics reporting
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTPSReporting-Conf-OK-MultiRes.mpd
+    Saved as: row_53__HTTPSReporting-Conf-OK-MultiRes.mpd
+    Original name: HTTPSReporting-Conf-OK-MultiRes.mpd
+
+[54] Content Protection for Audio
+    Identifier: Test Vector 1
+    Feature: Content Protection
+    Testcase: Content Protection
+    URL: https://dash.akamaized.net/dash264/TestCasesNegative/2/1.mpd
+    Saved as: Test_Vector_1__1.mpd
+    Original name: 1.mpd
+
+[55] Content Protection for Video
+    Identifier: Test Vector 2
+    Feature: Content Protection
+    Testcase: Content Protection
+    URL: https://dash.akamaized.net/dash264/TestCasesNegative/2/2.mpd
+    Saved as: Test_Vector_2__2.mpd
+    Original name: 2.mpd
+
+[56] counter/a
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Ad Insertion content - Aligned content and period boundaries
+    URL: https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/counter/a/ad-insertion-testcase1.mpd
+    Saved as: row_56__ad-insertion-testcase1.mpd
+    Original name: ad-insertion-testcase1.mpd
+
+[57] counter/b
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Ad Insertion content - Aligned content and period boundaries
+    URL: https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/counter/b/ad-insertion-testcase1.mpd
+    Saved as: row_57__ad-insertion-testcase1.mpd
+    Original name: ad-insertion-testcase1.mpd
+
+[58] counter/c
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Ad Insertion content - Aligned content and period boundaries
+    URL: https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/counter/c/ad-insertion-testcase1.mpd
+    Saved as: row_58__ad-insertion-testcase1.mpd
+    Original name: ad-insertion-testcase1.mpd
+
+[59] DASH Clear 1080p, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 6
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Clear/Manifest_1080p.mpd
+    Saved as: Test_Vector_6__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[60] DASH Clear 4K, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Clear/Manifest.mpd
+    Saved as: Test_Vector_3__Manifest.mpd
+    Original name: Manifest.mpd
+
+[61] DASH PlayReady and Widewine MultiDRM CBCS 4K, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cbcs/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[62] DASH PlayReady and Widewine MultiDRM CENC 1080p, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 4
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cenc/Manifest_1080p.mpd
+    Saved as: Test_Vector_4__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[63] DASH PlayReady and Widewine MultiDRM CENC 4K, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cenc/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[64] DASHPlayReady and Widewine MultiDRM CBCS 1080p, AVC Multi-Rate Multi-Resolution, AAC
+    Identifier: Test Vector 5
+    Feature: CMAF
+    Testcase: DASH MultiDRM MultiMode
+    URL: https://media.axprod.net/TestVectors/v9-MultiFormat/Encrypted_Cbcs/Manifest_1080p.mpd
+    Saved as: Test_Vector_5__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[65] Different segment durations, Mutli-Period
+    Identifier: Test Vector 4
+    Feature: User cases for multiple periods
+    Testcase: Different segment duration
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/4/manifest_multiple_Periods_Different_SegmentDuration.mpd
+    Saved as: Test_Vector_4__manifest_multiple_Periods_Different_SegmentDuration.mpd
+    Original name: manifest_multiple_Periods_Different_SegmentDuration.mpd
+
+[66] Dolby Vision Dual-layer Test
+    Identifier: Test Vector 1
+    Feature: UHD HDR
+    Testcase: Dolby Vision Dual-layer Test
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/6/DashIf-HDR10_UHD.mpd
+    Saved as: Test_Vector_1__DashIf-HDR10_UHD.mpd
+    Original name: DashIf-HDR10_UHD.mpd
+
+[67] Dolby Vision Dual-layer Test (SDR)
+    Identifier: Test Vector 2
+    Feature: UHD HDR
+    Testcase: Dolby Vision Dual-layer Test
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/6/DashIf-SDR_UHD.mpd
+    Saved as: Test_Vector_2__DashIf-SDR_UHD.mpd
+    Original name: DashIf-SDR_UHD.mpd
+
+[71] Essential Property for Audio
+    Identifier: Test Vector 1
+    Feature: Essential Property
+    Testcase: Essential Property
+    URL: https://dash.akamaized.net/dash264/TestCasesNegative/1/1.mpd
+    Saved as: Test_Vector_1__1.mpd
+    Original name: 1.mpd
+
+[72] Essential Property for Video
+    Identifier: Test Vector 2
+    Feature: Essential Property
+    Testcase: Essential Property
+    URL: https://dash.akamaized.net/dash264/TestCasesNegative/1/2.mpd
+    Saved as: Test_Vector_2__2.mpd
+    Original name: 2.mpd
+
+[73] Fallback chaining, Broken URL
+    Identifier: Test Vector 1
+    Feature: MPD Chaining
+    Testcase: Fallback MPD Chaining
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/MPDChaining/fallback_chain/1/manifest_fallback_MPDChaining.mpd
+    Saved as: Test_Vector_1__manifest_fallback_MPDChaining.mpd
+    Original name: manifest_fallback_MPDChaining.mpd
+
+[74] Fallback on termination event
+    Identifier: Test Vector 2
+    Feature: MPD Chaining
+    Testcase: Fallback MPD Chaining
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/MPDChaining/fallback_chain/2/manifest_terminationEvent_fallback_MPDChaining.mpd
+    Saved as: Test_Vector_2__manifest_terminationEvent_fallback_MPDChaining.mpd
+    Original name: manifest_terminationEvent_fallback_MPDChaining.mpd
+
+[75] HEVC 10 bit Multi-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 9
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/15/tos_live_multires_10bit_hev.mpd
+    Saved as: Test_Vector_9__tos_live_multires_10bit_hev.mpd
+    Original name: tos_live_multires_10bit_hev.mpd
+
+[76] HEVC 10 bit Multi-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 11
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/17/bbb_live_multires_10bit_hev.mpd
+    Saved as: Test_Vector_11__bbb_live_multires_10bit_hev.mpd
+    Original name: bbb_live_multires_10bit_hev.mpd
+
+[77] HEVC 10 bit Multi-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 4
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2a/12/tos_ondemand_multires_10bit_hev.mpd
+    Saved as: Test_Vector_4__tos_ondemand_multires_10bit_hev.mpd
+    Original name: tos_ondemand_multires_10bit_hev.mpd
+
+[78] HEVC 4K HDR Single video
+    Identifier: Test Vector 1
+    Feature: HEVC HDR
+    Testcase: HEVC HDR On Demand
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1a/5/MultiRate.mpd
+    Saved as: Test_Vector_1__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[79] HEVC HDR 4k Live Profile
+    Identifier: Test Vector 2
+    Feature: HEVC HDR
+    Testcase: HEVC HDR Live
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1b/5/MultiRate.mpd
+    Saved as: Test_Vector_2__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[80] HEVC HDR vector, live profile
+    Identifier: Test Vector 3
+    Feature: HEVC HDR
+    Testcase: HEVC HDR Live
+    URL: https://dash.akamaized.net/dash264/TestCasesHDR/3b/3/MultiRate.mpd
+    Saved as: Test_Vector_3__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[81] HEVC HDR vector, on-demand profile
+    Identifier: Test Vector 4
+    Feature: HEVC HDR
+    Testcase: HEVC HDR On Demand
+    URL: https://dash.akamaized.net/dash264/TestCasesHDR/3a/3/MultiRate.mpd
+    Saved as: Test_Vector_4__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[82] HEVC HVC 10 bit Multi-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 10
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/16/tos_live_multires_10bit_hvc.mpd
+    Saved as: Test_Vector_10__tos_live_multires_10bit_hvc.mpd
+    Original name: tos_live_multires_10bit_hvc.mpd
+
+[83] HEVC HVC 10 bit Multi-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 12
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/18/bbb_live_multires_10bit_hvc.mpd
+    Saved as: Test_Vector_12__bbb_live_multires_10bit_hvc.mpd
+    Original name: bbb_live_multires_10bit_hvc.mpd
+
+[84] HEVC HVC 10 bit Multi-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 5
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2a/13/tos_ondemand_multires_10bit_hvc.mpd
+    Saved as: Test_Vector_5__tos_ondemand_multires_10bit_hvc.mpd
+    Original name: tos_ondemand_multires_10bit_hvc.mpd
+
+[85] HEVC HVC Multi-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 8
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/14/tos_live_multires_hvc.mpd
+    Saved as: Test_Vector_8__tos_live_multires_hvc.mpd
+    Original name: tos_live_multires_hvc.mpd
+
+[86] HEVC HVC Multi-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 3
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2a/11/tos_ondemand_multires_hvc.mpd
+    Saved as: Test_Vector_3__tos_ondemand_multires_hvc.mpd
+    Original name: tos_ondemand_multires_hvc.mpd
+
+[87] HEVC HVC Single-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 6
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1b/10/tos_live_multirate_hvc.mpd
+    Saved as: Test_Vector_6__tos_live_multirate_hvc.mpd
+    Original name: tos_live_multirate_hvc.mpd
+
+[88] HEVC HVC Single-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 3
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1a/9/tos_ondemand_multirate_hvc.mpd
+    Saved as: Test_Vector_3__tos_ondemand_multirate_hvc.mpd
+    Original name: tos_ondemand_multirate_hvc.mpd
+
+[90] HEVC Multi-Rate Multi-Resolution, AAC Multi-Rate, TTML Multi-Language
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD, On-demand profile
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/CMAF/UnifiedStreaming/ToS_HEVC_MultiRate_MultiRes_AAC_Eng_TTML.mpd
+    Saved as: Test_Vector_3__ToS_HEVC_MultiRate_MultiRes_AAC_Eng_TTML.mpd
+    Original name: ToS_HEVC_MultiRate_MultiRes_AAC_Eng_TTML.mpd
+
+[91] HEVC Multi-Rate Multi-Resolution, AAC Multi-Rate, WebVTT Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, On-demand profile
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/CMAF/UnifiedStreaming/ToS_HEVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+    Saved as: Test_Vector_2__ToS_HEVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+    Original name: ToS_HEVC_MultiRate_MultiRes_AAC_Eng_WebVTT.mpd
+
+[92] HEVC Multi-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 6
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/1/TOS_Live_HEVC_MultiRes.mpd
+    Saved as: Test_Vector_6__TOS_Live_HEVC_MultiRes.mpd
+    Original name: TOS_Live_HEVC_MultiRes.mpd
+
+[93] HEVC Multi-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 7
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2b/2/BBB_Live_HEVC_MultiRes.mpd
+    Saved as: Test_Vector_7__BBB_Live_HEVC_MultiRes.mpd
+    Original name: BBB_Live_HEVC_MultiRes.mpd
+
+[94] HEVC Multi-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2a/1/TOS_OnDemand_HEVC_MultiRes.mpd
+    Saved as: Test_Vector_1__TOS_OnDemand_HEVC_MultiRes.mpd
+    Original name: TOS_OnDemand_HEVC_MultiRes.mpd
+
+[95] HEVC Multi-Resolution Multi-Rate, On Demand profile, 2
+    Identifier: Test Vector 2
+    Feature: HEVC Multi-Resolution Multi-Rate
+    Testcase: Multi-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/2a/2/BBB_OnDemand_HEVC_MultiRes.mpd
+    Saved as: Test_Vector_2__BBB_OnDemand_HEVC_MultiRes.mpd
+    Original name: BBB_OnDemand_HEVC_MultiRes.mpd
+
+[96] HEVC Single-Resolution Multi-Rate, Live profile, 1
+    Identifier: Test Vector 4
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1b/1/TOS_Live_HEVC_MultiRate.mpd
+    Saved as: Test_Vector_4__TOS_Live_HEVC_MultiRate.mpd
+    Original name: TOS_Live_HEVC_MultiRate.mpd
+
+[97] HEVC Single-Resolution Multi-Rate, Live profile, 2
+    Identifier: Test Vector 5
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1b/2/BBB_Live_HEVC_MultiRate.mpd
+    Saved as: Test_Vector_5__BBB_Live_HEVC_MultiRate.mpd
+    Original name: BBB_Live_HEVC_MultiRate.mpd
+
+[98] HEVC Single-Resolution Multi-Rate, On Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1a/1/TOS_OnDemand_HEVC_MultiRate.mpd
+    Saved as: Test_Vector_1__TOS_OnDemand_HEVC_MultiRate.mpd
+    Original name: TOS_OnDemand_HEVC_MultiRate.mpd
+
+[99] HEVC Single-Resolution Multi-Rate, On Demand profile, 2
+    Identifier: Test Vector 2
+    Feature: HEVC Single Resolution Multi-Rate
+    Testcase: Single-Res, Multi-Rate, Different  profiles and codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesHEVC/1a/2/BBB_OnDemand_HEVC_MultiRate.mpd
+    Saved as: Test_Vector_2__BBB_OnDemand_HEVC_MultiRate.mpd
+    Original name: BBB_OnDemand_HEVC_MultiRate.mpd
+
+[106] HTTP Header SAND signalling
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP Header SAND signalling
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTPHeader-OK-MultiRes.mpd
+    Saved as: row_106__HTTPHeader-OK-MultiRes.mpd
+    Original name: HTTPHeader-OK-MultiRes.mpd
+
+[107] HTTP SAND Channel
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTP-OK-MultiRes.mpd
+    Saved as: row_107__HTTP-OK-MultiRes.mpd
+    Original name: HTTP-OK-MultiRes.mpd
+
+[108] HTTP SAND Channel over TLS
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTPS-OK-MultiRes.mpd
+    Saved as: row_108__HTTPS-OK-MultiRes.mpd
+    Original name: HTTPS-OK-MultiRes.mpd
+
+[109] HTTP SAND Channel over TLS with query string
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTPSQuery-OK-MultiRes.mpd
+    Saved as: row_109__HTTPSQuery-OK-MultiRes.mpd
+    Original name: HTTPSQuery-OK-MultiRes.mpd
+
+[110] IMSC1
+    Identifier: Test Vector 1
+    Feature: IMSC1
+    Testcase: IMSC1
+    URL: https://dash.akamaized.net/dash264/CTA/imsc1/IT1-20171027_dash.mpd
+    Saved as: Test_Vector_1__IT1-20171027_dash.mpd
+    Original name: IT1-20171027_dash.mpd
+
+[111] Last video segment removed-live profile
+    Identifier: Test Vector 1
+    Feature: Last-segment signalling
+    Testcase: Last segment number
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/LastSegmentNumber/1/manifest_last_segment_num.mpd
+    Saved as: Test_Vector_1__manifest_last_segment_num.mpd
+    Original name: manifest_last_segment_num.mpd
+
+[112] Live (dynamic) with 2 period remote entity
+    Identifier: Test Vector 1
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_2/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[113] Live (dynamic) with a 404 xlink
+    Identifier: Test Vector 2
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_4/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[114] Live (dynamic) with availability start time
+    Identifier: Test Vector 23
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/start_1800/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_23__Manifest.mpd
+    Original name: Manifest.mpd
+
+[115] Live (dynamic) with default content in xlink period
+    Identifier: Test Vector 3
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_5/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_3__Manifest.mpd
+    Original name: Manifest.mpd
+
+[116] Live (dynamic) with inband dash event
+    Identifier: Test Vector 4
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Inband DASH Event
+    URL: https://livesim.dashif.org/livesim/scte35_2/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_4__Manifest.mpd
+    Original name: Manifest.mpd
+
+[117] Live (dynamic) with minimum update period, time shift buffer depth
+    Identifier: Test Vector 24
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/mup_300/tsbd_500/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_24__Manifest.mpd
+    Original name: Manifest.mpd
+
+[118] Live (dynamic) with multiple BaseURL
+    Identifier: Test Vector 21
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/baseurl_d40_u20/baseurl_u40_d20/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_21__Manifest.mpd
+    Original name: Manifest.mpd
+
+[119] Live (dynamic) with multiple BaseURL, period addition
+    Identifier: Test Vector 5
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Multiple BaseURL
+    URL: https://livesim.dashif.org/livesim/baseurl_u10_d20/baseurl_d10_u20/periods_10/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_5__Manifest.mpd
+    Original name: Manifest.mpd
+
+[120] Live (dynamic) with multiple periods
+    Identifier: Test Vector 6
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Multi-Period
+    URL: https://livesim.dashif.org/livesim/periods_60/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_6__Manifest.mpd
+    Original name: Manifest.mpd
+
+[121] Live (dynamic) with period addition
+    Identifier: Test Vector 26
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/periods_20/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_26__Manifest.mpd
+    Original name: Manifest.mpd
+
+[122] Live (dynamic) with period continuity
+    Identifier: Test Vector 7
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Continuous Multi-Period
+    URL: https://livesim.dashif.org/livesim/periods_60/continuous_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_7__Manifest.mpd
+    Original name: Manifest.mpd
+
+[123] Live (dynamic) with period duration, early termination
+    Identifier: Test Vector 9
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Early Terminated Period
+    URL: https://livesim.dashif.org/livesim/periods_60/etp_30/etpDuration_10/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_9__Manifest.mpd
+    Original name: Manifest.mpd
+
+[124] Live (dynamic) with period duration, early termination default
+    Identifier: Test Vector 8
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Early Terminated Period
+    URL: https://livesim.dashif.org/livesim/periods_60/etp_30/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_8__Manifest.mpd
+    Original name: Manifest.mpd
+
+[126] Live (dynamic) with PTO, period addition
+    Identifier: Test Vector 11
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Presentation Time Offset
+    URL: https://livesim.dashif.org/livesim/periods_2/peroff_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_11__Manifest.mpd
+    Original name: Manifest.mpd
+
+[127] Live (dynamic) with scte35 ad splice
+    Identifier: Test Vector 27
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/scte35_2/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_27__Manifest.mpd
+    Original name: Manifest.mpd
+
+[128] Live (dynamic) with SegmentTemplate ('$Number$')
+    Identifier: Test Vector 13
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Template ($Number$)
+    URL: https://livesim.dashif.org/livesim/periods_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_13__Manifest.mpd
+    Original name: Manifest.mpd
+
+[129] Live (dynamic) with SegmentTemplate ('$Time$')
+    Identifier: Test Vector 14
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Template ($Time$)
+    URL: https://livesim.dashif.org/livesim/segtimeline_1/testpic_6s/Manifest.mpd
+    Saved as: Test_Vector_14__Manifest.mpd
+    Original name: Manifest.mpd
+
+[130] Live (dynamic) with SegmentTemplate (@duration)
+    Identifier: Test Vector 12
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Constant Segment Duration
+    URL: https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_12__Manifest.mpd
+    Original name: Manifest.mpd
+
+[131] Live (dynamic) with SegmentTimeline
+    Identifier: Test Vector 15
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Timeline
+    URL: https://livesim.dashif.org/livesim/segtimeline_1/testpic_6s/Manifest.mpd
+    Saved as: Test_Vector_15__Manifest.mpd
+    Original name: Manifest.mpd
+
+[132] Live (dynamic) with single period
+    Identifier: Test Vector 16
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Single Period 24/7
+    URL: https://livesim.dashif.org/livesim/periods_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_16__Manifest.mpd
+    Original name: Manifest.mpd
+
+[133] Live (dynamic) with time limited sessions
+    Identifier: Test Vector 25
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/modulo_10/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_25__Manifest.mpd
+    Original name: Manifest.mpd
+
+[134] Live (dynamic) with utc timing in manifest
+    Identifier: Test Vector 28
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/utc_direct-head/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_28__Manifest.mpd
+    Original name: Manifest.mpd
+
+[135] Live (dynamic) with UTCTiming (NTP)
+    Identifier: Test Vector 17
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: UTC Timing
+    URL: https://livesim.dashif.org/livesim/periods_60/utc_ntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_17__Manifest.mpd
+    Original name: Manifest.mpd
+
+[136] Live (dynamic) with UTCTiming (SNTP)
+    Identifier: Test Vector 18
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: UTC Timing
+    URL: https://livesim.dashif.org/livesim/periods_60/utc_sntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_18__Manifest.mpd
+    Original name: Manifest.mpd
+
+[137] Live (dynamic), basic
+    Identifier: Test Vector 22
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    URL: https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_22__Manifest.mpd
+    Original name: Manifest.mpd
+
+[138] Live (dynamic), remote entity with xlink
+    Identifier: Test Vector 19
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_3/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_19__Manifest.mpd
+    Original name: Manifest.mpd
+
+[139] Live (static) test vector, same video resolution
+    Identifier: Test Vector 5
+    Feature: UHD SDR
+    Testcase: Live (static) test vector, same video resolution
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2b/2/MultiRate.mpd
+    Saved as: Test_Vector_5__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[140] Live (static) test vector, same video resolution
+    Identifier: Test Vector 4
+    Feature: UHD SDR
+    Testcase: Live (static) test vector, same video resolution
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2b/3/MultiRate.mpd
+    Saved as: Test_Vector_4__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[141] Live (static) test vector, same video resolution
+    Identifier: Test Vector 6
+    Feature: UHD SDR
+    Testcase: Live (static) test vector, same video resolution
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2b/4/MultiRate.mpd
+    Saved as: Test_Vector_6__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[143] Live with xlink period, continuous with asset identifier
+    Identifier: Test Vector 20
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_20__Manifest.mpd
+    Original name: Manifest.mpd
+
+[144] Low Latency Chunked Multi-Bitrate, AVC and AAC
+    Identifier: 
+    Feature: Low Latency Chunked
+    Testcase: Low Latency Chunked Multi-Bitrate
+    URL: https://livesim.dashif.org/livesim/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd
+    Saved as: row_144__Manifest300.mpd
+    Original name: Manifest300.mpd
+
+[145] Low Latency Chunked Single-Bitrate, AVC and AAC
+    Identifier: 
+    Feature: Low Latency Chunked
+    Testcase: Low Latency Chunked Single-Bitrate
+    URL: https://livesim.dashif.org/livesim/chunkdur_1/ato_7/testpic4_8s/Manifest.mpd
+    Saved as: row_145__Manifest.mpd
+    Original name: Manifest.mpd
+
+[146] Metrics reporting via HTTP
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: HTTP SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/HTTPSReporting-OK-MultiRes.mpd
+    Saved as: row_146__HTTPSReporting-OK-MultiRes.mpd
+    Original name: HTTPSReporting-OK-MultiRes.mpd
+
+[147] Metrics reporting via WebSocket
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: WebSocket SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/WSSReporting-OK-MultiRes.mpd
+    Saved as: row_147__WSSReporting-OK-MultiRes.mpd
+    Original name: WSSReporting-OK-MultiRes.mpd
+
+[148] MPD Callback Event, Live dynamic profile
+    Identifier: Test Vector 2
+    Feature: Mpd call back event
+    Testcase: MPD Callback, different profiles
+    URL: https://livesim.dashif.org/livesim/periods_60/mpdcallback_30/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[149] MPD Callback Event, On Demand profile
+    Identifier: Test Vector 1
+    Feature: Mpd call back event
+    Testcase: MPD Callback, different profiles
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEGH_Stereo_lc_mha1/1/Sintel/sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+    Saved as: Test_Vector_1__sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+    Original name: sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+
+[150] Multi Channel Audio, Dolby Audio 6-Channel ID
+    Identifier: Test Vector 1
+    Feature: Dolby Audio 6-Channel ID
+    Testcase: Audio, Dolby Audio 6-Channel ID
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/1/1/ChID_voices_51_256_ddp.mpd
+    Saved as: Test_Vector_1__ChID_voices_51_256_ddp.mpd
+    Original name: ChID_voices_51_256_ddp.mpd
+
+[151] Multi Channel Audio, Dolby Audio AC-4, Live profile, 5.1 channels, 25fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/9/Living_Room_1080p_51_192k_25fps.mpd
+    Saved as: row_151__Living_Room_1080p_51_192k_25fps.mpd
+    Original name: Living_Room_1080p_51_192k_25fps.mpd
+
+[152] Multi Channel Audio, Dolby Audio AC-4, Live profile, 5.1 channels, 25fps, Multiple Audio Representation
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/11/Living_Room_1080p_51_192k_320k_25fps.mpd
+    Saved as: row_152__Living_Room_1080p_51_192k_320k_25fps.mpd
+    Original name: Living_Room_1080p_51_192k_320k_25fps.mpd
+
+[153] Multi Channel Audio, Dolby Audio AC-4, Live profile, 5.1 channels, 29.97fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/10/Living_Room_1080p_51_192k_2997fps.mpd
+    Saved as: row_153__Living_Room_1080p_51_192k_2997fps.mpd
+    Original name: Living_Room_1080p_51_192k_2997fps.mpd
+
+[154] Multi Channel Audio, Dolby Audio AC-4, Live profile, 5.1 channels, 29.97fps, Multiple Audio Representation
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/12/Living_Room_1080p_51_192k_320k_2997fps.mpd
+    Saved as: row_154__Living_Room_1080p_51_192k_320k_2997fps.mpd
+    Original name: Living_Room_1080p_51_192k_320k_2997fps.mpd
+
+[155] Multi Channel Audio, Dolby Audio AC-4, Live profile, Stereo, 25fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/7/Living_Room_1080p_20_96k_25fps.mpd
+    Saved as: row_155__Living_Room_1080p_20_96k_25fps.mpd
+    Original name: Living_Room_1080p_20_96k_25fps.mpd
+
+[156] Multi Channel Audio, Dolby Audio AC-4, Live profile, Stereo, 29.97fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/8/Living_Room_1080p_20_96k_2997fps.mpd
+    Saved as: row_156__Living_Room_1080p_20_96k_2997fps.mpd
+    Original name: Living_Room_1080p_20_96k_2997fps.mpd
+
+[157] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, 5.1 channels, 25fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/3/Living_Room_1080p_51_192k_25fps.mpd
+    Saved as: row_157__Living_Room_1080p_51_192k_25fps.mpd
+    Original name: Living_Room_1080p_51_192k_25fps.mpd
+
+[158] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, 5.1 channels, 25fps, Multiple Audio Representation
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/5/Living_Room_1080p_51_192k_320k_25fps.mpd
+    Saved as: row_158__Living_Room_1080p_51_192k_320k_25fps.mpd
+    Original name: Living_Room_1080p_51_192k_320k_25fps.mpd
+
+[159] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, 5.1 channels, 29.97fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/4/Living_Room_1080p_51_192k_2997fps.mpd
+    Saved as: row_159__Living_Room_1080p_51_192k_2997fps.mpd
+    Original name: Living_Room_1080p_51_192k_2997fps.mpd
+
+[160] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, 5.1 channels, 29.97fps, Multiple Audio Representation
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/6/Living_Room_1080p_51_192k_320k_2997fps.mpd
+    Saved as: row_160__Living_Room_1080p_51_192k_320k_2997fps.mpd
+    Original name: Living_Room_1080p_51_192k_320k_2997fps.mpd
+
+[161] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, Stereo, 25fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/1/Living_Room_1080p_20_96k_25fps.mpd
+    Saved as: row_161__Living_Room_1080p_20_96k_25fps.mpd
+    Original name: Living_Room_1080p_20_96k_25fps.mpd
+
+[162] Multi Channel Audio, Dolby Audio AC-4, On Demand profile, Stereo, 29.97fps
+    Identifier: 
+    Feature: Dolby Audio AC-4
+    Testcase: Audio, Dolby AC-4
+    URL: https://dash.akamaized.net/dash264/TestCasesDolby/2/Living_Room_1080p_20_96k_2997fps.mpd
+    Saved as: row_162__Living_Room_1080p_20_96k_2997fps.mpd
+    Original name: Living_Room_1080p_20_96k_2997fps.mpd
+
+[163] Multi Channel Audio, Dolby Audio EC-3, On Demand profile, Multiple Audio Representations
+    Identifier: Test Vector 2
+    Feature: Dolby Multiple Adaptation Sets
+    Testcase: Audio, Dolby
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/4/1/ChID_voices_71_384_448_768_ddp.mpd
+    Saved as: Test_Vector_2__ChID_voices_71_384_448_768_ddp.mpd
+    Original name: ChID_voices_71_384_448_768_ddp.mpd
+
+[164] Multi Channel Audio, Dolby Audio EC-3, On Demand profile, Single Audio Representation
+    Identifier: Test Vector 1
+    Feature: Dolby Multiple Adaptation Sets
+    Testcase: Audio, Dolby
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/2/1/ChID_voices_71_768_ddp.mpd
+    Saved as: Test_Vector_1__ChID_voices_71_768_ddp.mpd
+    Original name: ChID_voices_71_768_ddp.mpd
+
+[165] Multi Channel Audio, Dolby Audio EC-3, On Demand profile, Single Stereo
+    Identifier: Test Vector 1
+    Feature: Dolby Single Stereo Audio Track
+    Testcase: Audio, Dolby Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dolby/3/1/ChID_voices_20_128_ddp.mpd
+    Saved as: Test_Vector_1__ChID_voices_20_128_ddp.mpd
+    Original name: ChID_voices_20_128_ddp.mpd
+
+[166] Multi Channel Audio, DTS Audio, DTSC
+    Identifier: Test Vector 1
+    Feature: DTS Multiple Adaptation Sets
+    Testcase: Audio, DTS
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/3/Paint_dtsc_testD.mpd
+    Saved as: Test_Vector_1__Paint_dtsc_testD.mpd
+    Original name: Paint_dtsc_testD.mpd
+
+[167] Multi Channel Audio, DTS Audio, DTSC, Single Audio Representation
+    Identifier: Test Vector 1
+    Feature: DTS Single Multi-Channel Audio Track
+    Testcase: Audio, DTS Multi-Channel
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/1/Paint_dtsc_testA.mpd
+    Saved as: Test_Vector_1__Paint_dtsc_testA.mpd
+    Original name: Paint_dtsc_testA.mpd
+
+[168] Multi Channel Audio, DTS Audio, DTSE
+    Identifier: Test Vector 2
+    Feature: DTS Multiple Adaptation Sets
+    Testcase: Audio, DTS
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/3/Paint_dtse_testD.mpd
+    Saved as: Test_Vector_2__Paint_dtse_testD.mpd
+    Original name: Paint_dtse_testD.mpd
+
+[169] Multi Channel Audio, DTS Audio, DTSE, Single Audio Representation
+    Identifier: Test Vector 2
+    Feature: DTS Single Multi-Channel Audio Track
+    Testcase: Audio, DTS Multi-Channel
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/1/Paint_dtse_testA.mpd
+    Saved as: Test_Vector_2__Paint_dtse_testA.mpd
+    Original name: Paint_dtse_testA.mpd
+
+[170] Multi Channel Audio, DTS Audio, DTSH
+    Identifier: Test Vector 3
+    Feature: DTS Multiple Adaptation Sets
+    Testcase: Audio, DTS
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/3/Paint_dtsh_testD.mpd
+    Saved as: Test_Vector_3__Paint_dtsh_testD.mpd
+    Original name: Paint_dtsh_testD.mpd
+
+[171] Multi Channel Audio, DTS Audio, DTSH, Single Audio Representation
+    Identifier: Test Vector 3
+    Feature: DTS Single Multi-Channel Audio Track
+    Testcase: Audio, DTS Multi-Channel
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/1/Paint_dtsh_testA.mpd
+    Saved as: Test_Vector_3__Paint_dtsh_testA.mpd
+    Original name: Paint_dtsh_testA.mpd
+
+[172] Multi Channel Audio, DTS Audio, DTSL
+    Identifier: Test Vector 4
+    Feature: DTS Multiple Adaptation Sets
+    Testcase: Audio, DTS
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/3/Paint_dtsl_testD.mpd
+    Saved as: Test_Vector_4__Paint_dtsl_testD.mpd
+    Original name: Paint_dtsl_testD.mpd
+
+[173] Multi Channel Audio, DTS Audio, DTSL, Single Audio Representation
+    Identifier: Test Vector 4
+    Feature: DTS Single Multi-Channel Audio Track
+    Testcase: Audio, DTS Multi-Channel
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/1/Paint_dtsl_testA.mpd
+    Saved as: Test_Vector_4__Paint_dtsl_testA.mpd
+    Original name: Paint_dtsl_testA.mpd
+
+[174] Multi Channel Audio, DTS Audio, Stereo DTSC, Single Audio Representation
+    Identifier: Test Vector 1
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/2/Paint_dtsc_testB.mpd
+    Saved as: Test_Vector_1__Paint_dtsc_testB.mpd
+    Original name: Paint_dtsc_testB.mpd
+
+[175] Multi Channel Audio, DTS Audio, Stereo DTSE, Single Audio Representation
+    Identifier: Test Vector 2
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/2/Paint_dtse_testB.mpd
+    Saved as: Test_Vector_2__Paint_dtse_testB.mpd
+    Original name: Paint_dtse_testB.mpd
+
+[176] Multi Channel Audio, DTS Audio, Stereo DTSL, Single Audio Representation
+    Identifier: Test Vector 3
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/dts/2/Paint_dtsl_testB.mpd
+    Saved as: Test_Vector_3__Paint_dtsl_testB.mpd
+    Original name: Paint_dtsl_testB.mpd
+
+[177] Multi Channel Audio, HE-AACv2 Multichannel 6-Channel ID
+    Identifier: Test Vector 1
+    Feature: HE-AACv2 Multichannel 6-Channel ID
+    Testcase: Audio, HE-AACv2 Multichannel 6-Channel ID
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/HE-AACv2_Multichannel/1/6chID/6chId_480p_single_adapt_heaac5_1_sidx.mpd
+    Saved as: Test_Vector_1__6chId_480p_single_adapt_heaac5_1_sidx.mpd
+    Original name: 6chId_480p_single_adapt_heaac5_1_sidx.mpd
+
+[178] Multi Channel Audio, HE-AACv2 Multichannel 8-Channel ID
+    Identifier: Test Vector 1
+    Feature: HE-AACv2 Multichannel 8-Channel ID
+    Testcase: Audio, HE-AACv2 Multichannel 8-Channel ID
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/HE-AACv2_Multichannel/2/8chID/8ch_id_480p_single_adapt_heaac7_1_cf12_sidx.mpd
+    Saved as: Test_Vector_1__8ch_id_480p_single_adapt_heaac7_1_cf12_sidx.mpd
+    Original name: 8ch_id_480p_single_adapt_heaac7_1_cf12_sidx.mpd
+
+[179] Multi Channel Audio, HE-AACv2, Multiple Audio Representations, 1
+    Identifier: Test Vector 1
+    Feature: HE-AACv2 Multiple Audio Representations
+    Testcase: Audio, HE-AACv2
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/HE-AACv2_Multichannel/3/ElephantsDream_6ch/elephants_dream_480p_heaac5_1_sidx.mpd
+    Saved as: Test_Vector_1__elephants_dream_480p_heaac5_1_sidx.mpd
+    Original name: elephants_dream_480p_heaac5_1_sidx.mpd
+
+[180] Multi Channel Audio, HE-AACv2, Multiple Audio Representations, 2
+    Identifier: Test Vector 2
+    Feature: HE-AACv2 Multiple Audio Representations
+    Testcase: Audio, HE-AACv2
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/HE-AACv2_Multichannel/3/Sintel_6ch/sintel_480p_heaac5_1_sidx.mpd
+    Saved as: Test_Vector_2__sintel_480p_heaac5_1_sidx.mpd
+    Original name: sintel_480p_heaac5_1_sidx.mpd
+
+[181] Multi Channel Audio, HE-AACv2, Multiple Audio Representations, 3
+    Identifier: Test Vector 3
+    Feature: HE-AACv2 Multiple Audio Representations
+    Testcase: Audio, HE-AACv2
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/HE-AACv2_Multichannel/3/Sintel_8ch/sintel_480p_heaac7_1_cf12_sidx.mpd
+    Saved as: Test_Vector_3__sintel_480p_heaac7_1_cf12_sidx.mpd
+    Original name: sintel_480p_heaac7_1_cf12_sidx.mpd
+
+[182] Multi Channel Audio, MPEG Surround 6-Channel ID
+    Identifier: Test Vector 1
+    Feature: MPEG Surround 6-Channel ID
+    Testcase: Audio, MPEG Surround 6-Channel ID
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEG_Surround/1/6chID/6chId_480p_single_adapt_mps5_1_sidx.mpd
+    Saved as: Test_Vector_1__6chId_480p_single_adapt_mps5_1_sidx.mpd
+    Original name: 6chId_480p_single_adapt_mps5_1_sidx.mpd
+
+[183] Multi Channel Audio, MPEG Surround, Multiple Audio Representations, 1
+    Identifier: Test Vector 1
+    Feature: MPEG Surround Multiple Audio Representations
+    Testcase: Audio, MPEG Surround
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEG_Surround/2/ElephantsDream_6ch/elephants_dream_480p_mps5_1_sidx.mpd
+    Saved as: Test_Vector_1__elephants_dream_480p_mps5_1_sidx.mpd
+    Original name: elephants_dream_480p_mps5_1_sidx.mpd
+
+[184] Multi Channel Audio, MPEG Surround, Multiple Audio Representations, 2
+    Identifier: Test Vector 2
+    Feature: MPEG Surround Multiple Audio Representations
+    Testcase: Audio, MPEG Surround
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEG_Surround/2/Sintel_6ch/sintel_480p_mps5_1_sidx.mpd
+    Saved as: Test_Vector_2__sintel_480p_mps5_1_sidx.mpd
+    Original name: sintel_480p_mps5_1_sidx.mpd
+
+[185] Multi Channel Audio, MPEG-H 5.1 Audio
+    Identifier: Test Vector 1
+    Feature: MPEG-H 5.1 Audio
+    Testcase: Audio, MPEG-H 5.1
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEGH_51_lc_mha1/1/Sintel/sintel_audio_video_mpegh_mha1_5_1_brs_sidx.mpd
+    Saved as: Test_Vector_1__sintel_audio_video_mpegh_mha1_5_1_brs_sidx.mpd
+    Original name: sintel_audio_video_mpegh_mha1_5_1_brs_sidx.mpd
+
+[186] Multi Channel Audio, MPEG-H 7.1+4 Audio
+    Identifier: Test Vector 1
+    Feature: MPEG-H 7.1+4 Audio
+    Testcase: Audio, MPEG-H 7.1+4
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEGH_714_lc_mha1/1/Sintel/sintel_audio_video_mpegh_mha1_7_1_4_sidx.mpd
+    Saved as: Test_Vector_1__sintel_audio_video_mpegh_mha1_7_1_4_sidx.mpd
+    Original name: sintel_audio_video_mpegh_mha1_7_1_4_sidx.mpd
+
+[187] Multi Channel Audio, MPEG-H Stereo Audio
+    Identifier: Test Vector 1
+    Feature: MPEG-H Stereo Audio
+    Testcase: Audio, MPEG-H Stereo, 2
+    URL: https://dash.akamaized.net/dash264/TestCasesMCA/fraunhofer/MPEGH_Stereo_lc_mha1/1/Sintel/sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+    Saved as: Test_Vector_1__sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+    Original name: sintel_audio_video_mpegh_mha1_stereo_sidx.mpd
+
+[188] Multi period with 2 period remote entity (onRequest)
+    Identifier: Test Vector 1
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1b.mpd
+    Saved as: Test_Vector_1__5_1b.mpd
+    Original name: 5_1b.mpd
+
+[189] Multi period with duration attribute in last period
+    Identifier: Test Vector 2
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1f.mpd
+    Saved as: Test_Vector_2__4_1f.mpd
+    Original name: 4_1f.mpd
+
+[190] Multi period with only duration attribute in last period (onRequest)
+    Identifier: Test Vector 3
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1f.mpd
+    Saved as: Test_Vector_3__5_1f.mpd
+    Original name: 5_1f.mpd
+
+[191] Multi period with xlink returning 404
+    Identifier: Test Vector 4
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1d.mpd
+    Saved as: Test_Vector_4__5_1d.mpd
+    Original name: 5_1d.mpd
+
+[192] Multi period with xlink(onRequest) in a remote entity
+    Identifier: Test Vector 5
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1c.mpd
+    Saved as: Test_Vector_5__5_1c.mpd
+    Original name: 5_1c.mpd
+
+[193] Multi period with xlink, continuous with asset identifier
+    Identifier: Test Vector 6
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1a.mpd
+    Saved as: Test_Vector_6__5_1a.mpd
+    Original name: 5_1a.mpd
+
+[194] Multi period, an xlink returns a 404
+    Identifier: Test Vector 7
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1d.mpd
+    Saved as: Test_Vector_7__4_1d.mpd
+    Original name: 4_1d.mpd
+
+[195] Multi period, xlink period has default content, 1
+    Identifier: Test Vector 8
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1e.mpd
+    Saved as: Test_Vector_8__4_1e.mpd
+    Original name: 4_1e.mpd
+
+[196] Multi period, xlink period has default content, 2
+    Identifier: Test Vector 9
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/5_1e.mpd
+    Saved as: Test_Vector_9__5_1e.mpd
+    Original name: 5_1e.mpd
+
+[197] MultiPeriod 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, Live profile, MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest_MultiPeriod_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_MultiPeriod_1080p.mpd
+    Original name: Manifest_MultiPeriod_1080p.mpd
+
+[198] MultiPeriod 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, Live profile, MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest_MultiPeriod.mpd
+    Saved as: Test_Vector_1__Manifest_MultiPeriod.mpd
+    Original name: Manifest_MultiPeriod.mpd
+
+[199] MultiPeriod Audio-only, HE-AACv2
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD, Live profile, MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest_MultiPeriod_AudioOnly.mpd
+    Saved as: Test_Vector_3__Manifest_MultiPeriod_AudioOnly.mpd
+    Original name: Manifest_MultiPeriod_AudioOnly.mpd
+
+[200] Multiple Audio Adaptation Sets, Multiple Video Representations, On Demand profile, 1
+    Identifier: Test Vector 13
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/sony/SNE_DASH_CASE3B_SD_REVISED.mpd
+    Saved as: Test_Vector_13__SNE_DASH_CASE3B_SD_REVISED.mpd
+    Original name: SNE_DASH_CASE3B_SD_REVISED.mpd
+
+[201] Multiple Audio Representations, On Demand profile, 1
+    Identifier: Test Vector 7
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/aac-lc_stereo_with_video/ElephantsDream/elephants_dream_480p_aaclc_stereo_sidx.mpd
+    Saved as: Test_Vector_7__elephants_dream_480p_aaclc_stereo_sidx.mpd
+    Original name: elephants_dream_480p_aaclc_stereo_sidx.mpd
+
+[202] Multiple Audio Representations, On Demand profile, 2
+    Identifier: Test Vector 8
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/aac-lc_stereo_with_video/Sintel/sintel_480p_aaclc_stereo_sidx.mpd
+    Saved as: Test_Vector_8__sintel_480p_aaclc_stereo_sidx.mpd
+    Original name: sintel_480p_aaclc_stereo_sidx.mpd
+
+[203] Multiple Audio Representations, On Demand profile, Audio-only, 1
+    Identifier: Test Vector 1
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/aac-lc_stereo_without_video/ElephantsDream/elephants_dream_audio_only_aaclc_stereo_sidx.mpd
+    Saved as: Test_Vector_1__elephants_dream_audio_only_aaclc_stereo_sidx.mpd
+    Original name: elephants_dream_audio_only_aaclc_stereo_sidx.mpd
+
+[204] Multiple Audio Representations, On Demand profile, Audio-only, 2
+    Identifier: Test Vector 2
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/aac-lc_stereo_without_video/Sintel/sintel_audio_only_aaclc_stereo_sidx.mpd
+    Saved as: Test_Vector_2__sintel_audio_only_aaclc_stereo_sidx.mpd
+    Original name: sintel_audio_only_aaclc_stereo_sidx.mpd
+
+[205] Multiple Audio Representations, On Demand profile, Audio-only, HEAAC, 1
+    Identifier: Test Vector 3
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/heaac_stereo_without_video/ElephantsDream/elephants_dream_audio_only_heaac_stereo_sidx.mpd
+    Saved as: Test_Vector_3__elephants_dream_audio_only_heaac_stereo_sidx.mpd
+    Original name: elephants_dream_audio_only_heaac_stereo_sidx.mpd
+
+[206] Multiple Audio Representations, On Demand profile, Audio-only, HEAAC, 2
+    Identifier: Test Vector 4
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/heaac_stereo_without_video/Sintel/sintel_audio_only_heaac_stereo_sidx.mpd
+    Saved as: Test_Vector_4__sintel_audio_only_heaac_stereo_sidx.mpd
+    Original name: sintel_audio_only_heaac_stereo_sidx.mpd
+
+[207] Multiple Audio Representations, On Demand profile, Audio-only, HEAACv2, 1
+    Identifier: Test Vector 5
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/heaacv2_stereo_without_video/ElephantsDream/elephants_dream_audio_only_heaacv2_stereo_sidx.mpd
+    Saved as: Test_Vector_5__elephants_dream_audio_only_heaacv2_stereo_sidx.mpd
+    Original name: elephants_dream_audio_only_heaacv2_stereo_sidx.mpd
+
+[208] Multiple Audio Representations, On Demand profile, Audio-only, HEAACv2, 2
+    Identifier: Test Vector 6
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3a/fraunhofer/heaacv2_stereo_without_video/Sintel/sintel_audio_only_heaacv2_stereo_sidx.mpd
+    Saved as: Test_Vector_6__sintel_audio_only_heaacv2_stereo_sidx.mpd
+    Original name: sintel_audio_only_heaacv2_stereo_sidx.mpd
+
+[209] Multiple Audio Representations, On Demand profile, HEAAC, 1
+    Identifier: Test Vector 9
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/heaac_stereo_with_video/ElephantsDream/elephants_dream_480p_heaac_stereo_sidx.mpd
+    Saved as: Test_Vector_9__elephants_dream_480p_heaac_stereo_sidx.mpd
+    Original name: elephants_dream_480p_heaac_stereo_sidx.mpd
+
+[210] Multiple Audio Representations, On Demand profile, HEAAC, 2
+    Identifier: Test Vector 10
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/heaac_stereo_with_video/Sintel/sintel_480p_heaac_stereo_sidx.mpd
+    Saved as: Test_Vector_10__sintel_480p_heaac_stereo_sidx.mpd
+    Original name: sintel_480p_heaac_stereo_sidx.mpd
+
+[211] Multiple Audio Representations, On Demand profile, HEAACv2, 1
+    Identifier: Test Vector 11
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/heaacv2_stereo_with_video/ElephantsDream/elephants_dream_480p_heaacv2_stereo_sidx.mpd
+    Saved as: Test_Vector_11__elephants_dream_480p_heaacv2_stereo_sidx.mpd
+    Original name: elephants_dream_480p_heaacv2_stereo_sidx.mpd
+
+[212] Multiple Audio Representations, On Demand profile, HEAACv2, 2
+    Identifier: Test Vector 12
+    Feature: Multiple Audio Representations
+    Testcase: Audio-only or single video, Different Profiles
+    URL: https://dash.akamaized.net/dash264/TestCases/3b/fraunhofer/heaacv2_stereo_with_video/Sintel/sintel_480p_heaacv2_stereo_sidx.mpd
+    Saved as: Test_Vector_12__sintel_480p_heaacv2_stereo_sidx.mpd
+    Original name: sintel_480p_heaacv2_stereo_sidx.mpd
+
+[213] Multiple CDN offering, Multi-Period
+    Identifier: Test Vector 3
+    Feature: User cases for multiple periods
+    Testcase: Multiple CDN offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/multiplePeriods/3/manifest_multiple_Periods_Content_Offering_CDN.mpd
+    Saved as: Test_Vector_3__manifest_multiple_Periods_Content_Offering_CDN.mpd
+    Original name: manifest_multiple_Periods_Content_Offering_CDN.mpd
+
+[214] Multiple period with 2 period remote entity
+    Identifier: Test Vector 10
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1b.mpd
+    Saved as: Test_Vector_10__4_1b.mpd
+    Original name: 4_1b.mpd
+
+[215] Multiple Period, Multi-Rate Single-Resolution, 1
+    Identifier: Test Vector 13
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5a/nomor/1.mpd
+    Saved as: Test_Vector_13__1.mpd
+    Original name: 1.mpd
+
+[216] Multiple Period, Multi-Rate Single-Resolution, 2
+    Identifier: Test Vector 25
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5a/nomor/3.mpd
+    Saved as: Test_Vector_25__3.mpd
+    Original name: 3.mpd
+
+[217] Multiple Period, Multi-Rate Single-Resolution, 3
+    Identifier: Test Vector 27
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5a/nomor/5.mpd
+    Saved as: Test_Vector_27__5.mpd
+    Original name: 5.mpd
+
+[218] Multiple Period, Multi-Rate Single-Resolution, Different Content with no Audio, 1
+    Identifier: Test Vector 16
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/3.mpd
+    Saved as: Test_Vector_16__3.mpd
+    Original name: 3.mpd
+
+[219] Multiple Period, Multi-Rate Single-Resolution, Different Content, 1
+    Identifier: Test Vector 26
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5a/nomor/4.mpd
+    Saved as: Test_Vector_26__4.mpd
+    Original name: 4.mpd
+
+[220] Multiple Period, Multi-Rate Single-Resolution, Different Content, 1
+    Identifier: Test Vector 14
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/1.mpd
+    Saved as: Test_Vector_14__1.mpd
+    Original name: 1.mpd
+
+[221] Multiple Period, Multi-Rate Single-Resolution, Different Content, 2
+    Identifier: Test Vector 15
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/2.mpd
+    Saved as: Test_Vector_15__2.mpd
+    Original name: 2.mpd
+
+[222] Multiple Period, Multi-Rate Single-Resolution, xlink (onLoad), 1
+    Identifier: Test Vector 19
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/6.mpd
+    Saved as: Test_Vector_19__6.mpd
+    Original name: 6.mpd
+
+[223] Multiple Period, Multi-Rate Single-Resolution, xlink (onLoad), 2
+    Identifier: Test Vector 20
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/7.mpd
+    Saved as: Test_Vector_20__7.mpd
+    Original name: 7.mpd
+
+[224] Multiple Period, Multi-Rate Single-Resolution, xlink (onLoad), 3
+    Identifier: Test Vector 23
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/10.mpd
+    Saved as: Test_Vector_23__10.mpd
+    Original name: 10.mpd
+
+[225] Multiple Period, Multi-Rate Single-Resolution, xlink (onLoad), 4
+    Identifier: Test Vector 24
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/11.mpd
+    Saved as: Test_Vector_24__11.mpd
+    Original name: 11.mpd
+
+[226] Multiple Period, Multi-Rate Single-Resolution, xlink (onRequest), 1
+    Identifier: Test Vector 17
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/4.mpd
+    Saved as: Test_Vector_17__4.mpd
+    Original name: 4.mpd
+
+[227] Multiple Period, Multi-Rate Single-Resolution, xlink (onRequest), 2
+    Identifier: Test Vector 18
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/5.mpd
+    Saved as: Test_Vector_18__5.mpd
+    Original name: 5.mpd
+
+[228] Multiple Period, Multi-Rate Single-Resolution, xlink (onRequest), 3
+    Identifier: Test Vector 21
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/8.mpd
+    Saved as: Test_Vector_21__8.mpd
+    Original name: 8.mpd
+
+[229] Multiple Period, Multi-Rate Single-Resolution, xlink (onRequest), 4
+    Identifier: Test Vector 22
+    Feature: Multiple Periods
+    Testcase: Multi-Period
+    URL: https://dash.akamaized.net/dash264/TestCases/5b/nomor/9.mpd
+    Saved as: Test_Vector_22__9.mpd
+    Original name: 9.mpd
+
+[230] Multiple period, remote entity has xlink
+    Identifier: Test Vector 11
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1c.mpd
+    Saved as: Test_Vector_11__4_1c.mpd
+    Original name: 4_1c.mpd
+
+[231] Multiple period,remote entity with xlink, continuous with asset id
+    Identifier: Test Vector 12
+    Feature: Multiple Periods
+    Testcase: Multi-Period, xlink
+    URL: https://dash.akamaized.net/dash264/TestCases/5c/nomor/4_1a.mpd
+    Saved as: Test_Vector_12__4_1a.mpd
+    Original name: 4_1a.mpd
+
+[232] Multiple Subtitles, TTML
+    Identifier: Test Vector 2
+    Feature: Addition of Subtitles
+    Testcase: Subtitles, XML and TTML
+    URL: https://dash.akamaized.net/dash264/TestCases/4b/qualcomm/2/TearsOfSteel_onDem5secSegSubTitles.mpd
+    Saved as: Test_Vector_2__TearsOfSteel_onDem5secSegSubTitles.mpd
+    Original name: TearsOfSteel_onDem5secSegSubTitles.mpd
+
+[233] Multiple Subtitles, XML
+    Identifier: Test Vector 1
+    Feature: Addition of Subtitles
+    Testcase: Subtitles, XML and TTML
+    URL: https://dash.akamaized.net/dash264/TestCases/4b/qualcomm/1/ED_OnDemand_5SecSeg_Subtitles.mpd
+    Saved as: Test_Vector_1__ED_OnDemand_5SecSeg_Subtitles.mpd
+    Original name: ED_OnDemand_5SecSeg_Subtitles.mpd
+
+[234] Multiple Track Content, Multiple Audio, Single Video, 1
+    Identifier: Test Vector 1
+    Feature: Multiple Track Content
+    Testcase: Multiple Audio Tracks
+    URL: https://dash.akamaized.net/dash264/TestCases/10a/1/iis_forest_short_poem_multi_lang_480p_single_adapt_aaclc_sidx.mpd
+    Saved as: Test_Vector_1__iis_forest_short_poem_multi_lang_480p_single_adapt_aaclc_sidx.mpd
+    Original name: iis_forest_short_poem_multi_lang_480p_single_adapt_aaclc_sidx.mpd
+
+[235] Negative test case, Different audio codecs
+    Identifier: Test Vector 1
+    Feature: Adaptation set switching
+    Testcase: Switching across adaptation sets - Different audio codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/4/manifest.mpd
+    Saved as: Test_Vector_1__manifest.mpd
+    Original name: manifest.mpd
+
+[236] Negative test case, Different video codecs
+    Identifier: Test Vector 3
+    Feature: Adaptation set switching
+    Testcase: Switching across adaptation set - Different video codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/2/manifest.mpd
+    Saved as: Test_Vector_3__manifest.mpd
+    Original name: manifest.mpd
+
+[237] On Demand, Single (UHD) video resolution
+    Identifier: Test Vector 3
+    Feature: UHD SDR
+    Testcase: On Demand, Single video resolution
+    URL: https://dash.akamaized.net/dash264/TestCasesUHD/2a/5/MultiRate.mpd
+    Saved as: Test_Vector_3__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[238] PlayReady and Widevine MultiContent
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, Live profile, MultiPeriod, MultiContent
+    URL: https://media.axprod.net/TestVectors/v8-MultiContent/Encrypted/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[239] PlayReady and Widevine, MultiDRM, MultiKey, 1080p
+    Identifier: Test Vector 1
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_1080p.mpd
+    Saved as: Test_Vector_1__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[240] PlayReady and Widevine, MultiDRM, MultiKey, 4K
+    Identifier: Test Vector 4
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest.mpd
+    Saved as: Test_Vector_4__Manifest.mpd
+    Original name: Manifest.mpd
+
+[241] PlayReady and Widevine, MultiDRM, MultiKey, Audio-only
+    Identifier: Test Vector 8
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_8__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[242] PlayReady and Widevine, MultiDRM, MultiKey, MultiPeriod, 1080p
+    Identifier: Test Vector 3
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_1080p.mpd
+    Saved as: Test_Vector_3__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[243] PlayReady and Widevine, MultiDRM, MultiKey, MultiPeriod, 4K
+    Identifier: Test Vector 6
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest.mpd
+    Saved as: Test_Vector_6__Manifest.mpd
+    Original name: Manifest.mpd
+
+[244] PlayReady and Widevine, MultiDRM, MultiKey, MultiPeriod, Audio-only
+    Identifier: Test Vector 9
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_9__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[245] PlayReady and Widevine, MultiDRM, SingleKey, 1080p
+    Identifier: Test Vector 2
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[246] PlayReady and Widevine, MultiDRM, SingleKey, 4K
+    Identifier: Test Vector 5
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest.mpd
+    Saved as: Test_Vector_5__Manifest.mpd
+    Original name: Manifest.mpd
+
+[247] PlayReady and Widevine, MultiDRM, SingleKey, Audio-only
+    Identifier: Test Vector 7
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_7__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[248] PlayReady and Widewine MultiDRM MultiKey 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[249] PlayReady and Widewine MultiDRM MultiKey 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[250] PlayReady and Widewine MultiDRM MultiKey Audio-only, HE-AACv2
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_3__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[251] PlayReady and Widewine MultiDRM MultiKey MultiPeriod 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[252] PlayReady and Widewine MultiDRM MultiKey MultiPeriod 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[253] PlayReady and Widewine MultiDRM MultiKey MultiPeriod Audio-only, HE-AACv2
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD, Live profile CENC MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_3__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[254] PlayReady and Widewine MultiDRM SingleKey 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[255] PlayReady and Widewine MultiDRM SingleKey 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[256] PlayReady and Widewine MultiDRM SingleKey Audio-only, HE-AACv2
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD Live profile CENC MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_3__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[257] Positive test case, Different audio codecs
+    Identifier: Test Vector 4
+    Feature: Adaptation set switching
+    Testcase: Switching across adaptation sets - Different audio codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/3/manifest.mpd
+    Saved as: Test_Vector_4__manifest.mpd
+    Original name: manifest.mpd
+
+[258] Positive test case, Different video codecs
+    Identifier: Test Vector 2
+    Feature: Adaptation set switching
+    Testcase: Switching across adaptation set - Different video codecs
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/1/manifest.mpd
+    Saved as: Test_Vector_2__manifest.mpd
+    Original name: manifest.mpd
+
+[259] Posix, playout at a specific time
+    Identifier: Test Vector 1
+    Feature: POSIX prefix
+    Testcase: Play from a specified time
+    URL: https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd#t=posix:1465406946
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[260] Posix, playout now
+    Identifier: Test Vector 2
+    Feature: POSIX prefix
+    Testcase: Play from now
+    URL: https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd#t=posix:now
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[261] real/a
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Ad Insertion content - Aligned content and period boundaries
+    URL: https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/real/a/ad-insertion-testcase1.mpd
+    Saved as: row_261__ad-insertion-testcase1.mpd
+    Original name: ad-insertion-testcase1.mpd
+
+[262] real/b
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Ad Insertion content - Aligned content and period boundaries
+    URL: https://dash.akamaized.net/dashif/ad-insertion-testcase1/batch5/real/b/ad-insertion-testcase1.mpd
+    Saved as: row_262__ad-insertion-testcase1.mpd
+    Original name: ad-insertion-testcase1.mpd
+
+[263] Regular chaining, Live
+    Identifier: Test Vector 3
+    Feature: MPD Chaining
+    Testcase: Regular MPD chaining
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/MPDChaining/regular_chain/1/manifest_regular_MPDChaining_live.mpd
+    Saved as: Test_Vector_3__manifest_regular_MPDChaining_live.mpd
+    Original name: manifest_regular_MPDChaining_live.mpd
+
+[264] Regular MPD Chaining, On-Demand
+    Identifier: Test Vector 4
+    Feature: MPD Chaining
+    Testcase: Regular MPD chaining
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/MPDChaining/regular_chain/2/manifest_regular_MPDChaining_OnDemand.mpd
+    Saved as: Test_Vector_4__manifest_regular_MPDChaining_OnDemand.mpd
+    Original name: manifest_regular_MPDChaining_OnDemand.mpd
+
+[265] Resolve to zero, multi-period, live profile
+    Identifier: Test Vector 1
+    Feature: Resolve to zero
+    Testcase: Resolve to zero, multi-period
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP33/resolveToZero/1/manifest.mpd
+    Saved as: Test_Vector_1__manifest.mpd
+    Original name: manifest.mpd
+
+[266] Singe Subtitle, XML
+    Identifier: Test Vector 3
+    Feature: Addition of Subtitles
+    Testcase: Subtitles, XML and TTML
+    URL: https://dash.akamaized.net/dash264/TestCases/4b/qualcomm/3/Solekai.mpd
+    Saved as: Test_Vector_3__Solekai.mpd
+    Original name: Solekai.mpd
+
+[267] SinglePeriod 1080p, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 2
+    Feature: CMAF
+    Testcase: MPD, Live profile, SinglePeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest_1080p.mpd
+    Saved as: Test_Vector_2__Manifest_1080p.mpd
+    Original name: Manifest_1080p.mpd
+
+[268] SinglePeriod 4K, AVC-HEVC Multi-Codec Multi-Rate Multi-Resolution, HE-AACv2, WebVTT-IMSC Multi-Codec Multi-Language
+    Identifier: Test Vector 1
+    Feature: CMAF
+    Testcase: MPD, Live profile, SinglePeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[269] SinglePeriod Audio-only, HE-AACv2
+    Identifier: Test Vector 3
+    Feature: CMAF
+    Testcase: MPD, Live profile, SinglePeriod
+    URL: https://media.axprod.net/TestVectors/v7-Clear/Manifest_AudioOnly.mpd
+    Saved as: Test_Vector_3__Manifest_AudioOnly.mpd
+    Original name: Manifest_AudioOnly.mpd
+
+[270] Test Vector 1
+    Identifier: 
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/1a/qualcomm/1/MultiRate.mpd
+    Saved as: row_270__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[271] Test Vector 2
+    Identifier: 
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/1a/qualcomm/2/MultiRate.mpd
+    Saved as: row_271__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[272] Test Vector 3
+    Identifier: 
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/1b/qualcomm/1/MultiRate.mpd
+    Saved as: row_272__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[273] Test Vector 4
+    Identifier: 
+    Feature: Addition of Subtitles
+    Testcase: Subtitles, XML and TTML
+    URL: https://dash.akamaized.net/dash264/TestCases/4c/1/dash.mpd
+    Saved as: row_273__dash.mpd
+    Original name: dash.mpd
+
+[274] Test Vector 4
+    Identifier: 
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/1b/qualcomm/2/MultiRate.mpd
+    Saved as: row_274__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[275] Test Vector 5
+    Identifier: 
+    Feature: DTS Single Stereo Audio Track
+    Testcase: Audio, DTS Single Stereo
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/1c/qualcomm/1/MultiRate.mpd
+    Saved as: row_275__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[276] Three period OnDemand
+    Identifier: Test Vector 9
+    Feature: Single Resolution Multi-Rate
+    Testcase: Multi Period OnDemand
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/MultiPeriod_OnDemand/ThreePeriods/ThreePeriod_OnDemand2.mpd
+    Saved as: Test_Vector_9__ThreePeriod_OnDemand2.mpd
+    Original name: ThreePeriod_OnDemand2.mpd
+
+[277] Three periods with presentationDuration
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Multi Period OnDemand
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/MultiPeriod_OnDemand/ThreePeriods/ThreePeriod_OnDemand_presentationDur.mpd
+    Saved as: row_277__ThreePeriod_OnDemand_presentationDur.mpd
+    Original name: ThreePeriod_OnDemand_presentationDur.mpd
+
+[278] Three periods with presentationDuration and trimmed audio
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Multi Period OnDemand
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/MultiPeriod_OnDemand/ThreePeriods/ThreePeriod_OnDemand_presentationDur_AudioTrim.mpd
+    Saved as: row_278__ThreePeriod_OnDemand_presentationDur_AudioTrim.mpd
+    Original name: ThreePeriod_OnDemand_presentationDur_AudioTrim.mpd
+
+[279] Timecode Axinom CMS AVC, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 1
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_AVC_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_1__Axinom-CMS_AVC_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-CMS_AVC_MultiRes_MultiRate_25fps.mpd
+
+[280] Timecode Axinom CMS AVC, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 2
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_AVC_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_2__Axinom-CMS_AVC_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-CMS_AVC_MultiRes_MultiRate_2997fps.mpd
+
+[281] Timecode Axinom CMS HEVC, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 3
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_HEVC_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_3__Axinom-CMS_HEVC_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-CMS_HEVC_MultiRes_MultiRate_25fps.mpd
+
+[282] Timecode Axinom CMS HEVC, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 4
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_HEVC_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_4__Axinom-CMS_HEVC_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-CMS_HEVC_MultiRes_MultiRate_2997fps.mpd
+
+[283] Timecode Axinom CMS MultiCodec, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 5
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_MultiCodec_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_5__Axinom-CMS_MultiCodec_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-CMS_MultiCodec_MultiRes_MultiRate_25fps.mpd
+
+[284] Timecode Axinom CMS MultiCodec, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 6
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/CMS/Axinom-CMS_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_6__Axinom-CMS_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-CMS_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+
+[285] Timecode Axinom DRM AVC, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 7
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_7__Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_25fps.mpd
+
+[286] Timecode Axinom DRM AVC, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 8
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_8__Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_AVC_MultiRes_MultiRate_2997fps.mpd
+
+[287] Timecode Axinom DRM HEVC, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 9
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_9__Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_25fps.mpd
+
+[288] Timecode Axinom DRM HEVC, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 10
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_10__Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_2997fps.mpd
+
+[289] Timecode Axinom DRM MultiCodec, MultiRes, MultiRate 25fps
+    Identifier: Test Vector 11
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_25fps.mpd
+    Saved as: Test_Vector_11__Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_25fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_25fps.mpd
+
+[290] Timecode Axinom DRM MultiCodec, MultiRes, MultiRate 29.97fps
+    Identifier: Test Vector 12
+    Feature: User cases for multiple periods
+    Testcase: Timecode overlay
+    URL: https://dash.akamaized.net/dash264/TestAdvertising/DRM/Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+    Saved as: Test_Vector_12__Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+    Original name: Axinom-DRM-in-disconnected-environments_MultiCodec_MultiRes_MultiRate_2997fps.mpd
+
+[291] Trick Mode, Live profile, Segment Template, 1
+    Identifier: Test Vector 3
+    Feature: Addition of Trick Mode
+    Testcase: Trick Mode with frameRate of 1
+    URL: https://dash.akamaized.net/dash264/TestCases/9b/qualcomm/1/MultiRate.mpd
+    Saved as: Test_Vector_3__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[292] Trick Mode, Live profile, Segment Template, 2
+    Identifier: Test Vector 4
+    Feature: Addition of Trick Mode
+    Testcase: Trick Mode with frameRate of 1
+    URL: https://dash.akamaized.net/dash264/TestCases/9b/qualcomm/2/MultiRate.mpd
+    Saved as: Test_Vector_4__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[293] Trick Mode, Live profile, Segment Timeline, 1
+    Identifier: Test Vector 5
+    Feature: Addition of Trick Mode
+    Testcase: Trick Mode with frameRate of 1
+    URL: https://dash.akamaized.net/dash264/TestCases/9c/qualcomm/1/MultiRate.mpd
+    Saved as: Test_Vector_5__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[294] Trick Mode, On-Demand profile, 1
+    Identifier: Test Vector 1
+    Feature: Addition of Trick Mode
+    Testcase: Trick Mode with frameRate of 1
+    URL: https://dash.akamaized.net/dash264/TestCases/9a/qualcomm/1/MultiRate.mpd
+    Saved as: Test_Vector_1__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[295] Trick Mode, On-Demand profile, 2
+    Identifier: Test Vector 2
+    Feature: Addition of Trick Mode
+    Testcase: Trick Mode with frameRate of 1
+    URL: https://dash.akamaized.net/dash264/TestCases/9a/qualcomm/2/MultiRate.mpd
+    Saved as: Test_Vector_2__MultiRate.mpd
+    Original name: MultiRate.mpd
+
+[296] Two period OnDemand
+    Identifier: Test Vector 10
+    Feature: Single Resolution Multi-Rate
+    Testcase: Multi Period OnDemand
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/MultiPeriod_OnDemand/TwoPeriods/TwoPeriod_OnDemand.mpd
+    Saved as: Test_Vector_10__TwoPeriod_OnDemand.mpd
+    Original name: TwoPeriod_OnDemand.mpd
+
+[297] Two periods with presentationDuration
+    Identifier: 
+    Feature: Single Resolution Multi-Rate
+    Testcase: Multi Period OnDemand
+    URL: https://dash.akamaized.net/dash264/TestCasesHD/MultiPeriod_OnDemand/TwoPeriods/TwoPeriod_OnDemand_presentationDur.mpd
+    Saved as: row_297__TwoPeriod_OnDemand_presentationDur.mpd
+    Original name: TwoPeriod_OnDemand_presentationDur.mpd
+
+[298] Two versions of ToS video with Viewpoint descriptor
+    Identifier: 
+    Feature: MultiTrack Content Offering
+    Testcase: Alternate content offering
+    URL: https://dash.akamaized.net/dash264/TestCasesIOP41/MultiTrack/alternative_content/5/manifest_alternative_ToS_Viewpoint.mpd
+    Saved as: row_298__manifest_alternative_ToS_Viewpoint.mpd
+    Original name: manifest_alternative_ToS_Viewpoint.mpd
+
+[299] UTC Timing,	UTC-Direct
+    Identifier: Test Vector 1
+    Feature: UTC Timing
+    Testcase: UTC-Direct
+    URL: https://livesim.dashif.org/livesim/utc_direct/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+    Original name: Manifest.mpd
+
+[300] UTC Timing,	UTC-HTTP-HEAD
+    Identifier: Test Vector 2
+    Feature: UTC Timing
+    Testcase: UTC-HTTP-HEAD
+    URL: https://livesim.dashif.org/livesim/utc_head/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+    Original name: Manifest.mpd
+
+[301] UTC Timing,	UTC-HTTP-NTP
+    Identifier: Test Vector 3
+    Feature: UTC Timing
+    Testcase: UTC-HTTP-NTP
+    URL: https://livesim.dashif.org/livesim/utc_ntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_3__Manifest.mpd
+    Original name: Manifest.mpd
+
+[302] UTC Timing,	UTC-HTTP-SNTP
+    Identifier: Test Vector 4
+    Feature: UTC Timing
+    Testcase: UTC-HTTP-SNTP
+    URL: https://livesim.dashif.org/livesim/utc_sntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_4__Manifest.mpd
+    Original name: Manifest.mpd
+
+[303] VP9 2-stream, single resolution adaptive
+    Identifier: Test Vector 1
+    Feature: VP9 Adaptive
+    Testcase: VP9 Adaptation
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-hd-adaptive/sintel-vp9-hd-adaptive.mpd
+    Saved as: Test_Vector_1__sintel-vp9-hd-adaptive.mpd
+    Original name: sintel-vp9-hd-adaptive.mpd
+
+[304] VP9 HD VOD
+    Identifier: Test Vector 1
+    Feature: VP9 HD
+    Testcase: VP9 HD VOD
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-hd/sintel-vp9-hd.mpd
+    Saved as: Test_Vector_1__sintel-vp9-hd.mpd
+    Original name: sintel-vp9-hd.mpd
+
+[305] VP9 HD-HDR10 VOD
+    Identifier: Test Vector 1
+    Feature: VP9 HD-HDR
+    Testcase: VP9 HD-HDR10 VOD
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-hd-hdr/sintel-vp9-hd-hdr.mpd
+    Saved as: Test_Vector_1__sintel-vp9-hd-hdr.mpd
+    Original name: sintel-vp9-hd-hdr.mpd
+
+[306] VP9 HD-SDR encryption with Common PSSH
+    Identifier: Test Vector 1
+    Feature: VP9 Encryption
+    Testcase: VP9 Encryption
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-hd-encrypted/sintel-vp9-hd-encrypted.mpd
+    Saved as: Test_Vector_1__sintel-vp9-hd-encrypted.mpd
+    Original name: sintel-vp9-hd-encrypted.mpd
+
+[307] VP9 UHD VOD
+    Identifier: Test Vector 1
+    Feature: VP9 UHD
+    Testcase: VP9 UHD VOD
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-uhd/sintel-vp9-uhd.mpd
+    Saved as: Test_Vector_1__sintel-vp9-uhd.mpd
+    Original name: sintel-vp9-uhd.mpd
+
+[308] VP9 UHD-HDR10 VOD
+    Identifier: Test Vector 1
+    Feature: VP9 UHD-HDR
+    Testcase: VP9 UHD-HDR10 VOD
+    URL: https://dash.akamaized.net/dash264/TestCasesVP9/vp9-uhd-hdr/sintel-vp9-uhd-hdr.mpd
+    Saved as: Test_Vector_1__sintel-vp9-uhd-hdr.mpd
+    Original name: sintel-vp9-uhd-hdr.mpd
+
+[309] W3C Clear Key, MultiDRM, MultiKey, 1080p
+    Identifier: Test Vector 10
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_10__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[310] W3C Clear Key, MultiDRM, MultiKey, 4K
+    Identifier: Test Vector 14
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_14__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[311] W3C Clear Key, MultiDRM, MultiKey, Audio-only
+    Identifier: Test Vector 17
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_17__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[312] W3C Clear Key, MultiDRM, MultiKey, MultiPeriod, 1080p
+    Identifier: Test Vector 11
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_11__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[313] W3C Clear Key, MultiDRM, MultiKey, MultiPeriod, 4K
+    Identifier: Test Vector 15
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_15__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[314] W3C Clear Key, MultiDRM, MultiKey, MultiPeriod, Audio-only
+    Identifier: Test Vector 18
+    Feature: DRM protected content.
+    Testcase: MultiDRM-MultiKey-MultiPeriod
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-MultiKey-MultiPeriod/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_18__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[315] W3C Clear Key, MultiDRM, SingleKey, 1080p
+    Identifier: Test Vector 12
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_1080p_ClearKey.mpd
+    Saved as: Test_Vector_12__Manifest_1080p_ClearKey.mpd
+    Original name: Manifest_1080p_ClearKey.mpd
+
+[316] W3C Clear Key, MultiDRM, SingleKey, 4K
+    Identifier: Test Vector 13
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_ClearKey.mpd
+    Saved as: Test_Vector_13__Manifest_ClearKey.mpd
+    Original name: Manifest_ClearKey.mpd
+
+[317] W3C Clear Key, MultiDRM, SingleKey, Audio-only
+    Identifier: Test Vector 16
+    Feature: DRM protected content.
+    Testcase: MultiDRM-SingleKey
+    URL: https://media.axprod.net/TestVectors/v7-MultiDRM-SingleKey/Manifest_AudioOnly_ClearKey.mpd
+    Saved as: Test_Vector_16__Manifest_AudioOnly_ClearKey.mpd
+    Original name: Manifest_AudioOnly_ClearKey.mpd
+
+[318] WebSocket SAND Channel
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: WebSocket SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/WS-OK-MultiRes.mpd
+    Saved as: row_318__WS-OK-MultiRes.mpd
+    Original name: WS-OK-MultiRes.mpd
+
+[319] WebSocket SAND Channel over TLS
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: WebSocket SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/WSS-OK-MultiRes.mpd
+    Saved as: row_319__WSS-OK-MultiRes.mpd
+    Original name: WSS-OK-MultiRes.mpd
+
+[320] WebSocket SAND Channel over TLS with query string
+    Identifier: 
+    Feature: SAND Channel
+    Testcase: WebSocket SAND Channel
+    URL: https://raw.githubusercontent.com/Dash-Industry-Forum/SAND-Test-Vectors/master/mpd/dash-if/WSSQuery-OK-MultiRes.mpd
+    Saved as: row_320__WSSQuery-OK-MultiRes.mpd
+    Original name: WSSQuery-OK-MultiRes.mpd
+

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" minBufferTime="PT1.500S" type="static" mediaPresentationDuration="PT0H12M14.000S" maxSegmentDuration="PT0H0M4.011S" profiles="urn:mpeg:dash:profile:isoff-live:2011,http://dashif.org/guidelines/dash264">
+	<Period duration="PT0H12M14.000S">
+		<!--Axinom Makemedia v4.1.2-004677-9bc38e0 targeting General Purpose Media Format specification v10
+ffmpeg version N-90069-gdd8351b118-sherpya Copyright (c) 2000-2018 the FFmpeg developers
+x265 [info]: HEVC encoder version 2.4+14-bc0e9bd7c08f5ddc
+x264 0.150.2833 df79067
+MP4Box - GPAC version 0.7.2-DEV-rev539-gff59dfa0-master
+MediaInfoLib - v0.7.96
+-->
+		<AdaptationSet segmentAlignment="true" maxWidth="1920" maxHeight="1080" maxFrameRate="24" par="16:9" lang="und" group="1" selectionPriority="0">
+			<Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="24" startNumber="1" duration="96" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="1" mimeType="video/mp4" codecs="avc1.640015" width="512" height="288" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="388050"></Representation>
+			<Representation id="2" mimeType="video/mp4" codecs="avc1.64001E" width="640" height="360" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="764107"></Representation>
+			<Representation id="3" mimeType="video/mp4" codecs="avc1.64001E" width="852" height="480" frameRate="24" sar="640:639" startWithSAP="1" bandwidth="1143304"></Representation>
+			<Representation id="4" mimeType="video/mp4" codecs="avc1.64001F" width="1280" height="720" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="1988131"></Representation>
+			<Representation id="5" mimeType="video/mp4" codecs="avc1.640028" width="1920" height="1080" frameRate="24" sar="1:1" startWithSAP="1" bandwidth="2803035"></Representation>
+		</AdaptationSet>
+		<AdaptationSet segmentAlignment="true" group="2" lang="en" selectionPriority="0">
+			<Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="48000" startNumber="1" duration="192000" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="8" mimeType="audio/mp4" codecs="mp4a.40.5" audioSamplingRate="48000" startWithSAP="1" bandwidth="65208">
+				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+			</Representation>
+		</AdaptationSet>
+		<AdaptationSet segmentAlignment="true" group="2" lang="en-x-high">
+			<Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="48000" startNumber="1" duration="192000" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="9" mimeType="audio/mp4" codecs="mp4a.40.5" audioSamplingRate="48000" startWithSAP="1" bandwidth="65208">
+				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+			</Representation>
+		</AdaptationSet>
+		<AdaptationSet segmentAlignment="true" group="2" lang="en-x-low">
+			<Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="48000" startNumber="1" duration="192000" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="10" mimeType="audio/mp4" codecs="mp4a.40.5" audioSamplingRate="48000" startWithSAP="1" bandwidth="65208">
+				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+			</Representation>
+		</AdaptationSet>
+		<AdaptationSet segmentAlignment="true" group="2" lang="x-popmusic">
+			<Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+			<SegmentTemplate media="$RepresentationID$/$Number%04d$.m4s" timescale="48000" startNumber="1" duration="192000" initialization="$RepresentationID$/init.mp4" />
+			<Representation id="11" mimeType="audio/mp4" codecs="mp4a.40.5" audioSamplingRate="48000" startWithSAP="1" bandwidth="65214">
+				<AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+			</Representation>
+		</AdaptationSet>
+	</Period>
+</MPD>

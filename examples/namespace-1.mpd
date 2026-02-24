@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD
+  xmlns="urn:mpeg:dash:schema:mpd:2011"
+  xmlns:ext="urn:example:dash:extension:2026"
+  type="static"
+  minBufferTime="PT2S"
+  profiles="urn:mpeg:dash:profile:isoff-on-demand:2011"
+  mediaPresentationDuration="PT60S">
+
+  <Period id="p0" start="PT0S">
+
+    <SupplementalProperty
+      schemeIdUri="urn:example:metadata:block"
+      value="v1">
+      <!-- Arbitrary XML subtree in another namespace -->
+      <ext:MetadataBlock version="1.0">
+        <ext:ContentId>movie-123</ext:ContentId>
+        <ext:Policy>
+          <ext:MaxResolution>1920x1080</ext:MaxResolution>
+          <ext:AllowedAudioLangs>en,de</ext:AllowedAudioLangs>
+        </ext:Policy>
+      </ext:MetadataBlock>
+    </SupplementalProperty>
+
+    <!-- AdaptationSets / Representations would go here -->
+
+  </Period>
+</MPD>

@@ -1,0 +1,52 @@
+{
+    "name": "xsd-to-json-schema",
+    "version": "1.0.0",
+    "description": "Convert XSD schemas to JSON Schema 2020-12",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "bin": {
+        "xsd2jsonschema": "./dist/cli.js",
+        "mpd2json": "./dist/mpd-converter-cli.js",
+        "json2mpd": "./dist/json-to-xml-cli.js",
+        "validate-roundtrip": "./dist/round-trip-cli.js",
+        "patch-cli": "./dist/patch-cli.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "start": "ts-node src/cli.ts",
+        "convert": "ts-node src/cli.ts",
+        "mpd2json": "ts-node src/mpd-converter-cli.ts",
+        "json2mpd": "ts-node src/json-to-xml-cli.ts",
+        "validate-roundtrip": "ts-node src/round-trip-cli.ts",
+        "test": "vitest",
+        "test:run": "vitest run",
+    "generate-schema": "ts-node src/cli.ts xml-schemas/DASH-MPD.xsd -o output/dash-mpd.schema.json --mark-attributes",
+    "generate-patch-schema": "ts-node src/cli.ts xml-schemas/DASH-MPD-PATCH.xsd -o output/dash-mpd-patch.schema.json --mark-attributes",
+        "roundtrip-report": "ts-node benchmarks/run-all-roundtrips.ts",
+        "patch-cli": "ts-node src/patch-cli.ts",
+        "convert-patch": "ts-node src/patch-cli.ts convert-patch",
+        "apply-patch": "ts-node src/patch-cli.ts apply",
+        "full-patch": "ts-node src/patch-cli.ts full"
+    },
+    "keywords": [
+        "xsd",
+        "json-schema",
+        "dash",
+        "mpeg-dash",
+        "converter"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^20.10.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.0",
+        "vitest": "^4.0.18"
+    },
+    "dependencies": {
+        "ajv": "^8.17.1",
+        "ajv-draft-04": "^1.0.0",
+        "ajv-formats": "^3.0.1",
+        "fast-xml-parser": "^4.3.2"
+    }
+}

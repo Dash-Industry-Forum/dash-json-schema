@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:cenc="urn:mpeg:cenc:2013" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd" type="static" minBufferTime="PT6S" profiles="urn:dvb:dash:profile:dvb-dash:2014" mediaPresentationDuration="PT0H10M0.000S">
+  <Period start="PT0S" duration="PT0H10M0.000S" id="1">
+    <AdaptationSet mimeType="video/mp4" frameRate="25/1" segmentAlignment="true" subsegmentAlignment="true" startWithSAP="1" subsegmentStartsWithSAP="1" bitstreamSwitching="false">
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+      <Representation id="1" width="768" height="432" scanType="progressive" bandwidth="1659360" codecs="avc1.4d401e">
+        <BaseURL>medias/034755-230-A_v432.mp4</BaseURL>
+        <SegmentBase indexRange="794-4433">
+          <Initialization range="0-793" />
+        </SegmentBase>
+      </Representation>
+      <Representation id="2" width="1920" height="1080" scanType="progressive" bandwidth="3164248" codecs="avc1.4d0028">
+        <BaseURL>medias/034755-230-A_v1080.mp4</BaseURL>
+        <SegmentBase indexRange="797-4436">
+          <Initialization range="0-796" />
+        </SegmentBase>
+      </Representation>
+      <Representation id="3" width="1280" height="720" scanType="progressive" bandwidth="2364960" codecs="avc1.4d401f">
+        <BaseURL>medias/034755-230-A_v720.mp4</BaseURL>
+        <SegmentBase indexRange="796-4435">
+          <Initialization range="0-795" />
+        </SegmentBase>
+      </Representation>
+      <Representation id="4" width="640" height="360" scanType="progressive" bandwidth="949488" codecs="avc1.4d401e">
+        <BaseURL>medias/034755-230-A_v360.mp4</BaseURL>
+        <SegmentBase indexRange="795-4434">
+          <Initialization range="0-794" />
+        </SegmentBase>
+      </Representation>
+      <Representation id="5" width="384" height="216" scanType="progressive" bandwidth="440136" codecs="avc1.42e00d">
+        <BaseURL>medias/034755-230-A_v216.mp4</BaseURL>
+        <SegmentBase indexRange="796-4435">
+          <Initialization range="0-795" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="pol" segmentAlignment="0">
+      <Label>Polacco</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="main" />
+      <Representation id="6" bandwidth="128000" audioSamplingRate="44100" codecs="mp4a.40.2">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <BaseURL>medias/034755-230-A_aud_VO.mp4</BaseURL>
+        <SegmentBase indexRange="732-4383">
+          <Initialization range="0-731" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="fra" segmentAlignment="0">
+      <Label>Francese</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate" />
+      <Representation id="7" bandwidth="128000" audioSamplingRate="44100" codecs="mp4a.40.2">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <BaseURL>medias/034755-230-A_aud_VF.mp4</BaseURL>
+        <SegmentBase indexRange="732-4383">
+          <Initialization range="0-731" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="fra" segmentAlignment="0">
+      <Label>Francese (ipoudenti e non udenti)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="description" />
+      <Representation id="8" bandwidth="128000" audioSamplingRate="44100" codecs="mp4a.40.2">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <BaseURL>medias/034755-230-A_aud_VFAUD.mp4</BaseURL>
+        <SegmentBase indexRange="732-4383">
+          <Initialization range="0-731" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="deu" segmentAlignment="0">
+      <Label>Tedesco</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate" />
+      <Representation id="9" bandwidth="128000" audioSamplingRate="44100" codecs="mp4a.40.2">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <BaseURL>medias/034755-230-A_aud_VA.mp4</BaseURL>
+        <SegmentBase indexRange="732-4383">
+          <Initialization range="0-731" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="audio/mp4" lang="deu" segmentAlignment="0">
+      <Label>Tedesco (ipoudenti e non udenti)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="description" />
+      <Representation id="10" bandwidth="128000" audioSamplingRate="44100" codecs="mp4a.40.2">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <BaseURL>medias/034755-230-A_aud_VAAUD.mp4</BaseURL>
+        <SegmentBase indexRange="732-4383">
+          <Initialization range="0-731" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="application/mp4" lang="fra">
+      <Label>Francese (forzato)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="forced-subtitle" />
+      <Representation id="11" bandwidth="664" codecs="stpp">
+        <BaseURL>medias/034755-230-A_st_VF-FRA.mp4</BaseURL>
+        <SegmentBase indexRange="961-2192">
+          <Initialization range="0-812" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="application/mp4" lang="fra">
+      <Label>Francese</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="subtitle" />
+      <Representation id="12" bandwidth="13280" codecs="stpp">
+        <BaseURL>medias/034755-230-A_st_VO-FRA.mp4</BaseURL>
+        <SegmentBase indexRange="961-2192">
+          <Initialization range="0-812" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="application/mp4" lang="fra">
+      <Label>Francese (ipoudenti e non udenti)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="caption" />
+      <Representation id="13" bandwidth="8744" codecs="stpp">
+        <BaseURL>medias/034755-230-A_st_VF-MAL.mp4</BaseURL>
+        <SegmentBase indexRange="949-2180">
+          <Initialization range="0-812" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="application/mp4" lang="deu">
+      <Label>Tedesco (forzato)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="forced-subtitle" />
+      <Representation id="14" bandwidth="856" codecs="stpp">
+        <BaseURL>medias/034755-230-A_st_VA-ALL.mp4</BaseURL>
+        <SegmentBase indexRange="961-2192">
+          <Initialization range="0-812" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet mimeType="application/mp4" lang="deu">
+      <Label>Tedesco (ipoudenti e non udenti)</Label>
+      <Role schemeIdUri="urn:mpeg:dash:role:2011" value="caption" />
+      <Representation id="15" bandwidth="13264" codecs="stpp">
+        <BaseURL>medias/034755-230-A_st_VA-MAL.mp4</BaseURL>
+        <SegmentBase indexRange="961-2192">
+          <Initialization range="0-812" />
+        </SegmentBase>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

@@ -1,0 +1,3056 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/MPDtype",
+  "description": "MPD: main element",
+  "properties": {
+    "$ns": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "prefix": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of attribute local names defined in this namespace. These are emitted as XML attributes (prefix:name=\"value\") rather than child elements."
+              },
+              "defaultNs": {
+                "type": "boolean",
+                "description": "When true, the namespace was declared as a default namespace redeclaration (xmlns=\"...\") on the element itself, rather than using a prefix."
+              }
+            },
+            "required": [
+              "prefix"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "description": "Namespace declarations mapping namespace URIs to prefixes. Values are either a prefix string or an object with prefix and optional attributes list. Appears only at the root level of the JSON document. Each prefix maps to exactly one URI and each URI maps to exactly one prefix."
+    }
+  },
+  "$defs": {
+    "MPDtype": {
+      "type": "object",
+      "properties": {
+        "ProgramInformation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProgramInformationType"
+          }
+        },
+        "BaseURL": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseURLType"
+          }
+        },
+        "Location": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LocationType"
+          }
+        },
+        "PatchLocation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PatchLocationType"
+          }
+        },
+        "RequestParam": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExtendedUrlInfoType"
+          }
+        },
+        "ServiceDescription": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ServiceDescriptionType"
+          }
+        },
+        "InitializationSet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/InitializationSetType"
+          }
+        },
+        "InitializationGroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UIntVWithIDType"
+          }
+        },
+        "InitializationPresentation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UIntVWithIDType"
+          }
+        },
+        "ContentProtection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentProtectionType"
+          }
+        },
+        "Period": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PeriodType"
+          }
+        },
+        "Metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MetricsType"
+          }
+        },
+        "EssentialProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "UTCTiming": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "LeapSecondInformation": {
+          "$ref": "#/$defs/LeapSecondInformationType"
+        },
+        "id": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "profiles": {
+          "$ref": "#/$defs/ListOfProfilesType",
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/PresentationType",
+          "default": "static",
+          "x-xml-attribute": true
+        },
+        "availabilityStartTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        },
+        "availabilityEndTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        },
+        "publishTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        },
+        "mediaPresentationDuration": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "minimumUpdatePeriod": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "minBufferTime": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "timeShiftBufferDepth": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "suggestedPresentationDelay": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "maxSegmentDuration": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "maxSubsegmentDuration": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "Period",
+        "profiles",
+        "minBufferTime"
+      ],
+      "description": "MPD Type"
+    },
+    "PatchLocationType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "serviceLocation": {
+          "type": "string"
+        },
+        "ttl": {
+          "type": "number"
+        }
+      },
+      "description": "Patch Location Type"
+    },
+    "LocationType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "serviceLocation": {
+          "type": "string"
+        }
+      }
+    },
+    "PeriodType": {
+      "type": "object",
+      "properties": {
+        "ImportedMPD": {
+          "$ref": "#/$defs/ImportedMpdType"
+        },
+        "BaseURL": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseURLType"
+          }
+        },
+        "RequestParam": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExtendedUrlInfoType"
+          }
+        },
+        "SegmentBase": {
+          "$ref": "#/$defs/SegmentBaseType"
+        },
+        "SegmentList": {
+          "$ref": "#/$defs/SegmentListType"
+        },
+        "SegmentTemplate": {
+          "$ref": "#/$defs/SegmentTemplateType"
+        },
+        "AssetIdentifier": {
+          "$ref": "#/$defs/DescriptorType"
+        },
+        "EventStream": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EventStreamType"
+          }
+        },
+        "ServiceDescription": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ServiceDescriptionType"
+          }
+        },
+        "ContentProtection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentProtectionType"
+          }
+        },
+        "AdaptationSet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AdaptationSetType"
+          }
+        },
+        "Subset": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SubsetType"
+          }
+        },
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "EmptyAdaptationSet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AdaptationSetType"
+          }
+        },
+        "GroupLabel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabelType"
+          }
+        },
+        "Preselection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PreselectionType"
+          }
+        },
+        "href": {
+          "$ref": "#/$defs/hrefType",
+          "x-xml-attribute": true
+        },
+        "actuate": {
+          "$ref": "#/$defs/actuateType",
+          "default": "onRequest",
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "simple",
+          "x-xml-attribute": true
+        },
+        "show": {
+          "$ref": "#/$defs/showType",
+          "const": "embed",
+          "x-xml-attribute": true
+        },
+        "id": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "start": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "duration": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "bitstreamSwitching": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Period"
+    },
+    "ImportedMpdType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "earliestResolutionTimeOffset": {
+          "type": "number",
+          "default": 60
+        }
+      }
+    },
+    "EventStreamType": {
+      "type": "object",
+      "properties": {
+        "Event": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EventType"
+          }
+        },
+        "BaseURL": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BaseURLType"
+          }
+        },
+        "RequestParam": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ExtendedUrlInfoType"
+          }
+        },
+        "EssentialProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "href": {
+          "$ref": "#/$defs/hrefType",
+          "x-xml-attribute": true
+        },
+        "actuate": {
+          "$ref": "#/$defs/actuateType",
+          "default": "onRequest",
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "simple",
+          "x-xml-attribute": true
+        },
+        "show": {
+          "$ref": "#/$defs/showType",
+          "const": "embed",
+          "x-xml-attribute": true
+        },
+        "schemeIdUri": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "value": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "timescale": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "presentationTimeOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "default": 0,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "required": [
+        "schemeIdUri"
+      ],
+      "description": "Event Stream"
+    },
+    "EventType": {
+      "type": "object",
+      "properties": {
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "EssentialProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "$value": {
+          "type": "string"
+        },
+        "presentationTime": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "default": 0,
+          "x-xml-attribute": true
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        },
+        "status": {
+          "$ref": "#/$defs/EventStatusType",
+          "default": "none",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Event"
+    },
+    "SelectionInfoType": {
+      "type": "object",
+      "properties": {
+        "Selection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SelectionType"
+          }
+        },
+        "selectionInfo": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "contactURL": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "Selection",
+        "contactURL"
+      ],
+      "description": "SelectionInfo"
+    },
+    "SelectionType": {
+      "type": "object",
+      "properties": {
+        "dataEncoding": {
+          "$ref": "#/$defs/ContentEncodingType",
+          "x-xml-attribute": true
+        },
+        "parameter": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "data": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "parameter"
+      ],
+      "description": "Selection"
+    },
+    "InitializationSetType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/RepresentationBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Accessibility": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Role": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Rating": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Viewpoint": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "href": {
+              "$ref": "#/$defs/hrefType",
+              "x-xml-attribute": true
+            },
+            "actuate": {
+              "$ref": "#/$defs/actuateType",
+              "default": "onRequest",
+              "x-xml-attribute": true
+            },
+            "type": {
+              "$ref": "#/$defs/typeType",
+              "const": "simple",
+              "x-xml-attribute": true
+            },
+            "id": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "inAllPeriods": {
+              "type": "boolean",
+              "default": true,
+              "x-xml-attribute": true
+            },
+            "contentType": {
+              "$ref": "#/$defs/RFC6838ContentTypeType",
+              "x-xml-attribute": true
+            },
+            "par": {
+              "$ref": "#/$defs/RatioType",
+              "x-xml-attribute": true
+            },
+            "maxWidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "maxHeight": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "maxFrameRate": {
+              "$ref": "#/$defs/FrameRateType",
+              "x-xml-attribute": true
+            },
+            "initialization": {
+              "type": "string",
+              "format": "uri-reference",
+              "x-xml-attribute": true
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      ],
+      "description": "Initialization Set"
+    },
+    "ServiceDescriptionType": {
+      "type": "object",
+      "properties": {
+        "Scope": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "Latency": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LatencyType"
+          }
+        },
+        "PlaybackRate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PlaybackRateType"
+          }
+        },
+        "OperatingQuality": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OperatingQualityType"
+          }
+        },
+        "OperatingBandwidth": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OperatingBandwidthType"
+          }
+        },
+        "ContentSteering": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentSteeringType"
+          }
+        },
+        "ClientDataReporting": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ClientDataReportingType"
+          }
+        },
+        "PlaybackRestrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PlaybackRestrictionsType"
+          }
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "id"
+      ],
+      "description": "Service Description"
+    },
+    "LatencyType": {
+      "type": "object",
+      "properties": {
+        "QualityLatency": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UIntPairsWithIDType"
+          }
+        },
+        "referenceId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "target": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Service Description Latency"
+    },
+    "PlaybackRateType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "max": {
+          "type": "number",
+          "x-xml-attribute": true
+        },
+        "min": {
+          "type": "number",
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Service Description Playback Rate"
+    },
+    "OperatingQualityType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "mediaType": {
+          "type": "string",
+          "enum": [
+            "video",
+            "audio",
+            "any"
+          ],
+          "default": "any",
+          "x-xml-attribute": true
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "target": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "type": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "maxDifference": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Service Description Operating Quality"
+    },
+    "OperatingBandwidthType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "mediaType": {
+          "type": "string",
+          "enum": [
+            "video",
+            "audio",
+            "any",
+            "all"
+          ],
+          "default": "all",
+          "x-xml-attribute": true
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "target": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Service Description Operating Bandwidth"
+    },
+    "PlaybackRestrictionsType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "skipAfter": {
+          "type": "string",
+          "format": "iso-duration",
+          "default": "PT0S",
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Playback restrictions"
+    },
+    "UIntPairsWithIDType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "$ref": "#/$defs/UIntVectorType"
+        },
+        "type": {
+          "type": "string",
+          "format": "uri-reference"
+        }
+      },
+      "description": "UInt Pairs With ID"
+    },
+    "UIntVWithIDType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "$ref": "#/$defs/UIntVectorType"
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "profiles": {
+          "$ref": "#/$defs/ListOfProfilesType"
+        },
+        "contentType": {
+          "$ref": "#/$defs/RFC6838ContentTypeType"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "description": "UInt Vector With ID"
+    },
+    "AdaptationSetType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/RepresentationBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Accessibility": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Role": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Rating": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Viewpoint": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "ContentComponent": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ContentComponentType"
+              }
+            },
+            "BaseURL": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/BaseURLType"
+              }
+            },
+            "RequestParam": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ExtendedUrlInfoType"
+              }
+            },
+            "SegmentBase": {
+              "$ref": "#/$defs/SegmentBaseType"
+            },
+            "SegmentList": {
+              "$ref": "#/$defs/SegmentListType"
+            },
+            "SegmentTemplate": {
+              "$ref": "#/$defs/SegmentTemplateType"
+            },
+            "Representation": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/RepresentationType"
+              }
+            },
+            "href": {
+              "$ref": "#/$defs/hrefType",
+              "x-xml-attribute": true
+            },
+            "actuate": {
+              "$ref": "#/$defs/actuateType",
+              "default": "onRequest",
+              "x-xml-attribute": true
+            },
+            "type": {
+              "$ref": "#/$defs/typeType",
+              "const": "simple",
+              "x-xml-attribute": true
+            },
+            "show": {
+              "$ref": "#/$defs/showType",
+              "const": "embed",
+              "x-xml-attribute": true
+            },
+            "id": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "group": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "lang": {
+              "type": "string",
+              "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$",
+              "x-xml-attribute": true
+            },
+            "contentType": {
+              "$ref": "#/$defs/RFC6838ContentTypeType",
+              "x-xml-attribute": true
+            },
+            "par": {
+              "$ref": "#/$defs/RatioType",
+              "x-xml-attribute": true
+            },
+            "minBandwidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "maxBandwidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "minWidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "maxWidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "minHeight": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "maxHeight": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "minFrameRate": {
+              "$ref": "#/$defs/FrameRateType",
+              "x-xml-attribute": true
+            },
+            "maxFrameRate": {
+              "$ref": "#/$defs/FrameRateType",
+              "x-xml-attribute": true
+            },
+            "segmentAlignment": {
+              "type": "boolean",
+              "default": false,
+              "x-xml-attribute": true
+            },
+            "subsegmentAlignment": {
+              "type": "boolean",
+              "default": false,
+              "x-xml-attribute": true
+            },
+            "subsegmentStartsWithSAP": {
+              "$ref": "#/$defs/SAPType",
+              "default": "0",
+              "x-xml-attribute": true
+            },
+            "bitstreamSwitching": {
+              "type": "boolean",
+              "x-xml-attribute": true
+            },
+            "initializationSetRef": {
+              "$ref": "#/$defs/UIntVectorType",
+              "x-xml-attribute": true
+            },
+            "initializationPrincipal": {
+              "type": "string",
+              "format": "uri-reference",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Adaptation Set"
+    },
+    "ContentComponentType": {
+      "type": "object",
+      "properties": {
+        "Accessibility": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "Role": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "Rating": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "Viewpoint": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "lang": {
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$",
+          "x-xml-attribute": true
+        },
+        "contentType": {
+          "$ref": "#/$defs/RFC6838ContentTypeType",
+          "x-xml-attribute": true
+        },
+        "par": {
+          "$ref": "#/$defs/RatioType",
+          "x-xml-attribute": true
+        },
+        "tag": {
+          "$ref": "#/$defs/TagType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Content Component"
+    },
+    "RepresentationType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/RepresentationBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "BaseURL": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/BaseURLType"
+              }
+            },
+            "ExtendedBandwidth": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ExtendedBandwidthType"
+              }
+            },
+            "SubRepresentation": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SubRepresentationType"
+              }
+            },
+            "RequestParam": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ExtendedUrlInfoType"
+              }
+            },
+            "SegmentBase": {
+              "$ref": "#/$defs/SegmentBaseType"
+            },
+            "SegmentList": {
+              "$ref": "#/$defs/SegmentListType"
+            },
+            "SegmentTemplate": {
+              "$ref": "#/$defs/SegmentTemplateType"
+            },
+            "id": {
+              "$ref": "#/$defs/StringNoWhitespaceType",
+              "x-xml-attribute": true
+            },
+            "bandwidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "qualityRanking": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "dependencyId": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            },
+            "associationId": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            },
+            "associationType": {
+              "$ref": "#/$defs/ListOf4CCType",
+              "x-xml-attribute": true
+            },
+            "mediaStreamStructureId": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            }
+          },
+          "required": [
+            "id",
+            "bandwidth"
+          ]
+        }
+      ],
+      "description": "Representation"
+    },
+    "ExtendedBandwidthType": {
+      "type": "object",
+      "properties": {
+        "ModelPair": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ModelPairType"
+          }
+        },
+        "vbr": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Extended Bandwidth Model"
+    },
+    "ModelPairType": {
+      "type": "object",
+      "properties": {
+        "bufferTime": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "bandwidth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "bufferTime",
+        "bandwidth"
+      ],
+      "description": "Model Pair"
+    },
+    "SubRepresentationType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/RepresentationBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "dependencyLevel": {
+              "$ref": "#/$defs/UIntVectorType",
+              "x-xml-attribute": true
+            },
+            "bandwidth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "contentComponent": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "SubRepresentation"
+    },
+    "RepresentationBaseType": {
+      "type": "object",
+      "properties": {
+        "FramePacking": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "AudioChannelConfiguration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "ContentProtection": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentProtectionType"
+          }
+        },
+        "OutputProtection": {
+          "$ref": "#/$defs/DescriptorType"
+        },
+        "EssentialProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "InbandEventStream": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EventStreamType"
+          }
+        },
+        "Switching": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SwitchingType"
+          }
+        },
+        "RandomAccess": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RandomAccessType"
+          }
+        },
+        "GroupLabel": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabelType"
+          }
+        },
+        "Label": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/LabelType"
+          }
+        },
+        "ProducerReferenceTime": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProducerReferenceTimeType"
+          }
+        },
+        "ContentPopularityRate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ContentPopularityRateType"
+          }
+        },
+        "Resync": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ResyncType"
+          }
+        },
+        "SegmentSequenceProperties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SegmentSequencePropertiesType"
+          }
+        },
+        "profiles": {
+          "$ref": "#/$defs/ListOfProfilesType",
+          "x-xml-attribute": true
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "sar": {
+          "$ref": "#/$defs/RatioType",
+          "x-xml-attribute": true
+        },
+        "frameRate": {
+          "$ref": "#/$defs/FrameRateType",
+          "x-xml-attribute": true
+        },
+        "audioSamplingRate": {
+          "$ref": "#/$defs/AudioSamplingRateType",
+          "x-xml-attribute": true
+        },
+        "mimeType": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "segmentProfiles": {
+          "$ref": "#/$defs/ListOf4CCType",
+          "x-xml-attribute": true
+        },
+        "codecs": {
+          "$ref": "#/$defs/CodecsType",
+          "x-xml-attribute": true
+        },
+        "containerProfiles": {
+          "$ref": "#/$defs/ListOf4CCType",
+          "x-xml-attribute": true
+        },
+        "maximumSAPPeriod": {
+          "type": "number",
+          "x-xml-attribute": true
+        },
+        "startWithSAP": {
+          "$ref": "#/$defs/SAPType",
+          "x-xml-attribute": true
+        },
+        "maxPlayoutRate": {
+          "type": "number",
+          "x-xml-attribute": true
+        },
+        "codingDependency": {
+          "type": "boolean",
+          "x-xml-attribute": true
+        },
+        "scanType": {
+          "$ref": "#/$defs/VideoScanType",
+          "x-xml-attribute": true
+        },
+        "selectionPriority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 1,
+          "x-xml-attribute": true
+        },
+        "tag": {
+          "$ref": "#/$defs/TagType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Representation base (common attributes and elements)"
+    },
+    "ContentProtectionType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/DescriptorType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "robustness": {
+              "$ref": "#/$defs/StringNoWhitespaceType",
+              "x-xml-attribute": true
+            },
+            "refId": {
+              "type": "string",
+              "x-xml-attribute": true
+            },
+            "ref": {
+              "type": "string",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Content Protection"
+    },
+    "ResyncType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/SAPType",
+          "default": "0",
+          "x-xml-attribute": true
+        },
+        "dT": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "dImax": {
+          "type": "number",
+          "x-xml-attribute": true
+        },
+        "dImin": {
+          "type": "number",
+          "default": 0,
+          "x-xml-attribute": true
+        },
+        "marker": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Resynchronization Point"
+    },
+    "ContentPopularityRateType": {
+      "type": "object",
+      "properties": {
+        "PR": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-xml-any-attribute": true,
+            "properties": {
+              "popularityRate": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100,
+                "x-xml-attribute": true
+              },
+              "start": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              },
+              "r": {
+                "type": "integer",
+                "minimum": -2147483648,
+                "maximum": 2147483647,
+                "default": 0,
+                "x-xml-attribute": true
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "content",
+            "statistics",
+            "other"
+          ],
+          "x-xml-attribute": true
+        },
+        "source_description": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "PR",
+        "source"
+      ],
+      "description": "Content Popularity Rate"
+    },
+    "LabelType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 0
+        },
+        "lang": {
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$"
+        }
+      },
+      "description": "Label and Group Label"
+    },
+    "ProducerReferenceTimeType": {
+      "type": "object",
+      "properties": {
+        "UTCTiming": {
+          "$ref": "#/$defs/DescriptorType"
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "inband": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/ProducerReferenceTimeTypeType",
+          "default": "encoder",
+          "x-xml-attribute": true
+        },
+        "applicationScheme": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "wallClockTime": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "presentationTime": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "id",
+        "wallClockTime",
+        "presentationTime"
+      ],
+      "description": "Producer Reference time"
+    },
+    "PreselectionType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/RepresentationBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "Accessibility": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Role": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Rating": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "Viewpoint": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/DescriptorType"
+              }
+            },
+            "id": {
+              "$ref": "#/$defs/StringNoWhitespaceType",
+              "default": "1",
+              "x-xml-attribute": true
+            },
+            "preselectionComponents": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            },
+            "lang": {
+              "type": "string",
+              "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$",
+              "x-xml-attribute": true
+            },
+            "order": {
+              "$ref": "#/$defs/PreselectionOrderType",
+              "default": "undefined",
+              "x-xml-attribute": true
+            }
+          },
+          "required": [
+            "preselectionComponents"
+          ]
+        }
+      ],
+      "description": "Preselection"
+    },
+    "SubsetType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "contains": {
+          "$ref": "#/$defs/UIntVectorType",
+          "x-xml-attribute": true
+        },
+        "id": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "contains"
+      ],
+      "description": "Subset"
+    },
+    "SwitchingType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "interval": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/SwitchingTypeType",
+          "default": "media",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "interval"
+      ],
+      "description": "Switching"
+    },
+    "RandomAccessType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "interval": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/RandomAccessTypeType",
+          "default": "closed",
+          "x-xml-attribute": true
+        },
+        "minBufferTime": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "bandwidth": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "interval"
+      ],
+      "description": "Random Access"
+    },
+    "SegmentBaseType": {
+      "type": "object",
+      "properties": {
+        "Initialization": {
+          "$ref": "#/$defs/URLType"
+        },
+        "RepresentationIndex": {
+          "$ref": "#/$defs/URLType"
+        },
+        "FailoverContent": {
+          "$ref": "#/$defs/FailoverContentType"
+        },
+        "timescale": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        },
+        "eptDelta": {
+          "type": "integer",
+          "x-xml-attribute": true
+        },
+        "pdDelta": {
+          "type": "integer",
+          "x-xml-attribute": true
+        },
+        "presentationTimeOffset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        },
+        "presentationDuration": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        },
+        "timeShiftBufferDepth": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "indexRange": {
+          "$ref": "#/$defs/SingleRFC7233RangeType",
+          "x-xml-attribute": true
+        },
+        "indexRangeExact": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        },
+        "availabilityTimeOffset": {
+          "type": "number",
+          "x-xml-attribute": true
+        },
+        "availabilityTimeComplete": {
+          "type": "boolean",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Segment information base"
+    },
+    "MultipleSegmentBaseType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/SegmentBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "SegmentTimeline": {
+              "$ref": "#/$defs/SegmentTimelineType"
+            },
+            "BitstreamSwitching": {
+              "$ref": "#/$defs/URLType"
+            },
+            "duration": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295,
+              "x-xml-attribute": true
+            },
+            "tolerance": {
+              "type": "number",
+              "default": 50,
+              "x-xml-attribute": true
+            },
+            "startNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709552000,
+              "x-xml-attribute": true
+            },
+            "endNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709552000,
+              "x-xml-attribute": true
+            },
+            "endSubNumber": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709552000,
+              "x-xml-attribute": true
+            },
+            "k": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709552000,
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Multiple Segment information base"
+    },
+    "URLType": {
+      "type": "object",
+      "properties": {
+        "sourceURL": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "range": {
+          "$ref": "#/$defs/SingleRFC7233RangeType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Segment Info item URL/range"
+    },
+    "FailoverContentType": {
+      "type": "object",
+      "properties": {
+        "FCS": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-xml-any-attribute": true,
+            "properties": {
+              "t": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              },
+              "d": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              }
+            },
+            "required": [
+              "t"
+            ]
+          }
+        },
+        "valid": {
+          "type": "boolean",
+          "default": true,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "FCS"
+      ],
+      "description": "Failover Content"
+    },
+    "SegmentListType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/MultipleSegmentBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "SegmentURL": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/SegmentURLType"
+              }
+            },
+            "href": {
+              "$ref": "#/$defs/hrefType",
+              "x-xml-attribute": true
+            },
+            "actuate": {
+              "$ref": "#/$defs/actuateType",
+              "default": "onRequest",
+              "x-xml-attribute": true
+            },
+            "type": {
+              "$ref": "#/$defs/typeType",
+              "const": "simple",
+              "x-xml-attribute": true
+            },
+            "show": {
+              "$ref": "#/$defs/showType",
+              "const": "embed",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Segment List"
+    },
+    "SegmentURLType": {
+      "type": "object",
+      "properties": {
+        "media": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "mediaRange": {
+          "$ref": "#/$defs/SingleRFC7233RangeType",
+          "x-xml-attribute": true
+        },
+        "index": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "indexRange": {
+          "$ref": "#/$defs/SingleRFC7233RangeType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Segment URL"
+    },
+    "SegmentTemplateType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/MultipleSegmentBaseType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "media": {
+              "type": "string",
+              "x-xml-attribute": true
+            },
+            "index": {
+              "type": "string",
+              "x-xml-attribute": true
+            },
+            "initialization": {
+              "type": "string",
+              "x-xml-attribute": true
+            },
+            "bitstreamSwitching": {
+              "type": "string",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Segment Template"
+    },
+    "RunLengthType": {
+      "type": "object",
+      "properties": {
+        "d": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        },
+        "r": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 0,
+          "x-xml-attribute": true
+        },
+        "k": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 1,
+          "x-xml-attribute": true
+        },
+        "ssp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Run-length coded sequence of segments or segment sequences"
+    },
+    "PatternType": {
+      "type": "object",
+      "properties": {
+        "P": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RunLengthType"
+          },
+          "minItems": 1
+        },
+        "id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "P",
+        "id"
+      ],
+      "description": "Duration pattern"
+    },
+    "SegmentTimelineType": {
+      "type": "object",
+      "properties": {
+        "Pattern": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PatternType"
+          }
+        },
+        "S": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "x-xml-any-attribute": true,
+            "properties": {
+              "t": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              },
+              "n": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              },
+              "d": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 18446744073709552000,
+                "x-xml-attribute": true
+              },
+              "r": {
+                "type": "integer",
+                "default": 0,
+                "x-xml-attribute": true
+              },
+              "k": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295,
+                "default": 1,
+                "x-xml-attribute": true
+              },
+              "p": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295,
+                "x-xml-attribute": true
+              },
+              "pE": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295,
+                "default": 0,
+                "x-xml-attribute": true
+              },
+              "ssp": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295,
+                "x-xml-attribute": true
+              }
+            }
+          },
+          "minItems": 1
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "S"
+      ],
+      "description": "Segment Timeline"
+    },
+    "BaseURLType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "serviceLocation": {
+          "type": "string"
+        },
+        "byteRange": {
+          "type": "string"
+        },
+        "availabilityTimeOffset": {
+          "type": "number"
+        },
+        "availabilityTimeComplete": {
+          "type": "boolean"
+        },
+        "timeShiftBufferDepth": {
+          "type": "string",
+          "format": "iso-duration"
+        },
+        "rangeAccess": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "description": "Base URL"
+    },
+    "ProgramInformationType": {
+      "type": "object",
+      "properties": {
+        "Title": {
+          "type": "string"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "Copyright": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string",
+          "pattern": "^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$",
+          "x-xml-attribute": true
+        },
+        "moreInformationURL": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Program Information"
+    },
+    "DescriptorType": {
+      "type": "object",
+      "properties": {
+        "schemeIdUri": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "value": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "id": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "schemeIdUri"
+      ],
+      "description": "Descriptor"
+    },
+    "MetricsType": {
+      "type": "object",
+      "properties": {
+        "Range": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RangeType"
+          }
+        },
+        "Reporting": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "metrics": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "Reporting",
+        "metrics"
+      ],
+      "description": "Metrics"
+    },
+    "RangeType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "starttime": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        },
+        "duration": {
+          "type": "string",
+          "format": "iso-duration",
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Metrics Range"
+    },
+    "LeapSecondInformationType": {
+      "type": "object",
+      "properties": {
+        "availabilityStartLeapOffset": {
+          "type": "integer",
+          "x-xml-attribute": true
+        },
+        "nextAvailabilityStartLeapOffset": {
+          "type": "integer",
+          "x-xml-attribute": true
+        },
+        "nextLeapChangeTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "availabilityStartLeapOffset"
+      ],
+      "description": "Leap Second Information"
+    },
+    "ContentSteeringType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "defaultServiceLocation": {
+          "$ref": "#/$defs/StringNoWhitespaceType"
+        },
+        "queryBeforeStart": {
+          "type": "boolean",
+          "default": false
+        },
+        "clientRequirement": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "CMCDParameterType": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 1,
+          "x-xml-attribute": true
+        },
+        "mode": {
+          "type": "string",
+          "pattern": "[^\\r\\n\\t \\p{Z}]*",
+          "description": "String without white spaces",
+          "enum": [
+            "header",
+            "query"
+          ],
+          "default": "query",
+          "x-xml-attribute": true
+        },
+        "includeInRequests": {
+          "$ref": "#/$defs/StringNoWhitespaceVectorType",
+          "default": "segment",
+          "x-xml-attribute": true
+        },
+        "keys": {
+          "$ref": "#/$defs/StringNoWhitespaceVectorType",
+          "x-xml-attribute": true
+        },
+        "contentID": {
+          "$ref": "#/$defs/StringNoWhitespaceType",
+          "x-xml-attribute": true
+        },
+        "sessionID": {
+          "$ref": "#/$defs/StringNoWhitespaceType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "keys"
+      ],
+      "description": "CMCD Parameters"
+    },
+    "SupVideoInfoType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "processingInfo": {
+          "type": "string",
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Picture-in-picture information"
+    },
+    "SegmentSequencePropertiesType": {
+      "type": "object",
+      "properties": {
+        "sapType": {
+          "$ref": "#/$defs/SAPType",
+          "default": "0",
+          "x-xml-attribute": true
+        },
+        "cadence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "default": 0,
+          "x-xml-attribute": true
+        },
+        "event": {
+          "type": "boolean",
+          "default": true,
+          "x-xml-attribute": true
+        },
+        "alignment": {
+          "$ref": "#/$defs/StringNoWhitespaceType",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "description": "Segment Sequence properties"
+    },
+    "ClientDataReportingType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/DescriptorType"
+        },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "x-xml-any-attribute": true,
+          "properties": {
+            "CMCDParameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/CMCDParameterType"
+              }
+            },
+            "serviceLocations": {
+              "$ref": "#/$defs/StringVectorType",
+              "x-xml-attribute": true
+            },
+            "adaptationSets": {
+              "$ref": "#/$defs/UIntVectorType",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Generic Recording System descriptor"
+    },
+    "AlternativeMPDEventType": {
+      "type": "object",
+      "properties": {
+        "SupplementalProperty": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DescriptorType"
+          }
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri-reference",
+          "x-xml-attribute": true
+        },
+        "earliestResolutionTimeOffset": {
+          "type": "number",
+          "default": 60,
+          "x-xml-attribute": true
+        },
+        "maxDuration": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 18446744073709552000,
+          "default": 2251799813685247,
+          "x-xml-attribute": true
+        },
+        "executeOnce": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        },
+        "noJump": {
+          "type": "integer",
+          "default": 0,
+          "x-xml-attribute": true
+        },
+        "skipAfter": {
+          "type": "string",
+          "format": "iso-duration",
+          "default": "PT0S",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "required": [
+        "uri"
+      ],
+      "description": "Alternative MPD event"
+    },
+    "AlternativeMPDReplaceEventType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/AlternativeMPDEventType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "returnOffset": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 18446744073709552000,
+              "x-xml-attribute": true
+            },
+            "clip": {
+              "type": "boolean",
+              "default": true,
+              "x-xml-attribute": true
+            },
+            "startAtOffset": {
+              "type": "boolean",
+              "default": false,
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ],
+      "description": "Alternative MPD Replacement Event"
+    },
+    "simple": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "simple",
+          "x-xml-attribute": true
+        },
+        "href": {
+          "$ref": "#/$defs/hrefType",
+          "x-xml-attribute": true
+        },
+        "role": {
+          "$ref": "#/$defs/roleType",
+          "x-xml-attribute": true
+        },
+        "arcrole": {
+          "$ref": "#/$defs/arcroleType",
+          "x-xml-attribute": true
+        },
+        "title": {
+          "$ref": "#/$defs/titleAttrType",
+          "x-xml-attribute": true
+        },
+        "show": {
+          "$ref": "#/$defs/showType",
+          "x-xml-attribute": true
+        },
+        "actuate": {
+          "$ref": "#/$defs/actuateType",
+          "x-xml-attribute": true
+        }
+      },
+      "description": "Intended for use as the type of user-declared elements to make them\n    simple links."
+    },
+    "extended": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "extended",
+          "x-xml-attribute": true
+        },
+        "role": {
+          "$ref": "#/$defs/roleType",
+          "x-xml-attribute": true
+        },
+        "title": {
+          "$ref": "#/$defs/titleAttrType",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "description": "Intended for use as the type of user-declared elements to make them\n    extended links.\n    Note that the elements referenced in the content model are all abstract.\n    The intention is that by simply declaring elements with these as their\n    substitutionGroup, all the right things will happen."
+    },
+    "titleEltType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "title",
+          "x-xml-attribute": true
+        },
+        "lang": {
+          "description": "xml:lang is not required, but provides much of the\n     motivation for title elements in addition to attributes, and so\n     is provided here for convenience.",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "resourceType": {
+      "type": "object",
+      "properties": {
+        "$value": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "resource",
+          "x-xml-attribute": true
+        },
+        "role": {
+          "$ref": "#/$defs/roleType",
+          "x-xml-attribute": true
+        },
+        "title": {
+          "$ref": "#/$defs/titleAttrType",
+          "x-xml-attribute": true
+        },
+        "label": {
+          "$ref": "#/$defs/labelType",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "locatorType": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "locator",
+          "x-xml-attribute": true
+        },
+        "href": {
+          "$ref": "#/$defs/hrefType",
+          "x-xml-attribute": true
+        },
+        "role": {
+          "$ref": "#/$defs/roleType",
+          "x-xml-attribute": true
+        },
+        "title": {
+          "$ref": "#/$defs/titleAttrType",
+          "x-xml-attribute": true
+        },
+        "label": {
+          "$ref": "#/$defs/labelType",
+          "description": "label is not required, but locators have no particular\n     XLink function if they are not labeled.",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "type",
+        "href"
+      ]
+    },
+    "arcType": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "arc",
+          "x-xml-attribute": true
+        },
+        "arcrole": {
+          "$ref": "#/$defs/arcroleType",
+          "x-xml-attribute": true
+        },
+        "title": {
+          "$ref": "#/$defs/titleAttrType",
+          "x-xml-attribute": true
+        },
+        "show": {
+          "$ref": "#/$defs/showType",
+          "x-xml-attribute": true
+        },
+        "actuate": {
+          "$ref": "#/$defs/actuateType",
+          "x-xml-attribute": true
+        },
+        "from": {
+          "$ref": "#/$defs/fromType",
+          "x-xml-attribute": true
+        },
+        "to": {
+          "$ref": "#/$defs/toType",
+          "description": "from and to have default behavior when values are missing",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "UrlQueryInfoType": {
+      "type": "object",
+      "properties": {
+        "queryTemplate": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "useMPDUrlQuery": {
+          "type": "boolean",
+          "default": false,
+          "x-xml-attribute": true
+        },
+        "queryString": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "href": {
+          "$ref": "#/$defs/hrefType",
+          "x-xml-attribute": true
+        },
+        "actuate": {
+          "$ref": "#/$defs/actuateType",
+          "default": "onRequest",
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/typeType",
+          "const": "simple",
+          "x-xml-attribute": true
+        },
+        "show": {
+          "$ref": "#/$defs/showType",
+          "const": "embed",
+          "x-xml-attribute": true
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "x-xml-any-attribute": true
+    },
+    "ExtendedUrlInfoType": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/UrlQueryInfoType"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "includeInRequests": {
+              "type": "string",
+              "default": "segment",
+              "x-xml-attribute": true
+            },
+            "headerParamSource": {
+              "type": "string",
+              "default": "segment",
+              "x-xml-attribute": true
+            },
+            "sameOriginOnly": {
+              "type": "boolean",
+              "default": false,
+              "x-xml-attribute": true
+            },
+            "header": {
+              "type": "string",
+              "x-xml-attribute": true
+            }
+          }
+        }
+      ]
+    },
+    "PresentationType": {
+      "type": "string",
+      "enum": [
+        "static",
+        "dynamic",
+        "list"
+      ],
+      "description": "Presentation Type enumeration"
+    },
+    "EventStatusType": {
+      "type": "string",
+      "enum": [
+        "none",
+        "update",
+        "repeat"
+      ],
+      "description": "Event Status"
+    },
+    "ContentEncodingType": {
+      "type": "string",
+      "enum": [
+        "base64"
+      ],
+      "description": "Event Coding"
+    },
+    "ListOfProfilesType": {
+      "type": "string",
+      "pattern": "(urn:[a-zA-Z0-9][a-zA-Z0-9-]{1,31}:[a-zA-Z0-9()+,\\.:=@;$_!*'%/?#-]+|([a-zA-Z][a-zA-Z0-9+.-]*:(//(([a-zA-Z0-9$_.+!*(),\"%&~;=-]+)(:([a-zA-Z0-9$_.+!*(),\"%&~;=-]+))?@)?([a-zA-Z0-9%._~-]+|\\[(([0-9A-Fa-f]{1,4}:){7,7}[0-9A-Fa-f]{1,4}|([0-9A-Fa-f]{1,4}:){1,7}:|([0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4}|([0-9A-Fa-f]{1,4}:){1,5}(:[0-9A-Fa-f]{1,4}){1,2}|([0-9A-Fa-f]{1,4}:){1,4}(:[0-9A-Fa-f]{1,4}){1,3}|([0-9A-Fa-f]{1,4}:){1,3}(:[0-9A-Fa-f]{1,4}){1,4}|([0-9A-Fa-f]{1,4}:){1,2}(:[0-9A-Fa-f]{1,4}){1,5}|[0-9A-Fa-f]{1,4}:((:[0-9A-Fa-f]{1,4}){1,6})|:((:[0-9A-Fa-f]{1,4}){1,7}|:)|fe80:(:[0-9A-Fa-f]{1,4}){0,4}%[0-9A-Fa-f]{1,}|::([fF]{4}(0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(.((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))){3}|([0-9A-Fa-f]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(.((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))){3})\\]|\\[v[a-f0-9][a-zA-Z0-9$_.+!*(),\"%&~;=:-]+\\])(:([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?|(/?[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?))|([a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?|(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)+/?))(\\?[a-zA-Z0-9$_.+!*(),\"%&~;=:@/?-]*)?(#[a-zA-Z0-9$_.+!*(),\"%&~;=:@/?-]*)?)(,[ \t]*(urn:[a-zA-Z0-9][a-zA-Z0-9-]{1,31}:[a-zA-Z0-9()+,\\.:=@;$_!*'%/?#-]+|([a-zA-Z][a-zA-Z0-9+.-]*:(//(([a-zA-Z0-9$_.+!*(),\"%&~;=-]+)(:([a-zA-Z0-9$_.+!*(),\"%&~;=-]+))?@)?([a-zA-Z0-9%._~-]+|\\[(([0-9A-Fa-f]{1,4}:){7,7}[0-9A-Fa-f]{1,4}|([0-9A-Fa-f]{1,4}:){1,7}:|([0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4}|([0-9A-Fa-f]{1,4}:){1,5}(:[0-9A-Fa-f]{1,4}){1,2}|([0-9A-Fa-f]{1,4}:){1,4}(:[0-9A-Fa-f]{1,4}){1,3}|([0-9A-Fa-f]{1,4}:){1,3}(:[0-9A-Fa-f]{1,4}){1,4}|([0-9A-Fa-f]{1,4}:){1,2}(:[0-9A-Fa-f]{1,4}){1,5}|[0-9A-Fa-f]{1,4}:((:[0-9A-Fa-f]{1,4}){1,6})|:((:[0-9A-Fa-f]{1,4}){1,7}|:)|fe80:(:[0-9A-Fa-f]{1,4}){0,4}%[0-9A-Fa-f]{1,}|::([fF]{4}(0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(.((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))){3}|([0-9A-Fa-f]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))(.((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))){3})\\]|\\[v[a-f0-9][a-zA-Z0-9$_.+!*(),\"%&~;=:-]+\\])(:([0-9]{1,4}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]))?(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?|(/?[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?))|([a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)*/?|(/[a-zA-Z0-9$_.+!*(),\"%&~;=:@-]+)+/?))(\\?[a-zA-Z0-9$_.+!*(),\"%&~;=:@/?-]*)?(#[a-zA-Z0-9$_.+!*(),\"%&~;=:@/?-]*)?))*",
+      "description": "List of Profiles"
+    },
+    "RatioType": {
+      "type": "string",
+      "pattern": "[0-9]*:[0-9]*",
+      "description": "Ratio Type for sar and par"
+    },
+    "FrameRateType": {
+      "type": "string",
+      "pattern": "[0-9]+(/[1-9][0-9]*)?",
+      "description": "Type for Frame Rate"
+    },
+    "RFC6838ContentTypeType": {
+      "type": "string",
+      "enum": [
+        "text",
+        "image",
+        "audio",
+        "video",
+        "application",
+        "font"
+      ],
+      "description": "Type for RFC6838 Content Type"
+    },
+    "StringNoWhitespaceType": {
+      "type": "string",
+      "pattern": "[^\\r\\n\\t \\p{Z}]*",
+      "description": "String without white spaces"
+    },
+    "ProducerReferenceTimeTypeType": {
+      "type": "string",
+      "enum": [
+        "encoder",
+        "captured",
+        "application"
+      ]
+    },
+    "AudioSamplingRateType": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "description": "Audio Sampling Rate",
+      "minLength": 1,
+      "maxLength": 2
+    },
+    "SAPType": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6,
+      "description": "Stream Access Point type enumeration"
+    },
+    "VideoScanType": {
+      "type": "string",
+      "enum": [
+        "progressive",
+        "interlaced",
+        "unknown"
+      ],
+      "description": "Video Scan type enumeration"
+    },
+    "TagType": {
+      "type": "string",
+      "description": "Tag"
+    },
+    "SwitchingTypeType": {
+      "type": "string",
+      "enum": [
+        "media",
+        "bitstream"
+      ],
+      "description": "Switching Type type enumeration"
+    },
+    "RandomAccessTypeType": {
+      "type": "string",
+      "enum": [
+        "closed",
+        "open",
+        "gradual"
+      ],
+      "description": "Random Access Type type enumeration"
+    },
+    "PreselectionOrderType": {
+      "type": "string",
+      "enum": [
+        "undefined",
+        "time-ordered",
+        "fully-ordered"
+      ],
+      "description": "Preselection Order type"
+    },
+    "SingleRFC7233RangeType": {
+      "type": "string",
+      "pattern": "([0-9]*)(-([0-9]*))?"
+    },
+    "StringVectorType": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Whitespace-separated list of strings"
+    },
+    "ListOf4CCType": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FourCCType"
+      },
+      "description": "Whitespace separated list of 4CC"
+    },
+    "FourCCType": {
+      "type": "string",
+      "description": "4CC as per latest 14496-12"
+    },
+    "UIntVectorType": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4294967295
+      },
+      "description": "Whitespace-separated list of unsigned integers"
+    },
+    "CodecsType": {
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "[a-zA-Z-]+'[a-zA-Z]{1,8}(-[a-zA-Z]{1,8})*'(%[0-9A-Fa-f]{2}|[a-zA-Z0-9$_.+!#\\\\^{}|`~&-])+(\\.(%[0-9A-Fa-f]{2}|[a-zA-Z0-9$_.+!#\\\\^{}|`~&-])+)*(,(%[0-9A-Fa-f]{2}|[a-zA-Z0-9$_.+!#\\\\^{}|`~&-])+(\\.(%[0-9A-Fa-f]{2}|[a-zA-Z0-9$_.+!#\\\\^{}|`~&-])+)*)*"
+        },
+        {
+          "type": "string",
+          "pattern": "[a-zA-Z0-9$_.+^|'`%!*#\\\\~&-]+(,[a-zA-Z0-9$_.+^|'`%!*#\\\\~&-]+)*"
+        }
+      ]
+    },
+    "StringNoWhitespaceVectorType": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/StringNoWhitespaceType"
+      },
+      "description": "Whitespace-separated list of no-whitespace strings"
+    },
+    "typeType": {
+      "type": "string",
+      "enum": [
+        "simple",
+        "extended",
+        "title",
+        "resource",
+        "locator",
+        "arc"
+      ]
+    },
+    "hrefType": {
+      "type": "string",
+      "format": "uri-reference"
+    },
+    "roleType": {
+      "type": "string",
+      "format": "uri-reference",
+      "minLength": 1
+    },
+    "arcroleType": {
+      "type": "string",
+      "format": "uri-reference",
+      "minLength": 1
+    },
+    "titleAttrType": {
+      "type": "string"
+    },
+    "showType": {
+      "type": "string",
+      "enum": [
+        "new",
+        "replace",
+        "embed",
+        "other",
+        "none"
+      ]
+    },
+    "actuateType": {
+      "type": "string",
+      "enum": [
+        "onLoad",
+        "onRequest",
+        "other",
+        "none"
+      ]
+    },
+    "labelType": {
+      "type": "string",
+      "pattern": "^[\\p{L}_][\\p{L}\\p{N}._-]*$"
+    },
+    "fromType": {
+      "type": "string",
+      "pattern": "^[\\p{L}_][\\p{L}\\p{N}._-]*$"
+    },
+    "toType": {
+      "type": "string",
+      "pattern": "^[\\p{L}_][\\p{L}\\p{N}._-]*$"
+    }
+  }
+}

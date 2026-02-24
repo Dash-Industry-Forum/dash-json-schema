@@ -1,0 +1,9 @@
+# Keep generated reference schemas tracked
+output/**
+!output/dash-mpd.schema.json
+!output/dash-mpd-patch.schema.json
+dist/
+.python-version
+__pycache__
+node_modules
+.DS_Store

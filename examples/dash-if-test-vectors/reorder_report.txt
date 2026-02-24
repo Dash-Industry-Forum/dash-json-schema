@@ -1,0 +1,24 @@
+MPD Element Reordering Report
+Date: 2026-02-10 13:38:01
+Directory: /Users/thasso/castlabs/projects/dash-spec/json-scheme/examples/dash-if-test-vectors/downloaded_mpds
+Mode: APPLIED
+Files scanned: 251
+Files modified: 4
+Files OK: 244
+Files errored: 3
+
+Files reordered:
+  downloaded_mpds/row_146__HTTPSReporting-OK-MultiRes.mpd
+    Reordered children of: Metrics
+  downloaded_mpds/row_147__WSSReporting-OK-MultiRes.mpd
+    Reordered children of: Metrics
+  downloaded_mpds/row_52__WSSReporting-OK-MultiRes.mpd
+    Reordered children of: Metrics
+  downloaded_mpds/row_53__HTTPSReporting-Conf-OK-MultiRes.mpd
+    Reordered children of: Metrics
+
+Files with errors:
+  downloaded_mpds/Test_Vector_21__Manifest.mpd: XML parse error: syntax error: line 1, column 0
+  downloaded_mpds/Test_Vector_25__Manifest.mpd: XML parse error: syntax error: line 1, column 0
+  downloaded_mpds/Test_Vector_9__Axinom-DRM-in-disconnected-environments_HEVC_MultiRes_MultiRate_25fps.mpd: XML parse error: not well-formed (invalid token): line 29, column 14
+

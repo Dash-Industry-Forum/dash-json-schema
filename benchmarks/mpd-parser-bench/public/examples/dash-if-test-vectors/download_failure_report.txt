@@ -1,0 +1,27 @@
+================================================================================
+DASH-IF TEST VECTOR MPD DOWNLOAD - FAILURE REPORT
+Generated: 2026-02-10 09:13:45
+================================================================================
+
+Total failed downloads: 4
+
+[68] Dynamic Segment, 1
+    Identifier: Test Vector 1
+    URL: http://54.72.87.160/stattodyn/statodyn.php?type=mpd&pt=1376172180&tsbd=120&origmpd=https%3A%2F%2Fdash.akamaized.net%2Fdash264%2FTestCases%2F1b%2Fqualcomm%2F2%2FMultiRate.mpd&php=http%3A%2F%2Fdasher.eu5.org%2Fstatodyn.php&mpd=&debug=0&hack=.mpd
+    Error: Not an MPD file (different extension)
+
+[69] Dynamic Segment, 2
+    Identifier: Test Vector 2
+    URL: http://54.72.87.160/stattodyn/statodyn.php?type=mpd&pt=1376172390&tsbd=120&origmpd=http%3A%2F%2Fdash.akamaized.net%2Fdash264%2FTestCases%2F1b%2Fqualcomm%2F2%2FMultiRate.mpd&php=http%3A%2F%2Fdasher.eu5.org%2Fstatodyn.php&mpd=&debug=0&hack=.mpd
+    Error: Not an MPD file (different extension)
+
+[70] Dynamic Segment, 3
+    Identifier: Test Vector 3
+    URL: http://54.72.87.160/stattodyn/statodyn.php?type=mpd&pt=1376172485&tsbd=10&origmpd=http%3A%2F%2Fdash.akamaized.net%2Fdash264%2FTestCases%2F1b%2Fqualcomm%2F1%2FMultiRatePatched.mpd&php=http%3A%2F%2Fdasher.eu5.org%2Fstatodyn.php&mpd=&debug=0&hack=.mpd
+    Error: Not an MPD file (different extension)
+
+[125] Live (dynamic) with PTO
+    Identifier: Test Vector 10
+    URL: https://livesim.dashif.org/livesim/periods_0/peroff_1/testpic_2s/Manifest.mpd
+    Error: Downloaded file is empty
+

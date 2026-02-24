@@ -1,0 +1,162 @@
+================================================================================
+DASH-IF TEST VECTOR MPD DOWNLOAD - MODIFIED URLS REPORT
+Generated: 2026-02-10 09:13:45
+================================================================================
+
+Total modified URLs: 19
+
+These URLs were automatically fixed to enable successful download:
+(livesim-dev -> livesim)
+
+[112] Live (dynamic) with 2 period remote entity
+    Identifier: Test Vector 1
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/xlink_30/insertad_2/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_2/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_1__Manifest.mpd
+
+[113] Live (dynamic) with a 404 xlink
+    Identifier: Test Vector 2
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/xlink_30/insertad_4/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_4/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_2__Manifest.mpd
+
+[115] Live (dynamic) with default content in xlink period
+    Identifier: Test Vector 3
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/xlink_30/insertad_5/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_5/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_3__Manifest.mpd
+
+[118] Live (dynamic) with multiple BaseURL
+    Identifier: Test Vector 21
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Basic dynamic service offerings
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/baseurl_d40_u20/baseurl_u40_d20/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/baseurl_d40_u20/baseurl_u40_d20/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_21__Manifest.mpd
+
+[119] Live (dynamic) with multiple BaseURL, period addition
+    Identifier: Test Vector 5
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Multiple BaseURL
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/baseurl_u10_d20/baseurl_d10_u20/periods_10/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/baseurl_u10_d20/baseurl_d10_u20/periods_10/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_5__Manifest.mpd
+
+[120] Live (dynamic) with multiple periods
+    Identifier: Test Vector 6
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Multi-Period
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_6__Manifest.mpd
+
+[122] Live (dynamic) with period continuity
+    Identifier: Test Vector 7
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Continuous Multi-Period
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/continuous_1/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/continuous_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_7__Manifest.mpd
+
+[123] Live (dynamic) with period duration, early termination
+    Identifier: Test Vector 9
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Early Terminated Period
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/etp_30/etpDuration_10/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/etp_30/etpDuration_10/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_9__Manifest.mpd
+
+[124] Live (dynamic) with period duration, early termination default
+    Identifier: Test Vector 8
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Early Terminated Period
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/etp_30/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/etp_30/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_8__Manifest.mpd
+
+[126] Live (dynamic) with PTO, period addition
+    Identifier: Test Vector 11
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Presentation Time Offset
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_2/peroff_1/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_2/peroff_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_11__Manifest.mpd
+
+[128] Live (dynamic) with SegmentTemplate ('$Number$')
+    Identifier: Test Vector 13
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Template ($Number$)
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_1/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_13__Manifest.mpd
+
+[129] Live (dynamic) with SegmentTemplate ('$Time$')
+    Identifier: Test Vector 14
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Template ($Time$)
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/segtimeline_1/testpic_6s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/segtimeline_1/testpic_6s/Manifest.mpd
+    Saved as: Test_Vector_14__Manifest.mpd
+
+[130] Live (dynamic) with SegmentTemplate (@duration)
+    Identifier: Test Vector 12
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Constant Segment Duration
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_12__Manifest.mpd
+
+[131] Live (dynamic) with SegmentTimeline
+    Identifier: Test Vector 15
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Segment Timeline
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/segtimeline_1/testpic_6s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/segtimeline_1/testpic_6s/Manifest.mpd
+    Saved as: Test_Vector_15__Manifest.mpd
+
+[132] Live (dynamic) with single period
+    Identifier: Test Vector 16
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Single Period 24/7
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_1/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_16__Manifest.mpd
+
+[135] Live (dynamic) with UTCTiming (NTP)
+    Identifier: Test Vector 17
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: UTC Timing
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/utc_ntp/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/utc_ntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_17__Manifest.mpd
+
+[136] Live (dynamic) with UTCTiming (SNTP)
+    Identifier: Test Vector 18
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: UTC Timing
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/utc_sntp/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/utc_sntp/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_18__Manifest.mpd
+
+[138] Live (dynamic), remote entity with xlink
+    Identifier: Test Vector 19
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/xlink_30/insertad_3/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_3/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_19__Manifest.mpd
+
+[143] Live with xlink period, continuous with asset identifier
+    Identifier: Test Vector 20
+    Feature: Dynamic Segment Offering with MPD Update
+    Testcase: Xlink
+    ORIGINAL URL: https://livesim.dashif.org/livesim-dev/periods_60/xlink_30/insertad_1/testpic_2s/Manifest.mpd
+    MODIFIED URL: https://livesim.dashif.org/livesim/periods_60/xlink_30/insertad_1/testpic_2s/Manifest.mpd
+    Saved as: Test_Vector_20__Manifest.mpd
+

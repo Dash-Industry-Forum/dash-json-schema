@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" availabilityStartTime="2023-01-01T00:00:00.740Z" id="1" maxSegmentDuration="PT2S" minBufferTime="PT2S" minimumUpdatePeriod="PT2S" type="dynamic" profiles="urn:mpeg:dash:profile:isoff-live:2011,urn:hbbtv:dash:profile:isoff-live:2012" publishTime="2026-02-09T07:54:37Z" timeShiftBufferDepth="PT30S">
+<ServiceDescription id="0"><Scope schemeIdUri="urn:dvb:dash:lowlatency:scope:2019" value="true" /><Latency max="4000" min="1500" referenceId="0" target="2000" /><PlaybackRate max="1.04" min="0.96" /></ServiceDescription>
+  <Period id="p0" start="PT0S">
+    <BaseURL>dash/</BaseURL>
+    <AdaptationSet contentType="audio" segmentAlignment="true" lang="eng">
+      <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2"/>
+      <SegmentTemplate media="$RepresentationID$-time_$Time$.m4s" initialization="$RepresentationID$_init.mp4" timescale="10000000" availabilityTimeComplete="false" availabilityTimeOffset="1.8">
+        <SegmentTimeline>
+          <S t="980924480080000" d="20053333" r="1"/>
+          <S t="980924520186667" d="19840000"/>
+          <S t="980924540026667" d="20053333" r="2"/>
+          <S t="980924600186667" d="19840000"/>
+          <S t="980924620026667" d="20053333" r="2"/>
+          <S t="980924680186667" d="19840000"/>
+          <S t="980924700026667" d="20053333" r="2"/>
+          <S t="980924760186667" d="20000000"/>
+        </SegmentTimeline>
+      </SegmentTemplate>
+      <Representation bandwidth="147200" codecs="mp4a.40.2" id="147200_mp4a_40_2_2ch_48000Hz_16bits_eng" mimeType="audio/mp4" audioSamplingRate="48000"/>
+    </AdaptationSet>
+    <AdaptationSet contentType="video" segmentAlignment="true" lang="und">
+      <SegmentTemplate media="$RepresentationID$-time_$Time$.m4s" initialization="$RepresentationID$_init.mp4" timescale="10000000" availabilityTimeComplete="false" availabilityTimeOffset="1.8">
+        <SegmentTimeline>
+          <S t="980924480400000" d="20000000" r="13"/>
+          <S t="980924760400000" d="20000000"/>
+        </SegmentTimeline>
+      </SegmentTemplate>
+      <Representation bandwidth="5779200" codecs="avc1.640028" id="5779200_avc1_640028_1920x1080_25_1" mimeType="video/mp4" frameRate="25/1" width="1920" height="1080" sar="1:1" startWithSAP="1"/>
+      <Representation bandwidth="3735600" codecs="avc1.4d4029" id="3735600_avc1_4d0029_1280x720_25_1" mimeType="video/mp4" frameRate="25/1" width="1280" height="720" sar="1:1" startWithSAP="1"/>
+      <Representation bandwidth="676800" codecs="avc1.4d4028" id="676800_avc1_4d0028_640x360_25_2" mimeType="video/mp4" frameRate="25/2" width="640" height="360" sar="1:1" startWithSAP="1"/>
+    </AdaptationSet>
+  </Period>
+  <UTCTiming schemeIdUri="urn:mpeg:dash:utc:direct:2014" value="2026-02-09T07:54:37.780000Z"/>
+</MPD>

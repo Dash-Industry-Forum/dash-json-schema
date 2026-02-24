@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/PatchType",
+  "properties": {
+    "$ns": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "prefix": {
+                "type": "string"
+              },
+              "attributes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of attribute local names defined in this namespace. These are emitted as XML attributes (prefix:name=\"value\") rather than child elements."
+              },
+              "defaultNs": {
+                "type": "boolean",
+                "description": "When true, the namespace was declared as a default namespace redeclaration (xmlns=\"...\") on the element itself, rather than using a prefix."
+              }
+            },
+            "required": [
+              "prefix"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "description": "Namespace declarations mapping namespace URIs to prefixes. Values are either a prefix string or an object with prefix and optional attributes list. Appears only at the root level of the JSON document. Each prefix maps to exactly one URI and each URI maps to exactly one prefix."
+    }
+  },
+  "$defs": {
+    "PatchType": {
+      "type": "object",
+      "additionalProperties": true,
+      "x-xml-any-attribute": true,
+      "properties": {
+        "operations": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "add": {
+                    "$ref": "#/$defs/add"
+                  }
+                },
+                "required": [
+                  "add"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "remove": {
+                    "$ref": "#/$defs/remove"
+                  }
+                },
+                "required": [
+                  "remove"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "replace": {
+                    "$ref": "#/$defs/replace"
+                  }
+                },
+                "required": [
+                  "replace"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "x-xml-any": true,
+                "additionalProperties": true,
+                "description": "Extension element from another namespace.",
+                "not": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "add"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "remove"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "replace"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "minItems": 1,
+          "description": "Ordered list of operations. Each item is one of the choice options. Order is semantically significant and MUST be preserved."
+        },
+        "mpdId": {
+          "type": "string",
+          "x-xml-attribute": true
+        },
+        "publishTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        },
+        "originalPublishTime": {
+          "type": "string",
+          "format": "iso-date-time",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "operations",
+        "mpdId",
+        "publishTime",
+        "originalPublishTime"
+      ]
+    },
+    "add": {
+      "type": "object",
+      "properties": {
+        "sel": {
+          "$ref": "#/$defs/xpath_add",
+          "x-xml-attribute": true
+        },
+        "pos": {
+          "$ref": "#/$defs/pos",
+          "x-xml-attribute": true
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "x-xml-attribute": true
+        },
+        "$value": {
+          "type": "string",
+          "description": "Text content of the element."
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "required": [
+        "sel"
+      ]
+    },
+    "replace": {
+      "type": "object",
+      "properties": {
+        "sel": {
+          "$ref": "#/$defs/xpath",
+          "x-xml-attribute": true
+        },
+        "$value": {
+          "type": "string",
+          "description": "Text content of the element."
+        }
+      },
+      "x-xml-any": true,
+      "additionalProperties": true,
+      "required": [
+        "sel"
+      ]
+    },
+    "remove": {
+      "type": "object",
+      "properties": {
+        "sel": {
+          "$ref": "#/$defs/xpath",
+          "x-xml-attribute": true
+        },
+        "ws": {
+          "$ref": "#/$defs/ws",
+          "x-xml-attribute": true
+        }
+      },
+      "required": [
+        "sel"
+      ]
+    },
+    "xpath": {
+      "type": "string",
+      "pattern": "(/)?((id\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|id\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")?\\))((/(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*)*(/((text\\(\\)(\\[\\d+\\])?)|(comment\\(\\)(\\[\\d+\\])?)|((processing-instruction\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|processing-instruction\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")\\))(\\[\\d+\\])?)|(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*|@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|namespace::[a-zA-Z_][a-zA-Z0-9._-]*)))?|((([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*/)*(((text\\(\\)(\\[\\d+\\])?)|(comment\\(\\)(\\[\\d+\\])?)|((processing-instruction\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|processing-instruction\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")\\))(\\[\\d+\\])?)|(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*|@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|namespace::[a-zA-Z_][a-zA-Z0-9._-]*)))"
+    },
+    "xpath_add": {
+      "type": "string",
+      "pattern": "(/)?((id\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|id\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")?\\))((/(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*)*(/(text\\(\\)(\\[\\d+\\])?)|(comment\\(\\)(\\[\\d+\\])?)|((processing-instruction\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|processing-instruction\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")\\))(\\[\\d+\\])?)|(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*))?|((([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*/)*((text\\(\\)(\\[\\d+\\])?)|(comment\\(\\)(\\[\\d+\\])?)|((processing-instruction\\(('[a-zA-Z_][a-zA-Z0-9._-]*')?\\)|processing-instruction\\((\"[a-zA-Z_][a-zA-Z0-9._-]*\")\\))(\\[\\d+\\])?)|(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\*)(\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*='(.)*'\\]|\\[@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*=\"(.)*\"\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)='(.)*'\\]|\\[(([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|\\.)=\"(.)*\"\\]|\\[\\d+\\])*))"
+    },
+    "pos": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after",
+        "prepend"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "pattern": "@([a-zA-Z_][a-zA-Z0-9._-]*:)?[a-zA-Z_][a-zA-Z0-9._-]*|namespace::[a-zA-Z_][a-zA-Z0-9._-]*"
+    },
+    "ws": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after",
+        "both"
+      ]
+    }
+  }
+}
