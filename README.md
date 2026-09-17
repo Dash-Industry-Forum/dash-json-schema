@@ -185,7 +185,36 @@ When converting MPD XML to JSON, the following conventions are used:
 }
 ```
 
-Namespace declarations are collected at the root `$ns` object only. Each prefix maps to exactly one URI and vice versa. See `docs/dash-json-representation.md` Section 9 for the full specification.
+Namespace declarations are collected at the root `$ns` object only. Each prefix maps to exactly one URI and vice versa. See the [specification](#specification), section "Namespace Handling", for the full rules.
+
+## Specification
+
+The normative description of the JSON representation is a
+[Bikeshed](https://speced.github.io/bikeshed/) document, following the DASH-IF
+authoring workflow (see the
+[DASH-IF-IOP authoring guide](https://dashif.org/DASH-IF-IOP/authoring/)):
+
+- `docs/dash-json.md` - the text
+- `docs/dash-json.bs` - the Bikeshed metadata; includes `dash-json.md`
+- `docs/Images/` - static images referenced from the text
+
+The published version is at
+<https://dash-industry-forum.github.io/dash-json-schema/> (built from `main` by
+the `publish-bikeshed` workflow; pull requests build a `dist` artifact for
+review).
+
+To build locally you need Docker; the DASH-IF builder image contains Bikeshed and
+the DASH-IF boilerplate. Output goes to `docs/dist/`:
+
+```bash
+./build.sh              # HTML + PDF
+./build.sh spec.html    # HTML only
+./build.sh spec-watch   # rebuild on change, Ctrl-C to stop
+./build.sh spec-serve   # rebuild on change and serve on http://localhost:8000
+./build.sh help         # all targets
+```
+
+On Windows use `build.bat` with the same arguments.
 
 ## Prerequisites
 
