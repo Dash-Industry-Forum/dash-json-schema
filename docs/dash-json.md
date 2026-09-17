@@ -1,34 +1,7 @@
-# JSON Representation of DASH MPD
+# Introduction # {#introduction}
 
-**Status:** Draft
-
-**Version:** 0.1
-
-**Date:** 2026-02-10
-
-## Table of Contents
-
-1. [Introduction](#1-introduction)
-2. [Scope](#2-scope)
-3. [Normative References](#3-normative-references)
-4. [Terms and Definitions](#4-terms-and-definitions)
-5. [Motivation](#5-motivation)
-6. [General Approach](#6-general-approach)
-7. [Schema Conversion: XSD to JSON Schema](#7-schema-conversion-xsd-to-json-schema)
-8. [Document Conversion: XML to JSON](#8-document-conversion-xml-to-json)
-9. [Namespace Handling](#9-namespace-handling)
-10. [Document Conversion: JSON to XML](#10-document-conversion-json-to-xml)
-11. [JSON Schema Validation](#11-json-schema-validation)
-12. [MPD Patch Documents](#12-mpd-patch-documents)
-13. [Remote Element Loading (XLink)](#13-remote-element-loading-xlink)
-14. [Conformance](#14-conformance)
-
----
-
-## 1. Introduction
-
-The MPEG-DASH Media Presentation Description (MPD) is an XML document whose
-structure is governed by the MPD XSD schema specified in ISO/IEC 23009-1. While
+The MPEG-DASH Media Presentation Description ([=MPD=]) is an XML document whose
+structure is governed by the MPD [=XSD=] schema specified in ISO/IEC 23009-1 [[!MPEGDASH]]. While
 XML has served the streaming industry well, the broader web development
 ecosystem has largely standardized on JSON as the preferred data interchange
 format. JavaScript-based clients, REST APIs, and modern tooling all work
@@ -52,9 +25,9 @@ DASH MPD documents in JSON format. The approach ensures:
 - **Round-trip fidelity** - an MPD can be converted from XML to JSON and back to
   XML without loss of information
 - **Schema validity** - the JSON representation is derived mechanically from the
-  MPD XSD, and can be validated using a generated JSON Schema. The normative
+  MPD XSD, and can be validated using a generated [=JSON Schema=]. The normative
   reference for what is allowed and required remains the MPD XSD (see
-  Section 14)
+  [[#conformance]])
 - **Extension preservation** - third-party namespace extensions (DRM signaling,
   proprietary metadata, etc.) survive the conversion
 - **Parsing performance** - JSON parsing is natively optimized in JavaScript
@@ -70,18 +43,19 @@ produce clean, idiomatic JSON that a JavaScript developer would expect. The full
 generality of XML namespaces can introduce ambiguity and complexity in JSON. To
 avoid this, the specification imposes deliberate constraints. These constraints
 cover most real-world DASH content while keeping the JSON format efficient and
-easy to parse (see Section 9.7).
+easy to parse (see [[#namespace-constraints]]).
 
-## 2. Scope
+# Scope # {#scope}
 
 This document covers:
 
-- The rules for converting the MPD XSD (ISO/IEC 23009-1) into a JSON Schema
-  conforming to
-  [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12)
+- The rules for converting the MPD XSD ([[!MPEGDASH]]) into a JSON Schema
+  conforming to JSON Schema Draft 2020-12 [[!JSON-SCHEMA]]
 - The rules for converting an MPD XML document into a conforming JSON document
+  [[!RFC8259]]
 - The rules for converting a JSON MPD document back into valid XML
-- The handling of XML namespaces, extension points, and non-DASH content
+- The handling of XML namespaces [[!XML-NAMES]], extension points, and non-DASH
+  content
 - The constraints imposed on XML namespace usage to ensure a clean, efficient,
   and unambiguous JSON representation
 
@@ -92,52 +66,57 @@ This document does not:
 - Modify or extend the DASH data model itself
 - Specify a transport mechanisms for JSON-encoded MPD
 - Provide a general-purpose XML-to-JSON namespace mapping - the constraints in
-  Section 9 are specific to the DASH use case and prioritize JSON simplicity
+  [[#namespace-handling]] are specific to the DASH use case and prioritize JSON simplicity
   over full XML namespace generality
 
-## 3. Normative References
+The MPD XSD referenced throughout this document is the schema published with
+[[!MPEGDASH]]. A copy is maintained as `xml-schemas/DASH-MPD.xsd` in the
+[reference implementation repository](https://github.com/Dash-Industry-Forum/dash-json-schema)
+together with the generated JSON Schema.
 
-| Reference                                                          | Description                                                                                                                       |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| [ISO/IEC 23009-1](https://www.iso.org/standard/83314.html)         | Information technology - Dynamic adaptive streaming over HTTP (DASH) - Part 1: Media presentation description and segment formats |
-| [RFC 8259](https://datatracker.ietf.org/doc/html/rfc8259)          | The JavaScript Object Notation (JSON) Data Interchange Format                                                                     |
-| [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) | JSON Schema: A Media Type for Describing JSON Documents (draft-bhutton-json-schema-01)                                            |
-| [W3C XML Schema 1.0](https://www.w3.org/TR/xmlschema-1/)           | XML Schema Part 1: Structures, Part 2: Datatypes                                                                                  |
-| [W3C XLink 1.1](https://www.w3.org/TR/xlink11/)                    | XML Linking Language (XLink) Version 1.1                                                                                          |
-| [W3C Namespaces in XML](https://www.w3.org/TR/xml-names/)          | Namespaces in XML 1.0 (Third Edition)                                                                                             |
-| `xml-schemas/DASH-MPD.xsd`                                         | Repository reference MPD XSD used as the normative schema for this specification                                                  |
+## Conventions ## {#conventions}
 
-## 4. Terms and Definitions
+The key words *shall*, *shall not*, *should*, *should not* and *may* in this
+document are to be interpreted as described in [[!RFC2119]] when written in
+uppercase (SHALL, SHOULD, MAY). Other uses of these words carry their ordinary
+meaning.
 
-**MPD** : Media Presentation Description. The XML document describing DASH
-content.
+# Terms and Definitions # {#terms-and-definitions}
 
-**XSD** : XML Schema Definition. The W3C schema language used to define the
-structure of the MPD.
+: <dfn export>MPD</dfn>
+:: Media Presentation Description. The XML document describing DASH content,
+   defined in [[!MPEGDASH]].
 
-**JSON Schema** : A vocabulary for annotating and validating JSON documents.
-This document targets
-[JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12).
+: <dfn export>XSD</dfn>
+:: XML Schema Definition. The W3C schema language [[!XMLSCHEMA-1]]
+   [[!XMLSCHEMA-2]] used to define the structure of the MPD.
 
-**DASH namespace** : The XML namespace `urn:mpeg:dash:schema:mpd:2011`, which is
-the target namespace of the MPD XSD.
+: <dfn export>JSON Schema</dfn>
+:: A vocabulary for annotating and validating JSON documents. This document
+   targets JSON Schema Draft 2020-12 [[!JSON-SCHEMA]].
 
-**Extension content** : XML elements or attributes from namespaces other than
-the DASH namespace, permitted by `xs:any` and `xs:anyAttribute` wildcards in the
-MPD XSD.
+: <dfn export>DASH namespace</dfn>
+:: The XML namespace `urn:mpeg:dash:schema:mpd:2011`, which is the target
+   namespace of the MPD XSD.
 
-**Simple content element** : An XML element whose XSD type is
-`xs:simpleContent` - it carries text content and may have attributes.
+: <dfn export>extension content</dfn>
+:: XML elements or attributes from namespaces other than the [=DASH namespace=],
+   permitted by `xs:any` and `xs:anyAttribute` wildcards in the MPD XSD.
 
-**`$value`** : The reserved JSON property name used to carry the text content of
-a simple content element.
+: <dfn export>simple content element</dfn>
+:: An XML element whose XSD type is `xs:simpleContent` - it carries text content
+   and may have attributes.
 
-**`$ns`** : The reserved JSON property name used to carry namespace
-declarations.
+: <dfn export>`$value`</dfn>
+:: The reserved JSON property name used to carry the text content of a
+   [=simple content element=].
 
-## 5. Motivation
+: <dfn export>`$ns`</dfn>
+:: The reserved JSON property name used to carry namespace declarations.
 
-### 5.1 JSON as the Dominant Data Interchange Format
+# Motivation # {#motivation}
+
+## JSON as the Dominant Data Interchange Format ## {#json-as-the-dominant-data-interchange-format}
 
 JSON has become one of the dominant data interchange formats across the software
 industry. It is the default for REST APIs, cloud services, configuration
@@ -155,7 +134,7 @@ impedance mismatch adds complexity, code size, and potential for bugs - and the
 same applies to DASH implementations on other platforms where XML parsing
 requires a dedicated library while JSON parsing is built-in.
 
-### 5.2 Parsing Performance on Constrained Devices
+## Parsing Performance on Constrained Devices ## {#parsing-performance-on-constrained-devices}
 
 While XML parsing libraries are widely available and mature, their performance
 characteristics vary significantly across platforms. DASH clients run on a broad
@@ -177,7 +156,7 @@ eliminate XML parsing entirely from the manifest processing path, reducing
 latency during initial load and periodic manifest refreshes in live streaming
 scenarios.
 
-### 5.3 Limitations of Ad-Hoc Conversion
+## Limitations of Ad-Hoc Conversion ## {#limitations-of-ad-hoc-conversion}
 
 Existing DASH players typically implement their own XML-to-object mapping, each
 with different conventions for handling attributes, child elements, text
@@ -189,7 +168,7 @@ content, and type coercion. These ad-hoc approaches:
 - Handle extension content inconsistently or not at all
 - Cannot guarantee round-trip fidelity
 
-### 5.4 Namespace Simplicity as a Design Goal
+## Namespace Simplicity as a Design Goal ## {#namespace-simplicity-as-a-design-goal}
 
 XML namespaces provide a powerful mechanism for mixing vocabularies within a
 single document. However, their full generality - prefix rebinding, default
@@ -209,13 +188,13 @@ URI - creates significant challenges when mapping to JSON:
   deeply nested elements) are rare in the DASH ecosystem.
 
 This specification therefore imposes deliberate constraints on namespace usage
-(detailed in Section 9.7) that cover the vast majority of real-world DASH
+(detailed in [[#namespace-constraints]]) that cover the vast majority of real-world DASH
 content while keeping the JSON representation clean, efficient, and easy to
 implement. MPD authors whose content falls outside these constraints can
 refactor their namespace declarations (typically by moving all declarations to
 the root element with unique prefixes).
 
-### 5.5 Goals of This Specification
+## Goals of This Specification ## {#goals-of-this-specification}
 
 This specification provides a single, deterministic mapping that:
 
@@ -237,7 +216,7 @@ This specification provides a single, deterministic mapping that:
    consume, and validate, imposing minimal namespace-related complexity on
    implementers
 
-## 6. General Approach
+# General Approach # {#general-approach}
 
 The conversion operates at two levels:
 
@@ -250,9 +229,9 @@ Both conversions are **schema-driven**: the MPD XSD determines how each XML
 construct maps to JSON. This is fundamentally different from generic XML-to-JSON
 converters, which must use heuristics because they lack schema information.
 
-### 6.1 Design Principles
+## Design Principles ## {#design-principles}
 
-#### 6.1.1 Attributes Are Properties
+### Attributes Are Properties ### {#attributes-are-properties}
 
 XML attributes become direct properties on the JSON object that represents the
 element. There is no prefix or special marker to distinguish them from child
@@ -275,7 +254,7 @@ child element names within the same type do not collide.
 }
 ```
 
-#### 6.1.2 Child Elements Are Properties
+### Child Elements Are Properties ### {#child-elements-are-properties}
 
 Child elements also become properties on the parent object. The property name is
 the element's local name (without namespace prefix for DASH namespace elements).
@@ -313,7 +292,7 @@ these JSON property names do not collide.
 }
 ```
 
-#### 6.1.3 Repeated Elements Are Arrays
+### Repeated Elements Are Arrays ### {#repeated-elements-are-arrays}
 
 Any element that can appear more than once (i.e., `maxOccurs` > 1 in the MPD
 XSD) is always represented as a JSON array, even when only one instance is
@@ -334,7 +313,7 @@ array and do not need to check whether a value is an object or an array.
 }
 ```
 
-#### 6.1.4 Singleton Elements Are Objects
+### Singleton Elements Are Objects ### {#singleton-elements-are-objects}
 
 Elements that can appear at most once (`maxOccurs` = 1) are represented directly
 as objects (not wrapped in arrays).
@@ -360,11 +339,11 @@ as objects (not wrapped in arrays).
 }
 ```
 
-#### 6.1.5 Text Content Uses $value
+### Text Content Uses `$value` ### {#text-content-uses-value}
 
-When an element has `xs:simpleContent` in its MPD XSD type definition (meaning
-it carries text content and may also have attributes), the text is placed in a
-special `$value` property. This applies consistently whenever the _schema_
+When an element is a [=simple content element=] (its MPD XSD type uses
+`xs:simpleContent`, meaning it carries text content and may also have
+attributes), the text is placed in the reserved [=$value=] property. This applies consistently whenever the *schema*
 defines possible attributes, even if a particular instance has no attributes
 present. The `$` prefix avoids collision with any MPD XSD-defined attribute or
 element name. At the same time, `$` is not a reserved character in JavaScript
@@ -402,18 +381,41 @@ element maps to a plain string (no `$value` wrapper):
 }
 ```
 
-#### 6.1.6 Types Are Coerced
+### Types Are Coerced ### {#types-are-coerced}
 
 XML represents all values as strings. JSON has distinct types for strings,
 numbers, booleans, and null. The conversion uses the MPD XSD type information to
 coerce values to their appropriate JSON types:
 
-| XSD Type                                               | JSON Schema Type | Example XML                    | Example JSON    |
-| ------------------------------------------------------ | ---------------- | ------------------------------ | --------------- |
-| `xs:string`, `xs:anyURI`, `xs:duration`, `xs:dateTime` | `string`         | `codecs="avc1.64001f"`         | `"avc1.64001f"` |
-| `xs:integer`, `xs:unsignedInt`, `xs:long`              | `integer`        | `bandwidth="5000000"`          | `5000000`       |
-| `xs:double`, `xs:float`                                | `number`         | `availabilityTimeOffset="5.0"` | `5.0`           |
-| `xs:boolean`                                           | `boolean`        | `segmentAlignment="true"`      | `true`          |
+<table class="data">
+  <thead>
+    <tr>
+      <th>XSD Type
+      <th>JSON Schema Type
+      <th>Example XML
+      <th>Example JSON
+  <tbody>
+    <tr>
+      <td>`xs:string`, `xs:anyURI`, `xs:duration`, `xs:dateTime`
+      <td>`string`
+      <td>`codecs="avc1.64001f"`
+      <td>`"avc1.64001f"`
+    <tr>
+      <td>`xs:integer`, `xs:unsignedInt`, `xs:long`
+      <td>`integer`
+      <td>`bandwidth="5000000"`
+      <td>`5000000`
+    <tr>
+      <td>`xs:double`, `xs:float`
+      <td>`number`
+      <td>`availabilityTimeOffset="5.0"`
+      <td>`5.0`
+    <tr>
+      <td>`xs:boolean`
+      <td>`boolean`
+      <td>`segmentAlignment="true"`
+      <td>`true`
+</table>
 
 The `ConditionalUintType` defined in the MPD XSD (a union of boolean and
 unsigned integer) is represented as a JSON Schema `oneOf` allowing either type.
@@ -423,9 +425,9 @@ can exceed the IEEE-754 safe integer range used by many JSON runtimes (notably
 JavaScript). This specification keeps these values as JSON numbers for
 compatibility. Implementations MAY lose numeric precision for sufficiently large
 values; conformance is ultimately determined by whether the JSON can be
-serialized into XSD-valid XML (Section 14).
+serialized into XSD-valid XML ([[#conformance]]).
 
-#### 6.1.7 XSD List Types Are Arrays
+### XSD List Types Are Arrays ### {#xsd-list-types-are-arrays}
 
 XSD `xs:list` types (space-separated values in a single attribute) become JSON
 arrays. For example, `UIntVectorType` (a list of unsigned integers) becomes an
@@ -448,32 +450,32 @@ array of integers.
 Similarly, `StringVectorType` (space-separated strings) becomes an array of
 strings.
 
-### 6.2 Element Ordering
+## Element Ordering ## {#element-ordering}
 
 The DASH specification assigns semantic meaning to the order of certain
 elements. For example:
 
-- **`BaseURL`** - when multiple `BaseURL` elements are present at the same
+- <strong>`BaseURL`</strong> - when multiple `BaseURL` elements are present at the same
   level, the first is used as the default in the absence of other criteria
-  (ISO/IEC 23009-1, 5.6.5)
-- **`Period`** - consecutive `Period` elements define the media timeline in
+  ([[!MPEGDASH]], 5.6.5)
+- <strong>`Period`</strong> - consecutive `Period` elements define the media timeline in
   presentation order
-- **`S`** - elements within a `SegmentTimeline` appear in segment numbering/time
+- <strong>`S`</strong> - elements within a `SegmentTimeline` appear in segment numbering/time
   order
-- **`UTCTiming`** - the order of `UTCTiming` elements in the MPD expresses the
+- <strong>`UTCTiming`</strong> - the order of `UTCTiming` elements in the MPD expresses the
   author's preference for UTC synchronization methods
-- **`Event`** - events within an `EventStream` are ordered by presentation time
+- <strong>`Event`</strong> - events within an `EventStream` are ordered by presentation time
 
 All of these order-significant elements are defined with `maxOccurs="unbounded"`
 in the MPD XSD and are represented as JSON arrays in the JSON Schema. Since JSON
-arrays are ordered by definition (RFC 8259), the element order is naturally
+arrays are ordered by definition ([[!RFC8259]]), the element order is naturally
 preserved.
 
 Implementations MUST preserve the order of array elements during conversion in
 both directions (XML to JSON and JSON to XML). The order of items in a JSON
 array MUST match the order of the corresponding XML child elements.
 
-#### 6.2.1 Sibling Order of Distinct Child Elements
+### Sibling Order of Distinct Child Elements ### {#sibling-order-of-distinct-child-elements}
 
 The MPD XSD uses `xs:sequence` to define the order in which different child
 element types appear within a parent (e.g., within a `Period`, `BaseURL`
@@ -483,12 +485,12 @@ JSON specification does not define ordering for object properties, this sibling
 order between different element types cannot be guaranteed.
 
 In practice, this is not a semantic concern: the DASH specification does not
-assign meaning to the relative ordering of _different_ child element types. A
+assign meaning to the relative ordering of *different* child element types. A
 client accesses `BaseURL` and `AdaptationSet` by property name, not by their
 relative position. The `xs:sequence` constraint is an XSD schema validation
 concern, not a data model requirement.
 
-#### 6.2.2 Property Ordering Recommendation
+### Property Ordering Recommendation ### {#property-ordering-recommendation}
 
 While there is no required ordering of properties within a JSON object, for
 readability, implementations SHOULD emit properties in the following order:
@@ -497,7 +499,7 @@ readability, implementations SHOULD emit properties in the following order:
 2. XML attributes (in schema definition order)
 3. Child elements (in schema definition order)
 
-## 7. Schema Conversion: XSD to JSON Schema
+# Schema Conversion: XSD to JSON Schema # {#schema-conversion-xsd-to-json-schema}
 
 The MPD XSD is mechanically converted to a
 [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12) document that
@@ -505,9 +507,9 @@ provides a validation artifact that can be checked automatically for the JSON
 representation. Because the MPD XSD includes wildcard extension points (`xs:any`
 and `xs:anyAttribute`), the generated JSON Schema is necessarily permissive in
 those areas (e.g., via `additionalProperties: true`). Conformance is therefore
-defined against the MPD XSD, using JSON-to-XML serialization (Section 14).
+defined against the MPD XSD, using JSON-to-XML serialization ([[#conformance]]).
 
-### 7.0.1 XML Mapping Annotations
+## XML Mapping Annotations ## {#xml-mapping-annotations}
 
 The generated JSON Schema MAY include non-standard, informational annotations to
 help implementations reconstruct XML faithfully. These annotations are not part
@@ -516,7 +518,7 @@ of JSON Schema Draft 2020-12 and MUST NOT affect validation results.
 - `x-xml-attribute: true`: Indicates the property corresponds to an XML
   attribute in the MPD XSD.
 
-### 7.1 Overall Structure
+## Overall Structure ## {#overall-structure}
 
 The generated JSON Schema uses `$defs` to define all types. The root schema
 references the `MPDtype` definition:
@@ -533,7 +535,7 @@ Each named `xs:complexType` and `xs:simpleType` in the MPD XSD becomes a named
 definition in `$defs`. The type name is preserved as-is (e.g., `PeriodType`,
 `AdaptationSetType`, `SegmentBaseType`).
 
-### 7.2 Complex Types
+## Complex Types ## {#complex-types}
 
 An `xs:complexType` with a sequence of child elements and attributes maps to a
 JSON Schema `object`:
@@ -583,12 +585,12 @@ Key rules:
   array wrapper).
 - **Required child elements** (`minOccurs` >= 1) are listed in the `"required"`
   array.
-- **Attributes** become properties with types mapped per Section 7.5.
+- **Attributes** become properties with types mapped per [[#built-in-type-mapping]].
 - **Required attributes** (`use="required"`) are listed in `"required"`.
 - **Fixed attributes** use `"const"` in JSON Schema.
 - **Default attribute values** use `"default"`.
 
-### 7.3 Simple Types
+## Simple Types ## {#simple-types}
 
 XSD simple types with restrictions map to JSON Schema with constraints:
 
@@ -614,18 +616,43 @@ XSD simple types with restrictions map to JSON Schema with constraints:
 }
 ```
 
-| XSD Restriction Facet | JSON Schema Keyword       |
-| --------------------- | ------------------------- |
-| `xs:enumeration`      | `enum`                    |
-| `xs:pattern`          | `pattern`                 |
-| `xs:minInclusive`     | `minimum`                 |
-| `xs:maxInclusive`     | `maximum`                 |
-| `xs:minExclusive`     | `exclusiveMinimum`        |
-| `xs:maxExclusive`     | `exclusiveMaximum`        |
-| `xs:minLength`        | `minLength`               |
-| `xs:maxLength`        | `maxLength`               |
-| `xs:length`           | `minLength` + `maxLength` |
-| `xs:whiteSpace`       | _(not mapped)_            |
+<table class="data">
+  <thead>
+    <tr>
+      <th>XSD Restriction Facet
+      <th>JSON Schema Keyword
+  <tbody>
+    <tr>
+      <td>`xs:enumeration`
+      <td>`enum`
+    <tr>
+      <td>`xs:pattern`
+      <td>`pattern`
+    <tr>
+      <td>`xs:minInclusive`
+      <td>`minimum`
+    <tr>
+      <td>`xs:maxInclusive`
+      <td>`maximum`
+    <tr>
+      <td>`xs:minExclusive`
+      <td>`exclusiveMinimum`
+    <tr>
+      <td>`xs:maxExclusive`
+      <td>`exclusiveMaximum`
+    <tr>
+      <td>`xs:minLength`
+      <td>`minLength`
+    <tr>
+      <td>`xs:maxLength`
+      <td>`maxLength`
+    <tr>
+      <td>`xs:length`
+      <td>`minLength` + `maxLength`
+    <tr>
+      <td>`xs:whiteSpace`
+      <td>*(not mapped)*
+</table>
 
 Note: The `xs:whiteSpace` facet controls whether an XML parser preserves,
 replaces, or collapses whitespace in string values. JSON has no equivalent
@@ -636,7 +663,7 @@ facet on any of its type definitions. The built-in XSD types used in the MPD
 rules that are already applied by the XML parser before the value reaches the
 converter.
 
-### 7.4 Simple Content
+## Simple Content ## {#simple-content}
 
 XSD types with `xs:simpleContent` (text content with attributes) map to JSON
 objects with a `$value` property:
@@ -676,33 +703,78 @@ The `$value` property carries the text content with the base type's constraints.
 It is always required because an `xs:simpleContent` element must have text
 content.
 
-### 7.5 Built-in Type Mapping
+## Built-in Type Mapping ## {#built-in-type-mapping}
 
 XSD built-in types map to JSON Schema types as follows:
 
-| XSD Type                              | JSON Schema Type | Format / Notes                       |
-| ------------------------------------- | ---------------- | ------------------------------------ |
-| `xs:string`                           | `string`         |                                      |
-| `xs:normalizedString`, `xs:token`     | `string`         |                                      |
-| `xs:language`                         | `string`         | `pattern` for BCP 47                 |
-| `xs:anyURI`                           | `string`         | `format: "uri-reference"`            |
-| `xs:integer`, `xs:int`, `xs:long`     | `integer`        | With appropriate `minimum`/`maximum` |
-| `xs:unsignedInt`, `xs:unsignedLong`   | `integer`        | `minimum: 0`                         |
-| `xs:double`, `xs:float`, `xs:decimal` | `number`         |                                      |
-| `xs:boolean`                          | `boolean`        |                                      |
-| `xs:duration`                         | `string`         | `format: "iso-duration"`             |
-| `xs:dateTime`                         | `string`         | `format: "iso-date-time"`            |
-| `xs:date`                             | `string`         | `format: "date"`                     |
-| `xs:base64Binary`                     | `string`         | `contentEncoding: "base64"`          |
-| `xs:hexBinary`                        | `string`         | `pattern` for hex characters         |
+<table class="data">
+  <thead>
+    <tr>
+      <th>XSD Type
+      <th>JSON Schema Type
+      <th>Format / Notes
+  <tbody>
+    <tr>
+      <td>`xs:string`
+      <td>`string`
+      <td>
+    <tr>
+      <td>`xs:normalizedString`, `xs:token`
+      <td>`string`
+      <td>
+    <tr>
+      <td>`xs:language`
+      <td>`string`
+      <td>`pattern` for BCP 47
+    <tr>
+      <td>`xs:anyURI`
+      <td>`string`
+      <td>`format: "uri-reference"`
+    <tr>
+      <td>`xs:integer`, `xs:int`, `xs:long`
+      <td>`integer`
+      <td>With appropriate `minimum`/`maximum`
+    <tr>
+      <td>`xs:unsignedInt`, `xs:unsignedLong`
+      <td>`integer`
+      <td>`minimum: 0`
+    <tr>
+      <td>`xs:double`, `xs:float`, `xs:decimal`
+      <td>`number`
+      <td>
+    <tr>
+      <td>`xs:boolean`
+      <td>`boolean`
+      <td>
+    <tr>
+      <td>`xs:duration`
+      <td>`string`
+      <td>`format: "iso-duration"`
+    <tr>
+      <td>`xs:dateTime`
+      <td>`string`
+      <td>`format: "iso-date-time"`
+    <tr>
+      <td>`xs:date`
+      <td>`string`
+      <td>`format: "date"`
+    <tr>
+      <td>`xs:base64Binary`
+      <td>`string`
+      <td>`contentEncoding: "base64"`
+    <tr>
+      <td>`xs:hexBinary`
+      <td>`string`
+      <td>`pattern` for hex characters
+</table>
 
 Note: The `iso-duration` and `iso-date-time` formats are used instead of the
 standard `duration` and `date-time` formats because XSD `duration`/`dateTime`
 follows ISO 8601 (which permits fractional seconds and optional timezones),
-while JSON Schema's built-in formats follow RFC 3339 (which is more
+while JSON Schema's built-in formats follow RFC 3339 [[RFC3339]] (which is more
 restrictive).
 
-### 7.6 Complex Content and Inheritance
+## Complex Content and Inheritance ## {#complex-content-and-inheritance}
 
 XSD type extension (`xs:complexContent` with `xs:extension`) maps to JSON Schema
 `allOf`:
@@ -744,7 +816,7 @@ XSD type extension (`xs:complexContent` with `xs:extension`) maps to JSON Schema
 }
 ```
 
-### 7.7 XSD Choice
+## XSD Choice ## {#xsd-choice}
 
 `xs:choice` maps to JSON Schema `oneOf` (or `anyOf` for optional choices):
 
@@ -782,7 +854,7 @@ XSD type extension (`xs:complexContent` with `xs:extension`) maps to JSON Schema
 }
 ```
 
-### 7.8 XSD List Types
+## XSD List Types ## {#xsd-list-types}
 
 XSD `xs:list` types map to JSON arrays:
 
@@ -811,30 +883,30 @@ Similarly, `StringVectorType` (a list of strings) becomes
 In XML, list values are space-separated within a single attribute value. In
 JSON, they are proper arrays.
 
-### 7.9 Extension Points
+## Extension Points ## {#extension-points}
 
 XSD `xs:any` and `xs:anyAttribute` wildcards permit content from other
 namespaces. These map to JSON Schema as follows:
 
-- **`xs:any`**: The type gets `additionalProperties: true` and a custom marker
+- <strong>`xs:any`</strong>: The type gets `additionalProperties: true` and a custom marker
   `x-xml-any: true`.
-- **`xs:anyAttribute`**: The type gets a custom marker
+- <strong>`xs:anyAttribute`</strong>: The type gets a custom marker
   `x-xml-any-attribute: true`.
-- **`$ns` support**: The root JSON Schema defines the `$ns` property at the top
+- <strong>`$ns` support</strong>: The root JSON Schema defines the `$ns` property at the top
   level only. Types with `xs:any` or `xs:anyAttribute` accept extension prefix
   keys via `additionalProperties: true`. Namespace declarations themselves
-  appear only at the root (see Section 9.2).
+  appear only at the root (see [[#the-ns-property]]).
 
 This means extension content is structurally permitted by the JSON Schema but
 not validated against any extension-specific schema. Validation of extension
 content is the responsibility of the consuming application.
 
-## 8. Document Conversion: XML to JSON
+# Document Conversion: XML to JSON # {#document-conversion-xml-to-json}
 
 This section specifies how an MPD XML document instance is converted to a JSON
-document that conforms to the JSON Schema defined in Section 7.
+document that conforms to the JSON Schema defined in [[#schema-conversion-xsd-to-json-schema]].
 
-### 8.1 Root Element
+## Root Element ## {#root-element}
 
 The XML root element `<MPD>` becomes the root JSON object. The element name is
 not represented as a property (it is implicit from the schema's `$ref` to
@@ -864,19 +936,19 @@ not represented as a property (it is implicit from the schema's `$ref` to
 }
 ```
 
-### 8.2 Attributes
+## Attributes ## {#attributes}
 
 XML attributes map to properties on the enclosing JSON object. The attribute
 name becomes the property key. The value is coerced to the JSON type specified
-by the MPD XSD (see Section 8.5).
+by the MPD XSD (see [[#type-coercion]]).
 
 The following attributes and namespace declarations are **not** carried over:
 
-- `xmlns` and `xmlns:*` declarations (handled via `$ns`; see Section 9)
+- `xmlns` and `xmlns:*` declarations (handled via `$ns`; see [[#namespace-handling]])
 - `xsi:schemaLocation` and `xsi:noNamespaceSchemaLocation` (XML Schema Instance
   attributes have no meaning in JSON)
 
-### 8.3 Child Elements
+## Child Elements ## {#child-elements}
 
 Each child element becomes a property on the parent JSON object:
 
@@ -892,7 +964,7 @@ Each child element becomes a property on the parent JSON object:
 Whether an element is treated as an array or singleton is determined by the JSON
 Schema (which was derived from the MPD XSD).
 
-### 8.4 Text Content
+## Text Content ## {#text-content}
 
 Text content handling depends on the element's type in the MPD XSD:
 
@@ -917,7 +989,7 @@ Text content handling depends on the element's type in the MPD XSD:
    can contain both text and child elements such as `SupplementalProperty` or
    extension content.
 
-### 8.5 Type Coercion
+## Type Coercion ## {#type-coercion}
 
 All values in XML are strings. The converter uses the MPD XSD type information
 (via the generated JSON Schema) to coerce values to their correct JSON types:
@@ -936,7 +1008,7 @@ All values in XML are strings. The converter uses the MPD XSD type information
   JSON arrays with each item coerced to the list's item type. Example:
   `audioSamplingRate="48000 44100"` becomes `[48000, 44100]`.
 
-### 8.6 Complete Example
+## Complete Example ## {#complete-example}
 
 **XML:**
 
@@ -1031,35 +1103,35 @@ Notable aspects of this example:
 - `SegmentBase` and `Initialization` are direct objects (not arrays) because
   they are singletons
 
-## 9. Namespace Handling
+# Namespace Handling # {#namespace-handling}
 
-DASH MPDs can contain elements and attributes from namespaces other than the
-core DASH namespace. Common examples include Common Encryption (CENC), XLink,
+DASH MPDs can contain [=extension content=]: elements and attributes from namespaces other than the
+core [=DASH namespace=]. Common examples include Common Encryption (CENC), XLink,
 PlayReady (MSPR), and proprietary vendor extensions. The MPD XSD permits this
 via `xs:any` and `xs:anyAttribute` wildcards.
 
 This section specifies how namespace-qualified content is represented in JSON,
 including the constraints imposed to ensure a clean and efficient JSON format.
 
-### 9.1 The DASH Namespace
+## The DASH Namespace ## {#the-dash-namespace}
 
 The DASH namespace (`urn:mpeg:dash:schema:mpd:2011`) is the **implicit default**
 namespace in the JSON representation. Elements and attributes in this namespace
 appear as plain properties without any prefix or namespace marker. The DASH
 `xmlns` declaration is not included in the JSON output.
 
-### 9.2 The `$ns` Property
+## The `$ns` Property ## {#the-ns-property}
 
 All other namespace declarations are collected into a single `$ns` property on
 the **root** JSON object. The `$ns` property maps namespace URIs to prefix
 information and provides a document-wide, flat namespace registry.
 
 The `$ns` property SHALL only appear at the root level of the JSON document.
-Nested `$ns` declarations are not permitted (see Section 9.7 for rationale).
+Nested `$ns` declarations are not permitted (see [[#namespace-constraints]] for rationale).
 
 Each entry in `$ns` takes one of two forms:
 
-#### Simple Form
+### Simple Form ### {#simple-form}
 
 When a namespace defines only extension elements (no extension attributes):
 
@@ -1073,7 +1145,7 @@ When a namespace defines only extension elements (no extension attributes):
 
 The value is a string containing the namespace prefix.
 
-#### Extended Form
+### Extended Form ### {#extended-form}
 
 When a namespace defines extension attributes in addition to (or instead of)
 elements:
@@ -1099,10 +1171,10 @@ The value is an object with:
   declared as a default namespace redeclaration (`xmlns="..."`) on an extension
   element rather than using a prefix. When converting from JSON to XML, this
   causes the converter to emit `xmlns="..."` on the element itself instead of a
-  prefixed `xmlns:prefix="..."` declaration on the root. See Section 9.4 for
+  prefixed `xmlns:prefix="..."` declaration on the root. See [[#default-namespace-redeclaration]] for
   constraints.
 
-#### Why the `attributes` List Is Needed
+### Why the `attributes` List Is Needed ### {#why-the-attributes-list-is-needed}
 
 In XML, the distinction between `cenc:default_KID="value"` (attribute) and
 `<cenc:pssh>value</cenc:pssh>` (child element) is syntactically obvious. In
@@ -1110,7 +1182,7 @@ JSON, both are represented as `"default_KID": "value"` and `"pssh": "value"` -
 plain string properties. The `attributes` list resolves this ambiguity by
 explicitly declaring which names are attributes.
 
-### 9.3 Extension Content Representation
+## Extension Content Representation ## {#extension-content-representation}
 
 Extension elements and attributes from a given namespace are grouped under a
 single property whose key is the namespace prefix.
@@ -1174,7 +1246,7 @@ Key rules:
 3. **Object and array values are always child elements.** Only primitive
    (string/number/boolean) values need the `attributes` list for disambiguation.
 
-### 9.4 Default Namespace Redeclaration (`defaultNs`)
+## Default Namespace Redeclaration (`defaultNs`) ## {#default-namespace-redeclaration}
 
 Some extension elements in XML use a default namespace redeclaration instead of
 a prefix. For instance, PlayReady content may appear as:
@@ -1214,9 +1286,9 @@ The `defaultNs: true` flag tells the JSON-to-XML converter to reconstruct
 `xmlns:pro="urn:microsoft:playready"` and emitting `<pro:pro>`.
 
 Because `defaultNs` uses the element's local name as a synthetic prefix, it is
-subject to additional constraints (see Section 9.7).
+subject to additional constraints (see [[#namespace-constraints]]).
 
-### 9.5 XLink Namespace
+## XLink Namespace ## {#xlink-namespace}
 
 XLink (`http://www.w3.org/1999/xlink`) is a well-known attribute-only namespace
 used in DASH for remote element loading. Because XLink defines only attributes
@@ -1249,11 +1321,11 @@ treated as attributes by default, without needing an explicit `attributes` list.
 ```
 
 The XLink attributes are grouped under the `"xlink"` prefix key, consistent with
-the general namespace handling rules (Section 9.3). Section 13 specifies how
+the general namespace handling rules ([[#extension-content-representation]]). [[#remote-element-loading]] specifies how
 clients resolve these remote element references and merge the results back into
 the MPD.
 
-### 9.6 Stripped Namespaces
+## Stripped Namespaces ## {#stripped-namespaces}
 
 The following namespaces are stripped during conversion and do not appear in the
 JSON output:
@@ -1264,7 +1336,7 @@ JSON output:
 - **The DASH namespace itself** (`urn:mpeg:dash:schema:mpd:2011`): This is the
   implicit default; its elements are represented as plain properties.
 
-### 9.7 Namespace Constraints
+## Namespace Constraints ## {#namespace-constraints}
 
 The JSON representation imposes the following constraints on namespace usage.
 These constraints ensure that the `$ns` property remains a simple, flat,
@@ -1272,7 +1344,7 @@ document-wide registry and that extension content can be unambiguously mapped to
 and from XML. A conforming XML-to-JSON converter SHALL reject input that
 violates these constraints with a descriptive error message.
 
-#### 9.7.1 Document-Wide `$ns` (No Nested Scoping)
+### Document-Wide `$ns` (No Nested Scoping) ### {#document-wide-ns}
 
 The `$ns` property SHALL only appear at the root level of the JSON document.
 Nested `$ns` declarations within child objects are not permitted.
@@ -1288,7 +1360,7 @@ When converting XML to JSON, all namespace declarations found at any depth in
 the XML document are hoisted to the root `$ns`. If this hoisting would cause a
 conflict (see below), the converter SHALL reject the document.
 
-#### 9.7.2 Unique Prefix Binding
+### Unique Prefix Binding ### {#unique-prefix-binding}
 
 Each namespace prefix SHALL map to exactly one namespace URI within a document,
 and each namespace URI SHALL map to exactly one prefix.
@@ -1305,7 +1377,7 @@ key (e.g., `"cenc": { ... }`). This model requires a one-to-one mapping between
 prefixes and URIs. Allowing many-to-one or one-to-many mappings would create
 ambiguity in both directions of conversion.
 
-#### 9.7.3 No Prefix Collision with Reserved or DASH Keys
+### No Prefix Collision with Reserved or DASH Keys ### {#no-prefix-collision-with-reserved-or-dash-keys}
 
 A namespace prefix SHALL NOT collide with:
 
@@ -1318,9 +1390,9 @@ A namespace prefix SHALL NOT collide with:
 properties. If a prefix matches a DASH property name, the converter cannot
 distinguish extension content from standard DASH content.
 
-#### 9.7.4 Constraints on `defaultNs` Usage
+### Constraints on `defaultNs` Usage ### {#constraints-on-defaultns-usage}
 
-The `defaultNs` mechanism (Section 9.4) is supported with the following
+The `defaultNs` mechanism ([[#default-namespace-redeclaration]]) is supported with the following
 constraints:
 
 - The synthetic prefix (the element's local name) SHALL NOT collide with any
@@ -1338,24 +1410,39 @@ specific pattern found in some extensions. Its inherent limitations (synthetic
 prefix derived from element name) make it unsuitable for general use. Explicit
 prefixes are always preferred.
 
-#### 9.7.5 Summary of Rejected Patterns
+### Summary of Rejected Patterns ### {#summary-of-rejected-patterns}
 
 The following XML namespace patterns are rejected during XML-to-JSON conversion:
 
-| Pattern                                                          | Reason                                         |
-| ---------------------------------------------------------------- | ---------------------------------------------- |
-| Prefix rebinding (`xmlns:p="A"` at root, `xmlns:p="B"` on child) | Prefix ambiguity after hoisting                |
-| URI aliasing (`xmlns:p1="A"` and `xmlns:p2="A"`)                 | Ambiguous prefix key for same namespace        |
-| Prefix collides with DASH property name                          | Cannot distinguish extension from DASH content |
-| Multiple `defaultNs` elements for same URI                       | Root `$ns` can hold only one entry per URI     |
-| `defaultNs` element name collides with DASH element              | Cannot distinguish extension from DASH content |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Pattern
+      <th>Reason
+  <tbody>
+    <tr>
+      <td>Prefix rebinding (`xmlns:p="A"` at root, `xmlns:p="B"` on child)
+      <td>Prefix ambiguity after hoisting
+    <tr>
+      <td>URI aliasing (`xmlns:p1="A"` and `xmlns:p2="A"`)
+      <td>Ambiguous prefix key for same namespace
+    <tr>
+      <td>Prefix collides with DASH property name
+      <td>Cannot distinguish extension from DASH content
+    <tr>
+      <td>Multiple `defaultNs` elements for same URI
+      <td>Root `$ns` can hold only one entry per URI
+    <tr>
+      <td>`defaultNs` element name collides with DASH element
+      <td>Cannot distinguish extension from DASH content
+</table>
 
 In all cases, the remedy is straightforward: refactor the XML to use unique,
 non-colliding prefixes declared on the root element.
 
-### 9.8 Limitations
+## Limitations ## {#limitations}
 
-#### Element Order Between Namespaces
+### Element Order Between Namespaces ### {#element-order-between-namespaces}
 
 When an element contains children from multiple namespaces, the relative
 ordering between elements from different namespaces is not preserved. Elements
@@ -1384,23 +1471,23 @@ The interleaving order between namespaces is lost. Consumers MUST NOT rely on
 any property ordering within a JSON object; JSON object member ordering is not a
 reliable interoperability mechanism.
 
-#### No Schema Validation for Extension Content
+### No Schema Validation for Extension Content ### {#no-schema-validation-for-extension-content}
 
 Extension content is structurally permitted via `additionalProperties: true` in
 the JSON Schema, but it is not validated against any namespace-specific schema.
 Any valid JSON structure is accepted under prefix keys.
 
-## 10. Document Conversion: JSON to XML
+# Document Conversion: JSON to XML # {#document-conversion-json-to-xml}
 
-The JSON-to-XML conversion reverses the process described in Section 8,
+The JSON-to-XML conversion reverses the process described in [[#document-conversion-xml-to-json]],
 reconstructing a valid MPD XML document from its JSON representation.
 
-### 10.1 Root Element
+## Root Element ## {#document-conversion-json-to-xml-root-element}
 
 The root JSON object becomes the `<MPD>` element. The DASH namespace declaration
 (`xmlns="urn:mpeg:dash:schema:mpd:2011"`) is always added to the root element.
 
-### 10.2 Namespace Reconstruction
+## Namespace Reconstruction ## {#namespace-reconstruction}
 
 The `$ns` property is read to reconstruct `xmlns:prefix="uri"` declarations.
 These are placed on the root `<MPD>` element.
@@ -1408,12 +1495,12 @@ These are placed on the root `<MPD>` element.
 The `$ns` property is root-only. Nested `$ns` objects are invalid input.
 Implementations MAY emit a warning and ignore nested `$ns` declarations.
 
-### 10.3 Properties to Attributes and Elements
+## Properties to Attributes and Elements ## {#properties-to-attributes-and-elements}
 
 For each property on a JSON object:
 
-1. **`$ns`**: Processed for namespace declarations, not emitted as XML content.
-2. **`$value`**: Emitted as the text content of the element.
+1. <strong>`$ns`</strong>: Processed for namespace declarations, not emitted as XML content.
+2. <strong>`$value`</strong>: Emitted as the text content of the element.
 3. **Properties matching a known namespace prefix**: Processed as extension
    content (see below).
 4. **Array properties**: Each array item becomes a child element occurrence.
@@ -1433,7 +1520,7 @@ Where available, implementations SHOULD prefer schema-derived metadata (for
 example, JSON Schema annotations derived from the MPD XSD) over naming
 conventions when deciding whether a primitive property maps to an XML attribute.
 
-### 10.4 Extension Content Reconstruction
+## Extension Content Reconstruction ## {#extension-content-reconstruction}
 
 For properties matching a declared namespace prefix:
 
@@ -1448,7 +1535,7 @@ For properties matching a declared namespace prefix:
 3. For well-known attribute namespaces (XLink, XSI), all primitive values
    default to attributes.
 
-### 10.5 Type Serialization
+## Type Serialization ## {#type-serialization}
 
 JSON typed values are serialized back to XML strings:
 
@@ -1457,7 +1544,7 @@ JSON typed values are serialized back to XML strings:
 - **Arrays** (for list types): Items are joined with a single space character.
 - **Strings**: Used as-is.
 
-### 10.6 Round-Trip Fidelity
+## Round-Trip Fidelity ## {#round-trip-fidelity}
 
 A conforming implementation SHALL produce semantically equivalent XML when
 performing a round-trip conversion (XML to JSON to XML). Semantic equivalence
@@ -1472,7 +1559,7 @@ means:
   hoisted to the root).
 - Comment and processing instruction nodes are not preserved.
 
-## 11. JSON Schema Validation
+# JSON Schema Validation # {#json-schema-validation}
 
 The generated JSON Schema enables validation of JSON MPD documents with standard
 JSON Schema validators (e.g., `ajv`). JSON Schema validation is a useful
@@ -1489,22 +1576,37 @@ A valid JSON MPD document:
 5. May have additional properties under namespace prefix keys (permitted by
    `additionalProperties: true` on types with `xs:any`/`xs:anyAttribute`).
 
-### 11.1 Custom Formats
+## Custom Formats ## {#custom-formats}
 
 The JSON Schema uses custom format keywords that validators should register:
 
-| Format          | Description                                       | Example                |
-| --------------- | ------------------------------------------------- | ---------------------- |
-| `iso-duration`  | ISO 8601 duration (superset of RFC 3339 duration) | `PT30S`, `PT1.5S`      |
-| `iso-date-time` | ISO 8601 date-time (timezone optional)            | `2026-01-01T00:00:00Z` |
-| `iso-time`      | ISO 8601 time (timezone optional)                 | `12:00:00`             |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Format
+      <th>Description
+      <th>Example
+  <tbody>
+    <tr>
+      <td>`iso-duration`
+      <td>ISO 8601 duration (superset of RFC 3339 duration)
+      <td>`PT30S`, `PT1.5S`
+    <tr>
+      <td>`iso-date-time`
+      <td>ISO 8601 date-time (timezone optional)
+      <td>`2026-01-01T00:00:00Z`
+    <tr>
+      <td>`iso-time`
+      <td>ISO 8601 time (timezone optional)
+      <td>`12:00:00`
+</table>
 
 These formats are more permissive than JSON Schema's built-in `duration`,
 `date-time`, and `time` formats, matching the XSD type definitions.
 
-## 12. MPD Patch Documents
+# MPD Patch Documents # {#mpd-patch-documents}
 
-DASH defines an MPD Patch mechanism (ISO/IEC 23009-1, Annex K) based on RFC 5261
+DASH defines an MPD Patch mechanism ([[!MPEGDASH]], Annex K) based on RFC 5261 [[!RFC5261]]
 that allows incremental updates to MPD documents. The patch operations are
 defined in the `DASH-MPD-PATCH.xsd` schema, which imports the IANA RFC 5261
 patch-ops schema.
@@ -1517,13 +1619,13 @@ cannot be meaningfully represented in JSON. If an MPD author's patch use case
 cannot be expressed within this profile, they SHOULD use the original XML MPD
 format with standard RFC 5261 patching.
 
-### 12.1 Patch Schema
+## Patch Schema ## {#patch-schema}
 
 The MPD Patch XSD is converted to a separate JSON Schema
-(`dash-mpd-patch.schema.json`) using the same rules defined in Section 7. The
+(`dash-mpd-patch.schema.json`) using the same rules defined in [[#schema-conversion-xsd-to-json-schema]]. The
 root type is `PatchType`.
 
-#### 12.1.1 Repeating Choice Mapping
+### Repeating Choice Mapping ### {#repeating-choice-mapping}
 
 The `PatchType` in the XSD uses `xs:choice` with `maxOccurs="unbounded"`,
 allowing an interleaved sequence of `add`, `remove`, and `replace` operations.
@@ -1533,7 +1635,7 @@ Because operation order is semantically significant in RFC 5261 (e.g., a
 rather than separate arrays per operation type.
 
 When an `xs:choice` has `maxOccurs > 1` or `maxOccurs="unbounded"`, the standard
-`oneOf` mapping (Section 7) does not suffice because it represents a single
+`oneOf` mapping ([[#schema-conversion-xsd-to-json-schema]]) does not suffice because it represents a single
 selection. Instead, the choice maps to a JSON array where each item uses `oneOf`
 to select among the alternatives. For the patch schema, this produces:
 
@@ -1549,7 +1651,7 @@ operations: array
 The extension alternative uses a `not` constraint to exclude objects containing
 named operation keys, ensuring correct `oneOf` discrimination.
 
-#### 12.1.2 XSD `xs:anyType` Restriction Handling
+### XSD `xs:anyType` Restriction Handling ### {#xsd-xs-anytype-restriction-handling}
 
 The `add` and `replace` types in the patch-ops schema restrict `xs:anyType` to
 define their own attributes and an `xs:any` sequence with mixed content. Since
@@ -1557,7 +1659,7 @@ define their own attributes and an `xs:any` sequence with mixed content. Since
 builds the schema inline from the restriction's own content model rather than
 referencing a base type.
 
-### 12.2 Execution Model
+## Execution Model ## {#execution-model}
 
 A conforming JSON MPD patch processor:
 
@@ -1575,25 +1677,49 @@ This model avoids the cost of XML serialization and parsing, which is a primary
 motivation for the JSON MPD representation. Implementations that need the full
 RFC 5261 feature set SHOULD use XML MPDs with standard RFC 5261 processing.
 
-### 12.3 Selector Evaluation
+## Selector Evaluation ## {#selector-evaluation}
 
 RFC 5261 selectors are XPath expressions that identify target nodes in the XML
 document. In the JSON MPD model, there is no XML infoset, so selectors must be
 interpreted as navigation paths through the JSON object structure.
 
-#### 12.3.1 Supported Selector Subset
+### Supported Selector Subset ### {#supported-selector-subset}
 
 A conforming JSON MPD patch processor SHALL support the following selector
 constructs:
 
-| Construct                    | Example                   | JSON Interpretation                                     |
-| ---------------------------- | ------------------------- | ------------------------------------------------------- |
-| Absolute path from root      | `/MPD/Period`             | Navigate from root JSON object                          |
-| Child element step           | `Period`, `AdaptationSet` | Access named property on current object                 |
-| Attribute step               | `@publishTime`, `@id`     | Access named property on current object (primitive)     |
-| Numeric positional predicate | `[1]`, `[2]`              | Index into JSON array (1-based to 0-based conversion)   |
-| Attribute equality predicate | `[@id='p1']`              | Find array element where property matches value         |
-| Value equality predicate     | `[.='value']`             | Match `$value` property of simpleContent array elements |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Construct
+      <th>Example
+      <th>JSON Interpretation
+  <tbody>
+    <tr>
+      <td>Absolute path from root
+      <td>`/MPD/Period`
+      <td>Navigate from root JSON object
+    <tr>
+      <td>Child element step
+      <td>`Period`, `AdaptationSet`
+      <td>Access named property on current object
+    <tr>
+      <td>Attribute step
+      <td>`@publishTime`, `@id`
+      <td>Access named property on current object (primitive)
+    <tr>
+      <td>Numeric positional predicate
+      <td>`[1]`, `[2]`
+      <td>Index into JSON array (1-based to 0-based conversion)
+    <tr>
+      <td>Attribute equality predicate
+      <td>`[@id='p1']`
+      <td>Find array element where property matches value
+    <tr>
+      <td>Value equality predicate
+      <td>`[.='value']`
+      <td>Match `$value` property of simpleContent array elements
+</table>
 
 **Grammar (informational).** The supported selectors conform to this simplified
 production (not all valid RFC 5261 XPaths are accepted):
@@ -1613,14 +1739,14 @@ predicate   = "[" digit+ "]"
             / '[.="' value '"]'
 ```
 
-#### 12.3.2 Root Element
+### Root Element ### {#selector-evaluation-root-element}
 
 The XPath prefix `/MPD` maps to the root JSON object. Since the JSON MPD
-representation does not have a wrapping `"MPD"` property (the root object _is_
+representation does not have a wrapping `"MPD"` property (the root object *is*
 the MPD), the `/MPD` segment is consumed during selector parsing and does not
 correspond to a property access. All selectors MUST begin with `/MPD`.
 
-#### 12.3.3 Array Elements vs. Singletons
+### Array Elements vs. Singletons ### {#array-elements-vs-singletons}
 
 Whether a path step requires array indexing is determined by the JSON Schema
 (which reflects the XSD `maxOccurs`):
@@ -1639,16 +1765,40 @@ Whether a path step requires array indexing is determined by the JSON Schema
 Example path resolution for
 `/MPD/Period[@id='1']/AdaptationSet[1]/SegmentTemplate/SegmentTimeline/S[3]`:
 
-| Step                | JSON Navigation                   | Notes                      |
-| ------------------- | --------------------------------- | -------------------------- |
-| `/MPD`              | `mpd` (root object)               | Root consumed              |
-| `/Period[@id='1']`  | `.Period.find(p => p.id === '1')` | Array + predicate          |
-| `/AdaptationSet[1]` | `.AdaptationSet[0]`               | Array + position (1-based) |
-| `/SegmentTemplate`  | `.SegmentTemplate`                | Singleton                  |
-| `/SegmentTimeline`  | `.SegmentTimeline`                | Singleton                  |
-| `/S[3]`             | `.S[2]`                           | Array + position (1-based) |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Step
+      <th>JSON Navigation
+      <th>Notes
+  <tbody>
+    <tr>
+      <td>`/MPD`
+      <td>`mpd` (root object)
+      <td>Root consumed
+    <tr>
+      <td>`/Period[@id='1']`
+      <td>`.Period.find(p => p.id === '1')`
+      <td>Array + predicate
+    <tr>
+      <td>`/AdaptationSet[1]`
+      <td>`.AdaptationSet[0]`
+      <td>Array + position (1-based)
+    <tr>
+      <td>`/SegmentTemplate`
+      <td>`.SegmentTemplate`
+      <td>Singleton
+    <tr>
+      <td>`/SegmentTimeline`
+      <td>`.SegmentTimeline`
+      <td>Singleton
+    <tr>
+      <td>`/S[3]`
+      <td>`.S[2]`
+      <td>Array + position (1-based)
+</table>
 
-#### 12.3.4 Index Conversion
+### Index Conversion ### {#index-conversion}
 
 XPath positional predicates use 1-based indexing. JSON arrays use 0-based
 indexing. The mapping is:
@@ -1659,24 +1809,42 @@ indexing. The mapping is:
 If the resulting index is out of bounds, the processor SHALL reject the
 operation with an error.
 
-#### 12.3.5 Attribute Predicates and Type Coercion
+### Attribute Predicates and Type Coercion ### {#attribute-predicates-and-type-coercion}
 
 XPath predicates always use string comparison. JSON MPD properties may be typed
-as integers, numbers, or booleans after type coercion (Section 8.5). When
+as integers, numbers, or booleans after type coercion ([[#type-coercion]]). When
 evaluating an attribute predicate, the processor SHALL coerce the predicate's
 string value to the JSON type of the target property before comparison:
 
-| JSON Type | Coercion Rule                                          | Example                               |
-| --------- | ------------------------------------------------------ | ------------------------------------- |
-| `integer` | Parse predicate value as integer                       | `[@id='1']` matches `id: 1`           |
-| `number`  | Parse predicate value as number                        | `[@ttl='60']` matches `ttl: 60`       |
-| `boolean` | `"true"` / `"1"` → `true`; `"false"` / `"0"` → `false` | `[@flag='true']` matches `flag: true` |
-| `string`  | No coercion needed                                     | `[@id='p1']` matches `id: "p1"`       |
+<table class="data">
+  <thead>
+    <tr>
+      <th>JSON Type
+      <th>Coercion Rule
+      <th>Example
+  <tbody>
+    <tr>
+      <td>`integer`
+      <td>Parse predicate value as integer
+      <td>`[@id='1']` matches `id: 1`
+    <tr>
+      <td>`number`
+      <td>Parse predicate value as number
+      <td>`[@ttl='60']` matches `ttl: 60`
+    <tr>
+      <td>`boolean`
+      <td>`"true"` / `"1"` → `true`; `"false"` / `"0"` → `false`
+      <td>`[@flag='true']` matches `flag: true`
+    <tr>
+      <td>`string`
+      <td>No coercion needed
+      <td>`[@id='p1']` matches `id: "p1"`
+</table>
 
 If the coercion fails (e.g., `[@id='abc']` against an integer property), no
 elements match.
 
-#### 12.3.6 Value Predicates
+### Value Predicates ### {#value-predicates}
 
 The value predicate `[.='value']` tests the text content of an element. In the
 JSON model:
@@ -1689,7 +1857,7 @@ JSON model:
 Value predicates are useful for selecting `BaseURL` elements by their URL
 content or `Location` elements by their URI.
 
-#### 12.3.7 Attribute Step (Terminal)
+### Attribute Step (Terminal) ### {#attribute-step}
 
 When a selector ends with `@attr-name`, it targets a specific attribute (JSON
 primitive property) on the element identified by the preceding steps. This is
@@ -1700,34 +1868,57 @@ used for `replace` and `remove` operations on individual attributes:
 
 The `@` prefix is stripped; the remainder is the JSON property name.
 
-#### 12.3.8 Unsupported Selector Constructs
+### Unsupported Selector Constructs ### {#unsupported-selector-constructs}
 
 A conforming processor SHALL reject selectors that use any of the following RFC
 5261 XPath constructs:
 
-| Construct                      | Reason for exclusion                                                                                                                                 |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text()`                       | No separate text nodes in JSON; use `$value` or direct string access. Producers SHALL use the parent element selector with `$value` payload instead. |
-| `comment()`                    | JSON has no comment representation (Section 10.6).                                                                                                   |
-| `processing-instruction()`     | JSON has no PI representation (Section 10.6).                                                                                                        |
-| `namespace::*`                 | Namespace nodes have no JSON equivalent; `$ns` is structural metadata, not patchable content.                                                        |
-| Wildcard `*`                   | Ambiguous target in JSON; each step must name a specific property.                                                                                   |
-| `id()` function                | Requires document-wide ID lookup not supported by the JSON model.                                                                                    |
-| Parent/ancestor/sibling axes   | Only forward child-axis navigation is supported.                                                                                                     |
-| Compound predicates            | Only single predicates per step are supported.                                                                                                       |
-| Arithmetic/function predicates | Only positional `[n]`, attribute `[@a='v']`, and value `[.='v']` predicates.                                                                         |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Construct
+      <th>Reason for exclusion
+  <tbody>
+    <tr>
+      <td>`text()`
+      <td>No separate text nodes in JSON; use `$value` or direct string access. Producers SHALL use the parent element selector with `$value` payload instead.
+    <tr>
+      <td>`comment()`
+      <td>JSON has no comment representation ([[#round-trip-fidelity]]).
+    <tr>
+      <td>`processing-instruction()`
+      <td>JSON has no PI representation ([[#round-trip-fidelity]]).
+    <tr>
+      <td>`namespace::*`
+      <td>Namespace nodes have no JSON equivalent; `$ns` is structural metadata, not patchable content.
+    <tr>
+      <td>Wildcard `*`
+      <td>Ambiguous target in JSON; each step must name a specific property.
+    <tr>
+      <td>`id()` function
+      <td>Requires document-wide ID lookup not supported by the JSON model.
+    <tr>
+      <td>Parent/ancestor/sibling axes
+      <td>Only forward child-axis navigation is supported.
+    <tr>
+      <td>Compound predicates
+      <td>Only single predicates per step are supported.
+    <tr>
+      <td>Arithmetic/function predicates
+      <td>Only positional `[n]`, attribute `[@a='v']`, and value `[.='v']` predicates.
+</table>
 
 When a patch document contains an operation with an unsupported selector, the
 processor SHALL reject the **entire patch document** without applying any
 operations (atomic failure).
 
-### 12.4 Patch Operations
+## Patch Operations ## {#patch-operations}
 
 The operations array contains `add`, `remove`, and `replace` operations. Each
 item in the array is an object with exactly one property whose key identifies
 the operation type.
 
-#### 12.4.1 Payloads Are JSON, Not XML
+### Payloads Are JSON, Not XML ### {#payloads-are-json-not-xml}
 
 In the XML patch model (RFC 5261), the payload of `add` and `replace` operations
 is an XML fragment embedded in the operation element. **In the JSON patch model,
@@ -1737,22 +1928,49 @@ payloads are native JSON values.** There is no XML fragment parsing.
   boolean). The value is assigned to the target property after type coercion
   according to the JSON Schema type of the target property.
 - **Element payloads**: Use named properties in the MPD JSON representation
-  (Section 6, Section 8). The payload is a JSON object or array that conforms to
+  ([[#general-approach]], [[#document-conversion-xml-to-json]]). The payload is a JSON object or array that conforms to
   the same JSON Schema type as the target element.
 - Producers MUST NOT embed XML markup in `$value`. The `$value` property is
   always interpreted as a plain scalar.
 
-#### 12.4.2 `add` Operation
+### `add` Operation ### {#add-operation}
 
 Adds an attribute or element to the target identified by `sel`.
 
-| Property    | Type     | Required | JSON Interpretation                                    |
-| ----------- | -------- | -------- | ------------------------------------------------------ |
-| `sel`       | `string` | Yes      | Selector identifying the parent or sibling target      |
-| `pos`       | `string` | No       | Insertion position: `"before"`, `"after"`, `"prepend"` |
-| `type`      | `string` | No       | When adding an attribute: `"@attr-name"`               |
-| `value`     | scalar   | No       | Scalar value for attribute or `simpleContent` target   |
-| _(element)_ | object   | No       | Element payload as MPD JSON object                     |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Property
+      <th>Type
+      <th>Required
+      <th>JSON Interpretation
+  <tbody>
+    <tr>
+      <td>`sel`
+      <td>`string`
+      <td>Yes
+      <td>Selector identifying the parent or sibling target
+    <tr>
+      <td>`pos`
+      <td>`string`
+      <td>No
+      <td>Insertion position: `"before"`, `"after"`, `"prepend"`
+    <tr>
+      <td>`type`
+      <td>`string`
+      <td>No
+      <td>When adding an attribute: `"@attr-name"`
+    <tr>
+      <td>`value`
+      <td>scalar
+      <td>No
+      <td>Scalar value for attribute or `simpleContent` target
+    <tr>
+      <td>*(element)*
+      <td>object
+      <td>No
+      <td>Element payload as MPD JSON object
+</table>
 
 **Adding an attribute:**
 
@@ -1857,15 +2075,34 @@ Note that `S` is an array element. When the payload value is a single object
 (not an array), it is appended as one element. When the payload value is an
 array, all items are appended.
 
-#### 12.4.3 `replace` Operation
+### `replace` Operation ### {#replace-operation}
 
 Replaces an attribute value or element identified by `sel`.
 
-| Property    | Type     | Required | JSON Interpretation                              |
-| ----------- | -------- | -------- | ------------------------------------------------ |
-| `sel`       | `string` | Yes      | Selector identifying the target to replace       |
-| `$value`    | scalar   | No       | Replacement scalar value (for attributes / text) |
-| _(element)_ | object   | No       | Replacement element as MPD JSON object           |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Property
+      <th>Type
+      <th>Required
+      <th>JSON Interpretation
+  <tbody>
+    <tr>
+      <td>`sel`
+      <td>`string`
+      <td>Yes
+      <td>Selector identifying the target to replace
+    <tr>
+      <td>`$value`
+      <td>scalar
+      <td>No
+      <td>Replacement scalar value (for attributes / text)
+    <tr>
+      <td>*(element)*
+      <td>object
+      <td>No
+      <td>Replacement element as MPD JSON object
+</table>
 
 **Replacing an attribute value:**
 
@@ -1882,7 +2119,7 @@ Effect on JSON MPD:
 mpd.publishTime = '2026-01-15T12:01:00Z'
 ```
 
-**Replacing a `$value` (simpleContent text):**
+<strong>Replacing a `$value` (simpleContent text):</strong>
 
 For simpleContent elements like `BaseURL`, `Location`, and `PatchLocation`, the
 `sel` targets the element and `$value` provides the replacement text content.
@@ -1925,7 +2162,7 @@ Effect on JSON MPD:
 
 Note: `$value` is `9` (integer), not `"9"` (string). In the JSON patch model,
 producers SHOULD use the native JSON type matching the schema. Processors SHOULD
-also accept string values and coerce them according to Section 12.3.5 rules.
+also accept string values and coerce them according to [[#attribute-predicates-and-type-coercion]] rules.
 
 **Replacing an entire element:**
 
@@ -1952,14 +2189,29 @@ Effect on JSON MPD:
 // ... .SegmentTemplate = { timescale: 90000, media: "seg-$Number$.m4s", ... }
 ```
 
-#### 12.4.4 `remove` Operation
+### `remove` Operation ### {#remove-operation}
 
 Removes an attribute or element identified by `sel`.
 
-| Property | Type     | Required | JSON Interpretation                       |
-| -------- | -------- | -------- | ----------------------------------------- |
-| `sel`    | `string` | Yes      | Selector identifying the target to remove |
-| `ws`     | `string` | No       | Ignored in JSON model (see below)         |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Property
+      <th>Type
+      <th>Required
+      <th>JSON Interpretation
+  <tbody>
+    <tr>
+      <td>`sel`
+      <td>`string`
+      <td>Yes
+      <td>Selector identifying the target to remove
+    <tr>
+      <td>`ws`
+      <td>`string`
+      <td>No
+      <td>Ignored in JSON model (see below)
+</table>
 
 **Removing an attribute:**
 
@@ -2015,22 +2267,40 @@ Effect on JSON MPD:
 delete mpd.Period.find(...).AdaptationSet.find(...).SegmentBase
 ```
 
-**The `ws` attribute.** RFC 5261 defines `ws` for controlling whitespace cleanup
+<strong>The `ws` attribute.</strong> RFC 5261 defines `ws` for controlling whitespace cleanup
 around removed XML nodes. Since the JSON model has no insignificant whitespace,
 the `ws` attribute SHALL be accepted for compatibility but SHALL have no effect
 on the JSON operation. Processors MUST NOT reject a patch that includes `ws`.
 
-### 12.5 Payload Type Coercion
+## Payload Type Coercion ## {#payload-type-coercion}
 
 When a `$value` payload sets an attribute or text content, the value SHALL be
 coerced to the JSON Schema type of the target property:
 
-| Target Schema Type | Coercion Rule                                                     | Example                     |
-| ------------------ | ----------------------------------------------------------------- | --------------------------- |
-| `string`           | Use value as-is (or convert to string)                            | `"PT30S"` remains `"PT30S"` |
-| `integer`          | Parse as integer; reject if not integral                          | `9` or `"9"` → `9`          |
-| `number`           | Parse as number                                                   | `5.0` or `"5.0"` → `5.0`    |
-| `boolean`          | `true`/`"true"`/`"1"` → `true`; `false`/`"false"`/`"0"` → `false` | `"true"` → `true`           |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Target Schema Type
+      <th>Coercion Rule
+      <th>Example
+  <tbody>
+    <tr>
+      <td>`string`
+      <td>Use value as-is (or convert to string)
+      <td>`"PT30S"` remains `"PT30S"`
+    <tr>
+      <td>`integer`
+      <td>Parse as integer; reject if not integral
+      <td>`9` or `"9"` → `9`
+    <tr>
+      <td>`number`
+      <td>Parse as number
+      <td>`5.0` or `"5.0"` → `5.0`
+    <tr>
+      <td>`boolean`
+      <td>`true`/`"true"`/`"1"` → `true`; `false`/`"false"`/`"0"` → `false`
+      <td>`"true"` → `true`
+</table>
 
 If a `$value` payload targets a `simpleContent` element (e.g., `BaseURL`,
 `PatchLocation`), the value is assigned to the `$value` property of the target
@@ -2042,24 +2312,45 @@ When an element payload (JSON object) is used for `add` or `replace`, no
 coercion is needed — the object is used as-is and SHALL conform to the JSON
 Schema for that element type.
 
-### 12.6 Unsupported RFC 5261 Features
+## Unsupported RFC 5261 Features ## {#unsupported-rfc-5261-features}
 
 The following RFC 5261 capabilities are not supported in the JSON-only patch
 profile. A conforming processor SHALL reject patch documents that require these
 features.
 
-| Feature                      | Reason                                                                                                   |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| XML fragment payloads        | Payloads MUST be native JSON. `$value` is never parsed as XML.                                           |
-| `text()` selectors           | No separate text nodes in JSON. Use the parent element selector with `$value` payload.                   |
-| `comment()` selectors        | Comments are not preserved in JSON (Section 10.6).                                                       |
-| `processing-instruction()`   | PIs are not preserved in JSON (Section 10.6).                                                            |
-| `namespace::*` selectors     | Namespace nodes have no JSON equivalent. `$ns` is root-level structural metadata, not patchable content. |
-| `id()` function              | Document-wide ID lookup is not supported.                                                                |
-| Wildcard `*` steps           | Ambiguous target; each path step must name a specific property.                                          |
-| Multiple predicates per step | Only one predicate per step is supported.                                                                |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Feature
+      <th>Reason
+  <tbody>
+    <tr>
+      <td>XML fragment payloads
+      <td>Payloads MUST be native JSON. `$value` is never parsed as XML.
+    <tr>
+      <td>`text()` selectors
+      <td>No separate text nodes in JSON. Use the parent element selector with `$value` payload.
+    <tr>
+      <td>`comment()` selectors
+      <td>Comments are not preserved in JSON ([[#round-trip-fidelity]]).
+    <tr>
+      <td>`processing-instruction()`
+      <td>PIs are not preserved in JSON ([[#round-trip-fidelity]]).
+    <tr>
+      <td>`namespace::*` selectors
+      <td>Namespace nodes have no JSON equivalent. `$ns` is root-level structural metadata, not patchable content.
+    <tr>
+      <td>`id()` function
+      <td>Document-wide ID lookup is not supported.
+    <tr>
+      <td>Wildcard `*` steps
+      <td>Ambiguous target; each path step must name a specific property.
+    <tr>
+      <td>Multiple predicates per step
+      <td>Only one predicate per step is supported.
+</table>
 
-### 12.7 Complete Example: Live Stream Patch
+## Complete Example: Live Stream Patch ## {#complete-example-live-stream-patch}
 
 The following patch updates a live MPD by advancing the publish time, updating
 the patch location, appending a new segment timeline entry, removing the oldest
@@ -2127,45 +2418,45 @@ entry, and adding a new `Period`:
 }
 ```
 
-### 12.8 PatchLocation in MPD
+## PatchLocation in MPD ## {#patchlocation-in-mpd}
 
 The MPD schema defines a `PatchLocationType` element that provides a URI to the
 patch document. When the MPD is represented in JSON, the `PatchLocation.$value`
 URI SHOULD resolve to a JSON document conforming to the
 `dash-mpd-patch.schema.json` schema.
 
-## 13. Remote Element Loading (XLink)
+# Remote Element Loading (XLink) # {#remote-element-loading}
 
-DASH defines a remote element loading mechanism based on W3C XLink (XML Linking
+DASH defines a remote element loading mechanism based on W3C XLink [[!XLINK11]] (XML Linking
 Language) that allows elements in the MPD to be fetched from external URLs at
 parse time or on demand. In the XML representation, this is expressed through
 `xlink:href` and `xlink:actuate` attributes on elements such as `Period`,
 `AdaptationSet`, `EventStream`, `SegmentList`, and `InitializationSet`.
 
 In the JSON representation, XLink is treated as a regular extension namespace
-following the rules in Section 9. The XLink attributes (`href`, `actuate`) are
+following the rules in [[#namespace-handling]]. The XLink attributes (`href`, `actuate`) are
 grouped under an `"xlink"` prefix key on the element, and the XLink namespace
 URI is declared in the root `$ns` property. This is consistent with the
 converter's treatment of all namespace-qualified attributes and avoids
 introducing special-case handling for what is, structurally, just another
 attribute namespace.
 
-What _does_ change for the JSON ecosystem is the resolution process itself: when
+What *does* change for the JSON ecosystem is the resolution process itself: when
 a client resolves a remote element reference, the remote resource returns
 **JSON** (not XML), and the merge back into the MPD operates on the JSON object
 model. This section specifies how clients perform that resolution and merge.
 
-### 13.1 Which Elements Support Remote Loading
+## Which Elements Support Remote Loading ## {#which-elements-support-remote-loading}
 
 Which elements support XLink is determined by the MPD XSD: any complex type that
 declares `xlink:href` as an attribute supports remote loading. In the JSON
 representation this is surfaced naturally - those element types will have an
 `"xlink"` property in the converted output because the converter follows the
-standard namespace grouping rules (Section 9.3, 9.5). The JSON Schema itself
+standard namespace grouping rules ([[#extension-content-representation]], [[#xlink-namespace]]). The JSON Schema itself
 does not restrict the `"xlink"` key, since XLink attributes pass through as
 extension content via `additionalProperties: true`.
 
-In the current edition of the MPD XSD (ISO/IEC 23009-1, 6th edition), the
+In the current edition of the MPD XSD ([[!MPEGDASH]], 6th edition), the
 element types that declare XLink attributes are `Period`, `EventStream`,
 `InitializationSet`, `AdaptationSet`, and `SegmentList`. The URL Parameters
 extension schema (`DASH-MPD-UP.xsd`) additionally declares XLink on
@@ -2173,18 +2464,41 @@ extension schema (`DASH-MPD-UP.xsd`) additionally declares XLink on
 additional elements; no change to this specification is required when that
 happens, since the `"xlink"` property is handled as general extension content.
 
-### 13.2 JSON Representation of XLink Attributes
+## JSON Representation of XLink Attributes ## {#json-representation-of-xlink-attributes}
 
 An element that should be resolved from a remote URL carries an `"xlink"`
 property containing the XLink attributes, following the standard namespace
-grouping rules (Section 9.3, 9.5). The relevant attributes are:
+grouping rules ([[#extension-content-representation]], [[#xlink-namespace]]). The relevant attributes are:
 
-| XLink Attribute | JSON Property   | Required | Description                                          |
-| --------------- | --------------- | -------- | ---------------------------------------------------- |
-| `xlink:href`    | `xlink.href`    | Yes      | The URL to fetch the remote element content from     |
-| `xlink:actuate` | `xlink.actuate` | No       | `"onLoad"` or `"onRequest"` (default: `"onRequest"`) |
-| `xlink:type`    | _(omitted)_     | No       | Always `"simple"` in DASH; may be omitted            |
-| `xlink:show`    | _(omitted)_     | No       | Always `"embed"` in DASH; may be omitted             |
+<table class="data">
+  <thead>
+    <tr>
+      <th>XLink Attribute
+      <th>JSON Property
+      <th>Required
+      <th>Description
+  <tbody>
+    <tr>
+      <td>`xlink:href`
+      <td>`xlink.href`
+      <td>Yes
+      <td>The URL to fetch the remote element content from
+    <tr>
+      <td>`xlink:actuate`
+      <td>`xlink.actuate`
+      <td>No
+      <td>`"onLoad"` or `"onRequest"` (default: `"onRequest"`)
+    <tr>
+      <td>`xlink:type`
+      <td>*(omitted)*
+      <td>No
+      <td>Always `"simple"` in DASH; may be omitted
+    <tr>
+      <td>`xlink:show`
+      <td>*(omitted)*
+      <td>No
+      <td>Always `"embed"` in DASH; may be omitted
+</table>
 
 The `xlink:type` and `xlink:show` attributes are fixed values in the DASH XSD
 (`"simple"` and `"embed"` respectively). They carry no information and MAY be
@@ -2277,11 +2591,11 @@ content is available):
 }
 ```
 
-### 13.3 Actuate Modes
+## Actuate Modes ## {#actuate-modes}
 
 The `xlink.actuate` property controls **when** the remote resource is fetched:
 
-#### 13.3.1 `onLoad`
+### `onLoad` ### {#onload}
 
 The client SHALL resolve the remote reference immediately when the MPD is
 parsed. The element is a placeholder until resolution completes. The MPD is not
@@ -2291,7 +2605,7 @@ failed).
 **Use case:** Eagerly loading period definitions that are needed immediately,
 such as the first period of a presentation.
 
-#### 13.3.2 `onRequest` (Default)
+### `onRequest` (Default) ### {#onrequest}
 
 The client SHALL resolve the remote reference only when the element's content is
 actually needed - for example, when playback approaches a Period's start time,
@@ -2303,12 +2617,12 @@ or alternative adaptation sets that may never be selected.
 When `actuate` is absent, `"onRequest"` is the default, matching the XML XSD
 default.
 
-### 13.4 Remote Resource Format
+## Remote Resource Format ## {#remote-resource-format}
 
 The resource at `xlink.href` SHALL return a JSON document. The response content
 type SHOULD be `application/json`.
 
-#### 13.4.1 Response Structure
+### Response Structure ### {#response-structure}
 
 The response SHALL be a JSON object conforming to the JSON Schema type of the
 element being resolved. The response represents the **complete replacement
@@ -2379,20 +2693,20 @@ Response:
 ]
 ```
 
-#### 13.4.2 Base URL Resolution
+### Base URL Resolution ### {#base-url-resolution}
 
 Relative URLs within the resolved content (e.g., in `BaseURL`, `SegmentTemplate`
 media/initialization attributes) SHALL be resolved relative to the `xlink.href`
 URL, following the same base URL resolution rules that DASH defines for XML
-XLink (ISO/IEC 23009-1, 5.6.5). This ensures that the remote resource can
+XLink ([[!MPEGDASH]], 5.6.5). This ensures that the remote resource can
 reference media segments using paths relative to its own location.
 
-### 13.5 Merge Semantics
+## Merge Semantics ## {#merge-semantics}
 
 Resolution of a remote element reference follows **replacement semantics**,
 consistent with the XML XLink `show="embed"` behavior that DASH mandates.
 
-#### 13.5.1 Resolution Algorithm
+### Resolution Algorithm ### {#resolution-algorithm}
 
 When a remote element reference is resolved, the client SHALL apply the
 following algorithm:
@@ -2409,7 +2723,7 @@ For array elements where the response is an array, step 5 replaces the single
 stub element with the multiple resolved elements at the same position in the
 parent array.
 
-#### 13.5.2 Local Attribute Preservation
+### Local Attribute Preservation ### {#local-attribute-preservation}
 
 A stub element MAY carry local attributes alongside the `xlink` property (e.g.,
 `id`, `start`, `duration` on a Period). These serve as defaults. The merge rule
@@ -2460,7 +2774,7 @@ stub are merged into the **first** element of the response array only. This
 matches the XML behavior where attributes on the stub element apply to the first
 resolved element.
 
-### 13.6 Resolve-to-Zero
+## Resolve-to-Zero ## {#resolve-to-zero}
 
 DASH defines a special sentinel URI that indicates an element should be removed
 entirely:
@@ -2503,13 +2817,13 @@ After resolution, the second Period is removed. The `Period` array contains only
 the first and third elements. This mechanism is used to conditionally exclude
 content - for example, removing an ad break Period when no ad is available.
 
-### 13.7 Interaction with MPD Updates
+## Interaction with MPD Updates ## {#interaction-with-mpd-updates}
 
 For dynamic (live) MPDs, the client periodically refreshes the MPD according to
 `minimumUpdatePeriod`. Remote element resolution interacts with MPD updates as
 follows.
 
-#### 13.7.1 Full MPD Refresh
+### Full MPD Refresh ### {#full-mpd-refresh}
 
 When the client fetches a new MPD (either through `minimumUpdatePeriod` polling
 or by following a `Location` URL), the **entire MPD is replaced**. Any
@@ -2517,9 +2831,9 @@ previously resolved remote element content is discarded. If the refreshed MPD
 still contains elements with `xlink` properties, they must be resolved again
 according to their `actuate` mode:
 
-- **`onLoad` elements** in the refreshed MPD are resolved immediately, just as
+- <strong>`onLoad` elements</strong> in the refreshed MPD are resolved immediately, just as
   on initial load.
-- **`onRequest` elements** in the refreshed MPD are resolved on demand when
+- <strong>`onRequest` elements</strong> in the refreshed MPD are resolved on demand when
   needed.
 
 The client SHALL NOT carry forward previously resolved content from a prior MPD
@@ -2527,18 +2841,18 @@ instance. The remote resource may have changed between updates (e.g., a new ad
 break, updated segment information), and stale resolved content would cause
 incorrect playback behavior.
 
-#### 13.7.2 MPD Patch Updates
+### MPD Patch Updates ### {#mpd-patch-updates}
 
-When the client applies an MPD Patch (Section 12) instead of a full MPD refresh:
+When the client applies an MPD Patch ([[#mpd-patch-documents]]) instead of a full MPD refresh:
 
 - **Already-resolved elements** that are not modified by the patch retain their
   resolved content. The patch operates on the post-resolution MPD state.
-- **Patch operations that add new elements with `xlink` properties** introduce
+- <strong>Patch operations that add new elements with `xlink` properties</strong> introduce
   new stubs that must be resolved according to their `actuate` mode.
-- **Patch operations that modify an element's `xlink` property** (e.g., changing
+- <strong>Patch operations that modify an element's `xlink` property</strong> (e.g., changing
   the `href`) invalidate any previously resolved content. The element reverts to
   stub state and must be re-resolved.
-- **Patch operations that remove `xlink`** from an element (replacing the stub
+- <strong>Patch operations that remove `xlink`</strong> from an element (replacing the stub
   with inline content) do not require resolution.
 
 Patches are designed to be applied to the **resolved** MPD - that is, the MPD as
@@ -2546,7 +2860,7 @@ it exists in the client's working memory after all applicable remote element
 resolutions have been performed. Patch selectors navigate the resolved document
 structure, not the pre-resolution stubs.
 
-#### 13.7.3 Caching Considerations
+### Caching Considerations ### {#caching-considerations}
 
 Clients SHOULD respect standard HTTP caching headers (`Cache-Control`,
 `Expires`, `ETag`, `Last-Modified`) on remote element responses. However:
@@ -2558,28 +2872,28 @@ Clients SHOULD respect standard HTTP caching headers (`Cache-Control`,
   For live streams with rapidly changing content, short cache lifetimes or
   `no-cache` directives are appropriate.
 
-### 13.8 Error Handling
+## Error Handling ## {#error-handling}
 
-#### 13.8.1 Resolution Failure
+### Resolution Failure ### {#resolution-failure}
 
 If the HTTP request to `xlink.href` fails (network error, non-2xx status code,
 invalid JSON, schema validation failure), the client SHALL treat the element as
 if it resolved to zero - the stub element is removed from the MPD. This matches
 the DASH specification's error handling for XML XLink resolution failures.
 
-#### 13.8.2 Content Type Mismatch
+### Content Type Mismatch ### {#content-type-mismatch}
 
 If the response is not valid JSON or does not conform to the expected schema
 type, the client SHALL treat the resolution as failed (13.8.1).
 
-#### 13.8.3 Circular References
+### Circular References ### {#circular-references}
 
 A resolved element SHALL NOT itself contain an `xlink` property that directly or
 indirectly references the original `xlink.href` URL. Clients SHOULD implement a
 maximum resolution depth or URL tracking mechanism to detect and break circular
 reference chains. A circular reference SHALL be treated as a resolution failure.
 
-### 13.9 Complete Example: Multi-Period Live Stream with Remote Loading
+## Complete Example: Multi-Period Live Stream with Remote Loading ## {#complete-example-multi-period-live-stream-with-remote-loading}
 
 The following example shows a live MPD with a mix of inline and remote Periods,
 demonstrating `onLoad`, `onRequest`, and resolve-to-zero:
@@ -2654,9 +2968,9 @@ After a full MPD refresh, all remote element stubs are re-evaluated. The ad
 server may return different ad content; the resume period URL may point to
 updated segment information.
 
-## 14. Conformance
+# Conformance # {#conformance}
 
-### 14.1 Conforming JSON MPD Document
+## Conforming JSON MPD Document ## {#conforming-json-mpd-document}
 
 A JSON document is a conforming JSON MPD if:
 
@@ -2664,31 +2978,31 @@ A JSON document is a conforming JSON MPD if:
    validates against the MPD XSD (`xml-schemas/DASH-MPD.xsd`, including its
    imports/includes).
 2. It validates against the DASH MPD JSON Schema generated according to
-   Section 7.
+   [[#schema-conversion-xsd-to-json-schema]].
 3. Extension content (under namespace prefix keys) is properly declared in
    `$ns`.
 4. The `$value` property is used for text content in simple content types.
 5. Remote element loading stubs use the `xlink` property with at least an `href`
-   field, and the XLink namespace is declared in `$ns` (Section 13.2).
+   field, and the XLink namespace is declared in `$ns` ([[#json-representation-of-xlink-attributes]]).
 
-### 14.2 Conforming XML-to-JSON Converter
+## Conforming XML-to-JSON Converter ## {#conforming-xml-to-json-converter}
 
 A conforming XML-to-JSON converter:
 
 1. Produces JSON output that validates against the DASH MPD JSON Schema.
-2. Coerces types according to the MPD XSD type definitions (Section 8.5).
+2. Coerces types according to the MPD XSD type definitions ([[#type-coercion]]).
 3. Represents repeated elements as arrays and singleton elements as objects.
 4. Uses `$value` for simple content elements.
-5. Collects namespace declarations into a root-level `$ns` (Section 9.2).
-6. Groups extension content under namespace prefix keys (Section 9.3).
-7. Validates namespace declarations against the constraints in Section 9.7 and
+5. Collects namespace declarations into a root-level `$ns` ([[#the-ns-property]]).
+6. Groups extension content under namespace prefix keys ([[#extension-content-representation]]).
+7. Validates namespace declarations against the constraints in [[#namespace-constraints]] and
    rejects documents that violate them with a descriptive error message.
 8. Maps `xlink:href` and `xlink:actuate` attributes to the `xlink` prefix key
-   following the standard namespace grouping rules (Section 9.5, Section 13.2).
+   following the standard namespace grouping rules ([[#xlink-namespace]], [[#json-representation-of-xlink-attributes]]).
    The fixed-value attributes `xlink:type` and `xlink:show` MAY be omitted from
    the JSON output.
 
-### 14.3 Conforming JSON-to-XML Converter
+## Conforming JSON-to-XML Converter ## {#conforming-json-to-xml-converter}
 
 A conforming JSON-to-XML converter:
 
@@ -2700,86 +3014,103 @@ A conforming JSON-to-XML converter:
 5. Produces output that is semantically equivalent to the original XML when
    performing a round-trip conversion.
 6. Reconstructs XLink attributes from the `xlink` prefix key following the
-   general attribute namespace rules (Section 9.5). When the fixed-value
+   general attribute namespace rules ([[#xlink-namespace]]). When the fixed-value
    attributes `xlink:type` and `xlink:show` were omitted from the JSON, the
    converter SHOULD reconstruct them with their XSD-defined fixed values to
    produce XSD-valid output.
 
-### 14.4 Conforming JSON MPD Patch Document
+## Conforming JSON MPD Patch Document ## {#conforming-json-mpd-patch-document}
 
 A JSON document is a conforming JSON MPD Patch document if:
 
 1. It validates against the DASH MPD Patch JSON Schema
    (`dash-mpd-patch.schema.json`).
-2. All `sel` values use only the supported selector subset (Section 12.3.1).
+2. All `sel` values use only the supported selector subset ([[#supported-selector-subset]]).
 3. All payloads are native JSON values; no XML markup is embedded in `$value` or
-   any other property (Section 12.4.1).
+   any other property ([[#payloads-are-json-not-xml]]).
 4. Element payloads conform to the JSON Schema type of the target element.
 5. Scalar `$value` payloads are coercible to the JSON Schema type of the target
-   property (Section 12.5).
+   property ([[#payload-type-coercion]]).
 
-### 14.5 Conforming JSON MPD Client (Remote Element Loading)
+## Conforming JSON MPD Client (Remote Element Loading) ## {#conforming-json-mpd-client}
 
 A conforming JSON MPD client that supports remote element loading:
 
 1. Recognizes the `xlink` property (with `href` and optional `actuate`) on
-   elements whose XSD type declares XLink attributes (Section 13.1).
+   elements whose XSD type declares XLink attributes ([[#which-elements-support-remote-loading]]).
 2. Resolves `onLoad` elements immediately upon parsing the MPD. The MPD is not
    considered fully loaded until all `onLoad` resolutions complete or fail
-   (Section 13.3.1).
+   ([[#onload]]).
 3. Resolves `onRequest` elements only when the element content is needed
-   (Section 13.3.2).
+   ([[#onrequest]]).
 4. Expects JSON responses from `xlink.href` URLs, conforming to the JSON Schema
-   type of the target element (Section 13.4).
-5. Applies replacement semantics with local attribute preservation (Section
-   13.5).
+   type of the target element ([[#remote-resource-format]]).
+5. Applies replacement semantics with local attribute preservation ([[#merge-semantics]]).
 6. Handles the `urn:mpeg:dash:resolve-to-zero:2013` sentinel by removing the
-   stub element without an HTTP request (Section 13.6).
+   stub element without an HTTP request ([[#resolve-to-zero]]).
 7. Discards previously resolved content on full MPD refresh and re-resolves
-   elements in the new MPD (Section 13.7.1).
+   elements in the new MPD ([[#full-mpd-refresh]]).
 8. Treats resolution failures (network errors, invalid JSON, schema violations)
-   as resolve-to-zero (Section 13.8.1).
-9. Detects and breaks circular reference chains (Section 13.8.3).
+   as resolve-to-zero ([[#resolution-failure]]).
+9. Detects and breaks circular reference chains ([[#circular-references]]).
 
-### 14.6 Conforming JSON MPD Patch Processor
+## Conforming JSON MPD Patch Processor ## {#conforming-json-mpd-patch-processor}
 
 A conforming JSON MPD patch processor:
 
 1. Evaluates selectors directly against the JSON MPD object model without
-   converting to XML (Section 12.2).
-2. Supports the selector subset defined in Section 12.3.1, including positional
-   predicates with 1-based to 0-based index conversion (Section 12.3.4) and
-   type-coerced attribute predicates (Section 12.3.5).
+   converting to XML ([[#execution-model]]).
+2. Supports the selector subset defined in [[#supported-selector-subset]], including positional
+   predicates with 1-based to 0-based index conversion ([[#index-conversion]]) and
+   type-coerced attribute predicates ([[#attribute-predicates-and-type-coercion]]).
 3. Rejects the entire patch document without applying any operations if any
-   operation uses an unsupported selector construct (Section 12.3.8) or an
-   unsupported RFC 5261 feature (Section 12.6).
+   operation uses an unsupported selector construct ([[#unsupported-selector-constructs]]) or an
+   unsupported RFC 5261 feature ([[#unsupported-rfc-5261-features]]).
 4. Applies operations in array order. Each operation is evaluated against the
-   state of the MPD as modified by all preceding operations (Section 12.2).
+   state of the MPD as modified by all preceding operations ([[#execution-model]]).
 5. Coerces `$value` payloads to the JSON Schema type of the target property
-   (Section 12.5).
-6. Accepts the `ws` attribute on `remove` operations without effect (Section
-   12.4.4).
+   ([[#payload-type-coercion]]).
+6. Accepts the `ws` attribute on `remove` operations without effect ([[#remove-operation]]).
 7. After successful application of all operations, the resulting JSON MPD SHALL
-   be a conforming JSON MPD document (Section 14.1).
+   be a conforming JSON MPD document ([[#conforming-json-mpd-document]]).
 
----
+# Appendix A: Summary of Reserved Property Names # {#annex-reserved-property-names}
 
-**Annex A: Summary of Reserved Property Names**
-
-| Property | Purpose                                 | Section    |
-| -------- | --------------------------------------- | ---------- |
-| `$value` | Text content of simple content elements | 6.1.5, 8.4 |
-| `$ns`    | Namespace declarations                  | 9.2        |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Property
+      <th>Purpose
+      <th>Section
+  <tbody>
+    <tr>
+      <td>`$value`
+      <td>Text content of simple content elements
+      <td>[[#text-content-uses-value]], [[#text-content]]
+    <tr>
+      <td>`$ns`
+      <td>Namespace declarations
+      <td>[[#the-ns-property]]
+</table>
 
 Both use the `$` prefix to avoid collision with XML attribute and element names,
 which cannot start with `$` in the XSD.
 
-**Annex B: Summary of JSON Schema Extension Keywords**
+# Appendix B: Summary of JSON Schema Extension Keywords # {#annex-json-schema-extension-keywords}
 
-| Keyword               | Purpose                                                        |
-| --------------------- | -------------------------------------------------------------- |
-| `x-xml-any`           | Marks types that permit `xs:any` extension elements            |
-| `x-xml-any-attribute` | Marks types that permit `xs:anyAttribute` extension attributes |
+<table class="data">
+  <thead>
+    <tr>
+      <th>Keyword
+      <th>Purpose
+  <tbody>
+    <tr>
+      <td>`x-xml-any`
+      <td>Marks types that permit `xs:any` extension elements
+    <tr>
+      <td>`x-xml-any-attribute`
+      <td>Marks types that permit `xs:anyAttribute` extension attributes
+</table>
 
 These keywords are informational markers in the JSON Schema. They are not part
 of the JSON Schema vocabulary but indicate to tooling which types support

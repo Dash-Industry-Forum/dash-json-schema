@@ -1,0 +1,19 @@
+<pre class="metadata">
+Revision: 0.1
+Title: JSON Representation of DASH MPD
+Status: LD
+Shortname: dash-json
+URL: https://dash-industry-forum.github.io/dash-json-schema/
+Group: dashif
+Issue Tracking: dash-json-schema issues https://github.com/Dash-Industry-Forum/dash-json-schema/issues
+Repository: https://github.com/Dash-Industry-Forum/dash-json-schema GitHub
+
+!Contributor: Thasso Griebel
+!Key Word: MPD, JSON, JSON Schema, MPD Patch, XLink
+!Related Features:
+Complain About: mixed-indents no
+</pre>
+
+<pre class=include>
+path: dash-json.md
+</pre>
