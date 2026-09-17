@@ -13,11 +13,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Public Docker Hub mirror of the DASH-IF specs builder. The GHCR copy
+    # (ghcr.io/dash-industry-forum/dashif-specs) only grants access to
+    # selected repositories in the organisation.
     container:
-      image: ghcr.io/dash-industry-forum/dashif-specs:latest
-      credentials:
-        username: ${{ github.actor }}
-        password: ${{ secrets.github_token }}
+      image: dashif/specs-builder:latest
 
     steps:
     - uses: actions/checkout@v4
