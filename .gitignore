@@ -1,12 +1,11 @@
-# Keep generated reference schemas tracked
-output/**
-!output/dash-mpd.schema.json
-!output/dash-mpd-patch.schema.json
-docs/dist/
+# Bikeshed build output
+spec/dist/
+
+# Node
+node_modules
+tools/dist/
+tools/tmp/
+
 .python-version
 __pycache__
-node_modules
 .DS_Store
-
-# Bikeshed build output
-docs/dist/

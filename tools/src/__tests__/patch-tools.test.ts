@@ -15,7 +15,7 @@ import { PatchConverter, JsonPatchDocument } from '../patch-converter'
 import { PatchApplicator } from '../patch-applicator'
 import { MPDConverter } from '../mpd-converter'
 
-const SCHEMA_PATH = path.join(__dirname, '..', '..', 'output', 'dash-mpd.schema.json')
+const SCHEMA_PATH = path.join(__dirname, '..', '..', '..', 'schemas', 'json', 'dash-mpd.schema.json')
 const TMP_DIR = path.join(__dirname, '..', '..', 'tmp')
 
 // ─── Fixtures ──────────────────────────────────────────────────────

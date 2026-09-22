@@ -76,7 +76,7 @@ export class PatchConverter {
         })
 
         // Load schema for type info
-        const schemaPath = path.join(__dirname, '..', 'output', 'dash-mpd.schema.json')
+        const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'json', 'dash-mpd.schema.json')
         if (fs.existsSync(schemaPath)) {
             this.schemaAnalyzer = new SchemaAnalyzer(schemaPath)
         } else {

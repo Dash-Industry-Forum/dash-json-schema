@@ -70,7 +70,7 @@ This document does not:
   over full XML namespace generality
 
 The MPD XSD referenced throughout this document is the schema published with
-[[!MPEGDASH]]. A copy is maintained as `xml-schemas/DASH-MPD.xsd` in the
+[[!MPEGDASH]]. A copy is maintained as `schemas/xsd/DASH-MPD.xsd` in the
 [reference implementation repository](https://github.com/Dash-Industry-Forum/dash-json-schema)
 together with the generated JSON Schema.
 
@@ -2975,7 +2975,7 @@ updated segment information.
 A JSON document is a conforming JSON MPD if:
 
 1. When converted to XML according to this specification, the resulting XML MPD
-   validates against the MPD XSD (`xml-schemas/DASH-MPD.xsd`, including its
+   validates against the MPD XSD (`schemas/xsd/DASH-MPD.xsd`, including its
    imports/includes).
 2. It validates against the DASH MPD JSON Schema generated according to
    [[#schema-conversion-xsd-to-json-schema]].

@@ -12,7 +12,7 @@ import { XmlNormalizer, compareXml } from '../xml-normalizer'
 import { MPDConverter } from '../mpd-converter'
 import { JsonToXmlConverter } from '../json-to-xml-converter'
 
-const EXAMPLES_DIR = path.join(__dirname, '..', '..', 'examples')
+const EXAMPLES_DIR = path.join(__dirname, '..', '..', '..', 'test-vectors', 'iso-23009-1')
 
 describe('RoundTripValidator', () => {
     // Use fast mode for tests (skip validation)

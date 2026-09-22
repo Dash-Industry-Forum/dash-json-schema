@@ -111,16 +111,18 @@ describe('MPDConverter', () => {
         })
     })
 
-    describe('Example MPD Files', () => {
-        const examplesDir = path.join(__dirname, '../../examples')
-        
-        // Get all .mpd files in examples directory
-        const mpdFiles = fs.existsSync(examplesDir) 
-            ? fs.readdirSync(examplesDir).filter(f => f.endsWith('.mpd'))
-            : []
+    describe('Test Vector MPD Files', () => {
+        const testVectorsDir = path.join(__dirname, '../../../test-vectors')
 
-        it.each(mpdFiles)('should successfully convert %s', (filename) => {
-            const filepath = path.join(examplesDir, filename)
+        // Get all .mpd files from the curated test-vector sets
+        const mpdFiles = ['iso-23009-1', 'misc']
+            .map(set => path.join(testVectorsDir, set))
+            .filter(dir => fs.existsSync(dir))
+            .flatMap(dir => fs.readdirSync(dir).filter(f => f.endsWith('.mpd')).map(f => path.join(dir, f)))
+            .map(f => path.relative(testVectorsDir, f))
+
+        it.each(mpdFiles)('should successfully convert %s', (relPath) => {
+            const filepath = path.join(testVectorsDir, relPath)
             const result = converter.convertFile(filepath)
             
             // Basic structure validation

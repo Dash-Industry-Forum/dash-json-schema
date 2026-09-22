@@ -69,15 +69,13 @@ ares-install com.example.mpdbenchmark_1.0.0_all.ipk
 
 ## Updating the test data
 
-The pre-generated JSON file lives in `public/data/`. To regenerate it from the
-repository root:
+The MPD and its pre-generated JSON are served straight from the repository's
+`test-vectors/misc/` directory (configured as Vite's `publicDir`), so there is
+no local copy to keep in sync. To regenerate the JSON, from `tools/`:
 
 ```bash
-node dist/mpd-converter-cli.js \
-  examples/livesim_very_large.mpd \
+npm run mpd2json -- \
+  ../test-vectors/misc/livesim_very_large.mpd \
   --skip-xsd --skip-json-schema --no-pretty \
-  --output benchmarks/mpd-parser-bench-simple/public/data/livesim_very_large.mpd.json
+  --output ../test-vectors/misc/livesim_very_large.mpd.json
 ```
-
-The MPD file itself is also a static copy in `public/data/`. Update it by
-copying from `examples/livesim_very_large.mpd`.

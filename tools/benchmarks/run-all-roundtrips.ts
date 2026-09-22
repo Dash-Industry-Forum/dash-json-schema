@@ -2,20 +2,20 @@
 /**
  * Batch Round-Trip Validation Report
  *
- * Runs the round-trip validator (MPD -> JSON -> MPD) on every example MPD
+ * Runs the round-trip validator (MPD -> JSON -> MPD) on every test-vector MPD
  * and produces a summary report:
  *   - Short one-liner for files that passed cleanly
  *   - Detailed section for files that failed or had errors/warnings
  *
  * Usage:
- *   npx ts-node benchmarks/run-all-roundtrips.ts [options]
+ *   npx ts-node benchmarks/run-all-roundtrips.ts [options]   (from tools/)
  *
  * Options:
  *   --skip-xsd            Skip XSD validation (faster)
  *   --skip-json-schema    Skip JSON Schema validation (faster)
  *   --max-diffs <n>       Max diff lines to show per failed file (default: 20)
- *   --include-dashjs      Include dash-js-sources examples
- *   --include-dashif      Include dash-if-test-vectors examples (must be downloaded first)
+ *   --include-dashjs      Include test-vectors/dash-js
+ *   --include-dashif      Include test-vectors/dash-if (must be downloaded first)
  *   --only <glob>         Only run files matching this pattern (e.g. "example_G*")
  *   -v, --verbose         Verbose progress output
  *   -h, --help            Show help
@@ -27,13 +27,13 @@ import { RoundTripValidator, RoundTripConfig, RoundTripResult } from '../src/rou
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
-const ROOT = path.resolve(__dirname, '..')
-const EXAMPLES_DIR = path.join(ROOT, 'examples')
+const ROOT = path.resolve(__dirname, '..', '..')
+const TEST_VECTORS_DIR = path.join(ROOT, 'test-vectors')
 
 interface FileResult {
     file: string           // relative path from repo root
     result: RoundTripResult
-    category: string       // e.g. "spec-examples", "dash-js-sources", "dash-if-test-vectors", "other"
+    category: string       // e.g. "iso-annex-G", "dash-js", "dash-if", "misc"
     sourceUrl?: string     // original download URL (for dash-if and dash-js sources)
 }
 
@@ -76,7 +76,7 @@ function printHelp(): void {
     console.log(`
 Batch Round-Trip Validation Report
 
-Runs MPD -> JSON -> MPD round-trip on all example MPDs and reports results.
+Runs MPD -> JSON -> MPD round-trip on all test-vector MPDs and reports results.
 
 Usage:
   npx ts-node benchmarks/run-all-roundtrips.ts [options]
@@ -85,30 +85,33 @@ Options:
   --skip-xsd            Skip XSD validation (faster)
   --skip-json-schema    Skip JSON Schema validation (faster)
   --max-diffs <n>       Max diff lines per failed file (default: 20)
-  --include-dashjs      Include dash-js-sources examples
-  --include-dashif      Include dash-if-test-vectors examples
+  --include-dashjs      Include test-vectors/dash-js
+  --include-dashif      Include test-vectors/dash-if
   --only <glob>         Only run files whose basename matches this pattern
   -v, --verbose         Show progress while running
   -h, --help            Show this message
 `)
 }
 
-/** Collect MPD files from the examples directory */
+/** Collect MPD files from the test-vectors directory */
 function collectMpdFiles(opts: CLIOptions): string[] {
     const files: string[] = []
 
-    // Top-level examples (spec annex examples, etc.)
-    if (fs.existsSync(EXAMPLES_DIR)) {
-        for (const entry of fs.readdirSync(EXAMPLES_DIR)) {
-            if (entry.endsWith('.mpd')) {
-                files.push(path.join(EXAMPLES_DIR, entry))
+    // Always-on sets: ISO 23009-1 annex examples and misc vectors
+    for (const set of ['iso-23009-1', 'misc']) {
+        const dir = path.join(TEST_VECTORS_DIR, set)
+        if (fs.existsSync(dir)) {
+            for (const entry of fs.readdirSync(dir)) {
+                if (entry.endsWith('.mpd')) {
+                    files.push(path.join(dir, entry))
+                }
             }
         }
     }
 
-    // dash-js-sources sub-directory
+    // dash-js sub-directory
     if (opts.includeDashJs) {
-        const dashJsDir = path.join(EXAMPLES_DIR, 'dash-js-sources')
+        const dashJsDir = path.join(TEST_VECTORS_DIR, 'dash-js')
         if (fs.existsSync(dashJsDir)) {
             for (const entry of fs.readdirSync(dashJsDir)) {
                 if (entry.endsWith('.mpd')) {
@@ -118,9 +121,9 @@ function collectMpdFiles(opts: CLIOptions): string[] {
         }
     }
 
-    // dash-if-test-vectors sub-directory
+    // dash-if sub-directory
     if (opts.includeDashIf) {
-        const dashIfDir = path.join(EXAMPLES_DIR, 'dash-if-test-vectors')
+        const dashIfDir = path.join(TEST_VECTORS_DIR, 'dash-if')
         if (fs.existsSync(dashIfDir)) {
             const walk = (dir: string) => {
                 for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -148,13 +151,13 @@ function collectMpdFiles(opts: CLIOptions): string[] {
 
 /** Classify an MPD file into a reporting category */
 function categorize(filePath: string): string {
-    const rel = path.relative(EXAMPLES_DIR, filePath)
-    if (rel.startsWith('dash-js-sources')) return 'dash-js-sources'
-    if (rel.startsWith('dash-if-test-vectors')) return 'dash-if-test-vectors'
-    if (path.basename(filePath).startsWith('example_G')) return 'spec-annex-G'
-    if (path.basename(filePath).startsWith('example_H')) return 'spec-annex-H'
-    if (path.basename(filePath).startsWith('example_K')) return 'spec-annex-K'
-    return 'other'
+    const rel = path.relative(TEST_VECTORS_DIR, filePath)
+    if (rel.startsWith('dash-js')) return 'dash-js'
+    if (rel.startsWith('dash-if')) return 'dash-if'
+    if (path.basename(filePath).startsWith('example_G')) return 'iso-annex-G'
+    if (path.basename(filePath).startsWith('example_H')) return 'iso-annex-H'
+    if (path.basename(filePath).startsWith('example_K')) return 'iso-annex-K'
+    return 'misc'
 }
 
 /** Format milliseconds nicely */
@@ -184,7 +187,7 @@ function relPath(filePath: string): string {
  */
 function loadDashIfUrlMap(): Map<string, string> {
     const map = new Map<string, string>()
-    const reportPath = path.join(EXAMPLES_DIR, 'dash-if-test-vectors', 'download_success_report.txt')
+    const reportPath = path.join(TEST_VECTORS_DIR, 'dash-if', 'download_success_report.txt')
     if (!fs.existsSync(reportPath)) return map
 
     const lines = fs.readFileSync(reportPath, 'utf-8').split('\n')
@@ -210,7 +213,7 @@ function loadDashIfUrlMap(): Map<string, string> {
  */
 function loadDashJsUrlMap(): Map<string, string> {
     const map = new Map<string, string>()
-    const tsvPath = path.join(EXAMPLES_DIR, 'dash-js-sources', 'downloaded_mpd_map.tsv')
+    const tsvPath = path.join(TEST_VECTORS_DIR, 'dash-js', 'downloaded_mpd_map.tsv')
     if (!fs.existsSync(tsvPath)) return map
 
     const lines = fs.readFileSync(tsvPath, 'utf-8').split('\n')
@@ -234,12 +237,12 @@ function lookupSourceUrl(
     dashJsMap: Map<string, string>,
 ): string | undefined {
     const filename = path.basename(filePath)
-    const rel = path.relative(EXAMPLES_DIR, filePath)
+    const rel = path.relative(TEST_VECTORS_DIR, filePath)
 
-    if (rel.startsWith('dash-if-test-vectors')) {
+    if (rel.startsWith('dash-if')) {
         return dashIfMap.get(filename)
     }
-    if (rel.startsWith('dash-js-sources')) {
+    if (rel.startsWith('dash-js')) {
         return dashJsMap.get(filename)
     }
     return undefined
@@ -395,7 +398,7 @@ function main(): void {
     const mpdFiles = collectMpdFiles(opts)
 
     if (mpdFiles.length === 0) {
-        console.error('No MPD files found. Check the examples/ directory or use --include-dashjs / --include-dashif.')
+        console.error('No MPD files found. Check the test-vectors/ directory or use --include-dashjs / --include-dashif.')
         process.exit(2)
     }
 

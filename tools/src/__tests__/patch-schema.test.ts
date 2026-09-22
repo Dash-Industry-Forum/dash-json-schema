@@ -13,7 +13,7 @@ import addFormats from 'ajv-formats'
 import { JSONSchemaGenerator } from '../json-schema-generator'
 import { JSONSchema } from '../types'
 
-const PATCH_XSD = path.join(__dirname, '..', '..', 'xml-schemas', 'DASH-MPD-PATCH.xsd')
+const PATCH_XSD = path.join(__dirname, '..', '..', '..', 'schemas', 'xsd', 'DASH-MPD-PATCH.xsd')
 
 describe('Patch Schema Generation', () => {
     let schema: JSONSchema

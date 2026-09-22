@@ -93,7 +93,7 @@ Examples:
   validate-roundtrip manifest.mpd
 
   # Validate multiple files
-  validate-roundtrip examples/*.mpd
+  validate-roundtrip ../test-vectors/iso-23009-1/*.mpd
 
   # Validate and show differences on failure
   validate-roundtrip manifest.mpd --diff
@@ -102,7 +102,7 @@ Examples:
   validate-roundtrip manifest.mpd --output-json manifest.json --output-mpd manifest-regenerated.mpd
 
   # Batch validate and save all files
-  validate-roundtrip examples/*.mpd -o output/
+  validate-roundtrip ../test-vectors/iso-23009-1/*.mpd -o out/
 
 Exit Codes:
   0  All validations passed

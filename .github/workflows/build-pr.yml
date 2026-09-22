@@ -5,9 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'docs/dash-json.bs'
-      - 'docs/dash-json.md'
-      - 'docs/Images/**'
+      - 'spec/dash-json.bs'
+      - 'spec/dash-json.md'
+      - 'spec/Images/**'
       - '.github/workflows/build-pr.yml'
 
 jobs:
@@ -26,9 +26,9 @@ jobs:
         # Reset OPTS to empty to make sure we are not using
         # interactive mode in CI
         OPTS:
-      run: make -C docs -f /tools/Makefile spec SRC=dash-json.bs NAME=dash-json
+      run: make -C spec -f /tools/Makefile spec SRC=dash-json.bs NAME=dash-json
     - name: Archive
       uses: actions/upload-artifact@v4
       with:
         name: dist
-        path: docs/dist/
+        path: spec/dist/

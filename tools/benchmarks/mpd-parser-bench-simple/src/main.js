@@ -214,14 +214,14 @@ async function main() {
 
   const runHistory = []
 
-  // Load test data from public/ directory
+  // Load test data served from test-vectors/misc (see vite.config.js publicDir)
   statusEl.textContent = 'Fetching livesim_very_large.mpd\u2026'
   let xmlText, jsonText
 
   try {
     const [xmlResp, jsonResp] = await Promise.all([
-      fetch('data/livesim_very_large.mpd'),
-      fetch('data/livesim_very_large.mpd.json'),
+      fetch('livesim_very_large.mpd'),
+      fetch('livesim_very_large.mpd.json'),
     ])
 
     if (!xmlResp.ok) throw new Error(`Failed to load MPD: HTTP ${xmlResp.status}`)

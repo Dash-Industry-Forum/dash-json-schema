@@ -7,7 +7,9 @@ import path from 'node:path'
 import { spawn } from 'node:child_process'
 
 const benchRoot = fileURLToPath(new URL('.', import.meta.url))
-const repoRoot = fileURLToPath(new URL('../../', import.meta.url))
+// tools/ holds the converter package; the repo root holds schemas/ and test-vectors/
+const toolsRoot = fileURLToPath(new URL('../../', import.meta.url))
+const repoRoot = fileURLToPath(new URL('../../../', import.meta.url))
 
 const ALLOWED_XSD_FILES = new Set([
   'DASH-MPD.xsd',
@@ -38,7 +40,7 @@ async function convertMpdWithProjectConverter(xml) {
           '--output',
           outputPath,
         ],
-        { cwd: repoRoot, stdio: ['ignore', 'pipe', 'pipe'] },
+        { cwd: toolsRoot, stdio: ['ignore', 'pipe', 'pipe'] },
       )
 
       let stderr = ''
@@ -66,7 +68,7 @@ async function convertMpdWithProjectConverter(xml) {
 async function convertXsdToJsonSchema(xsdPath) {
   const tempDir = await mkdtemp(path.join(tmpdir(), 'xsd-convert-'))
   const outputPath = path.join(tempDir, `${randomUUID()}.json`)
-  const inputPath = path.join(repoRoot, 'xml-schemas', xsdPath)
+  const inputPath = path.join(repoRoot, 'schemas', 'xsd', xsdPath)
 
   try {
     await new Promise((resolve, reject) => {
@@ -79,7 +81,7 @@ async function convertXsdToJsonSchema(xsdPath) {
           '--output',
           outputPath,
         ],
-        { cwd: repoRoot, stdio: ['ignore', 'pipe', 'pipe'] },
+        { cwd: toolsRoot, stdio: ['ignore', 'pipe', 'pipe'] },
       )
 
       let stderr = ''
@@ -174,7 +176,7 @@ function createConverterMiddleware() {
           return
         }
 
-        const filePath = path.join(repoRoot, 'xml-schemas', xsdPath)
+        const filePath = path.join(repoRoot, 'schemas', 'xsd', xsdPath)
         const content = await readFile(filePath, 'utf8')
         jsonResponse(res, 200, { content })
       } catch (error) {

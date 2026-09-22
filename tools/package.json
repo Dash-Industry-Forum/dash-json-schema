@@ -1,7 +1,7 @@
 {
-    "name": "xsd-to-json-schema",
+    "name": "dash-json-tools",
     "version": "1.0.0",
-    "description": "Convert XSD schemas to JSON Schema 2020-12",
+    "description": "Reference tooling for the DASH MPD JSON representation: XSD to JSON Schema, MPD to JSON, JSON to MPD, MPD Patch",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
@@ -20,8 +20,8 @@
         "validate-roundtrip": "ts-node src/round-trip-cli.ts",
         "test": "vitest",
         "test:run": "vitest run",
-    "generate-schema": "ts-node src/cli.ts xml-schemas/DASH-MPD.xsd -o output/dash-mpd.schema.json --mark-attributes",
-    "generate-patch-schema": "ts-node src/cli.ts xml-schemas/DASH-MPD-PATCH.xsd -o output/dash-mpd-patch.schema.json --mark-attributes",
+        "generate-schema": "ts-node src/cli.ts ../schemas/xsd/DASH-MPD.xsd -o ../schemas/json/dash-mpd.schema.json --mark-attributes",
+        "generate-patch-schema": "ts-node src/cli.ts ../schemas/xsd/DASH-MPD-PATCH.xsd -o ../schemas/json/dash-mpd-patch.schema.json --mark-attributes",
         "roundtrip-report": "ts-node benchmarks/run-all-roundtrips.ts",
         "patch-cli": "ts-node src/patch-cli.ts",
         "convert-patch": "ts-node src/patch-cli.ts convert-patch",

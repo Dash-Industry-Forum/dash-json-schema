@@ -60,7 +60,7 @@ function main(): void {
         }
     }
 
-    const schemaPath = path.join(__dirname, '..', 'output', 'dash-mpd.schema.json')
+    const schemaPath = path.join(__dirname, '..', '..', 'schemas', 'json', 'dash-mpd.schema.json')
 
     try {
         switch (command) {

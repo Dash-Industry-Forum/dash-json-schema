@@ -3,7 +3,7 @@ import './style.css'
 
 const MAX_RENDER_LINES = 5000
 
-const examples = import.meta.glob('./examples/**/*.mpd', {
+const examples = import.meta.glob('../../../../test-vectors/**/*.mpd', {
   eager: true,
   query: '?url',
   import: 'default',
@@ -12,7 +12,7 @@ const examples = import.meta.glob('./examples/**/*.mpd', {
 const parsedExamples = Object.entries(examples)
   .map(([path, value]) => ({
     path,
-    label: path.replace('./examples/', ''),
+    label: path.replace('../../../../test-vectors/', ''),
     url: value,
   }))
   .sort((a, b) => a.label.localeCompare(b.label))

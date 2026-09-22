@@ -246,7 +246,7 @@ describe('Namespace Handling', () => {
         })
 
         it('should preserve namespace-1.mpd through round-trip', () => {
-            const namespace1Path = path.join(__dirname, '../../examples/namespace-1.mpd')
+            const namespace1Path = path.join(__dirname, '../../../test-vectors/misc/namespace-1.mpd')
             
             if (fs.existsSync(namespace1Path)) {
                 const originalXml = fs.readFileSync(namespace1Path, 'utf-8')

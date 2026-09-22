@@ -53,8 +53,8 @@ const DEFAULT_CONFIG: JsonToXmlConfig = {
     indent: true,
     indentBy: '  ',
     textPropertyName: '$value',
-    xsdPath: path.join(__dirname, '..', 'xml-schemas', 'DASH-MPD.xsd'),
-    jsonSchemaPath: path.join(__dirname, '..', 'output', 'dash-mpd.schema.json'),
+    xsdPath: path.join(__dirname, '..', '..', 'schemas', 'xsd', 'DASH-MPD.xsd'),
+    jsonSchemaPath: path.join(__dirname, '..', '..', 'schemas', 'json', 'dash-mpd.schema.json'),
     skipXsdValidation: false,
     skipJsonSchemaValidation: false,
 }

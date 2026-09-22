@@ -67,8 +67,8 @@ Usage: mpd2json <input.mpd> [options]
 
 Options:
   -o, --output <file>       Output JSON file (default: stdout)
-  --xsd <path>              Path to XSD schema (default: xml-schemas/DASH-MPD.xsd)
-  --json-schema <path>      Path to JSON Schema (default: output/dash-mpd.schema.json)
+  --xsd <path>              Path to XSD schema (default: schemas/xsd/DASH-MPD.xsd)
+  --json-schema <path>      Path to JSON Schema (default: schemas/json/dash-mpd.schema.json)
   --skip-xsd                Skip XSD validation
   --skip-json-schema        Skip JSON Schema validation
   --no-pretty               Output minified JSON
