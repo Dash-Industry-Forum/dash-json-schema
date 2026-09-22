@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Build the Bikeshed specification with the DASH-IF specs builder container.
-# Output is written to docs/dist/ (index.html and dash-json.pdf).
+# Output is written to spec/dist/ (index.html and dash-json.pdf).
 #
 #   ./build.sh              build HTML and PDF
 #   ./build.sh spec.html    build only the HTML
@@ -23,6 +23,6 @@ TARGETS="${@}"
 if [ -z "${TARGETS}" ]; then
   TARGETS="spec"
 fi
-TARGETS="-C docs ${TARGETS} SRC=dash-json.bs NAME=dash-json"
+TARGETS="-C spec ${TARGETS} SRC=dash-json.bs NAME=dash-json"
 
 docker run --rm ${OPTS} -v `pwd`:/data -p 8000:8000 ${IMG} ${TARGETS}
